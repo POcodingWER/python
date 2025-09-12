@@ -1,221 +1,175 @@
-# 🐍 파이썬 기초 학습 자료
+# 🚀 AI + ZKP 마스터 플랜 2025
 
-체계적인 파이썬 학습을 위한 종합 가이드입니다.
+**목표**: 1년 안에 AI와 Zero-Knowledge Proof 전문가 되기!
 
-## 📚 학습 목표
+## 📋 프로젝트 개요
 
-이 자료를 통해 다음과 같은 내용을 학습할 수 있습니다:
+이 저장소는 **AI(인공지능) + ZKP(영지식 증명)** 전문가가 되기 위한 체계적인 학습 과정을 담고 있습니다.
+특히 **ZKML(Zero-Knowledge Machine Learning)** 분야의 전문성 개발을 목표로 합니다.
 
-- ✅ 파이썬 기본 문법 완전 정복
-- ✅ 실전 코딩 능력 향상
-- ✅ 문제 해결 사고력 개발
-- ✅ 프로그래밍 기초 다지기
+### 🎯 최종 목표
 
-## 🗂️ 학습 자료 구성
-
-### 📖 1단계: 기본 문법 (01_python_basics.ipynb)
-
-- 변수와 데이터 타입
-- 기본 연산자 사용법
-- 문자열 다루기
-- 입출력 함수
-
-### 🔄 2단계: 제어문 (02_control_statements.ipynb)
-
-- if문으로 조건 제어
-- for문과 while문
-- break와 continue
-- 중첩 반복문
-
-### ⚙️ 3단계: 함수 (03_functions.ipynb)
-
-- 함수 정의와 호출
-- 매개변수와 리턴값
-- 지역변수와 전역변수
-- 람다 함수
-
-### 📊 4단계: 데이터 구조 (04_data_structures.ipynb)
-
-- 리스트(List) 완전 정복
-- 딕셔너리(Dictionary) 활용
-- 튜플(Tuple)과 집합(Set)
-- 데이터 구조 선택 가이드
-
-### 🚀 5단계: 미니 프로젝트 (05_mini_projects.ipynb)
-
-- 계산기 프로그램
-- 단어 게임
-- 성적 관리 시스템
-- 실전 문제 해결
-
-### 📝 연습문제 모음 (exercises.py)
-
-- 단계별 연습문제
-- 상세한 해답 제공
-- 난이도별 문제 구성
-
-## 🎯 학습 방법
-
-### 1️⃣ 순차적 학습
-
-각 노트북을 순서대로 학습하세요:
-
-```
-01_python_basics.ipynb → 02_control_statements.ipynb → 03_functions.ipynb → 04_data_structures.ipynb → 05_mini_projects.ipynb
-```
-
-### 2️⃣ 실습 중심
-
-- 모든 코드를 직접 실행해보세요
-- 예제를 변형해서 실험해보세요
-- 에러가 나면 원인을 찾아보세요
-
-### 3️⃣ 문제 해결
-
-- `exercises.py`의 문제들을 단계별로 해결하세요
-- 답을 보기 전에 스스로 고민해보세요
-- 다양한 방법으로 해결해보세요
-
-## 🛠️ 환경 설정
-
-### 필요한 도구
-
-- **Python 3.8+** (권장: 3.9 이상)
-- **Jupyter Notebook** 또는 **Jupyter Lab**
-- **VS Code** (선택사항)
-
-### 설치 방법
-
-1. **Python 설치**
-
-   ```bash
-   # macOS (Homebrew 사용)
-   brew install python
-
-   # Windows에서는 python.org에서 다운로드
-   ```
-
-2. **Jupyter 설치**
-
-   ```bash
-   pip install jupyter
-   ```
-
-3. **실행**
-   ```bash
-   jupyter notebook
-   ```
-
-## 📋 학습 체크리스트
-
-### 기본 문법 ✅
-
-- [ ] 변수 선언과 사용
-- [ ] 데이터 타입 이해
-- [ ] 연산자 활용
-- [ ] 문자열 조작
-- [ ] 입출력 처리
-
-### 제어문 ✅
-
-- [ ] if문 조건 처리
-- [ ] for문 반복 처리
-- [ ] while문 활용
-- [ ] break/continue 사용
-
-### 함수 ✅
-
-- [ ] 함수 정의와 호출
-- [ ] 매개변수 전달
-- [ ] 리턴값 처리
-- [ ] 스코프 이해
-
-### 데이터 구조 ✅
-
-- [ ] 리스트 조작
-- [ ] 딕셔너리 활용
-- [ ] 튜플과 집합 사용
-- [ ] 데이터 구조 선택
-
-### 프로젝트 ✅
-
-- [ ] 계산기 구현
-- [ ] 게임 제작
-- [ ] 데이터 처리
-- [ ] 종합 프로젝트
-
-## 💡 학습 팁
-
-### 🎯 효과적인 학습법
-
-1. **매일 30분씩** 꾸준히 학습하세요
-2. **손으로 직접 코딩**하며 기억하세요
-3. **에러를 두려워하지 마세요** - 배움의 기회입니다
-4. **다른 사람과 코드를 공유**하고 피드백을 받으세요
-
-### 🔍 문제 해결 방법
-
-1. **에러 메시지를 꼼꼼히** 읽어보세요
-2. **구글링**을 적극 활용하세요
-3. **공식 문서**를 참고하세요
-4. **스택오버플로우**에서 해답을 찾아보세요
-
-### 📖 추가 학습 자료
-
-- [Python 공식 문서](https://docs.python.org/ko/3/)
-- [점프 투 파이썬](https://wikidocs.net/book/1)
-- [파이썬 알고리즘 인터뷰](https://github.com/onlybooks/algorithm-interview)
-
-## 🎉 완주 후 다음 단계
-
-파이썬 기초를 완료하셨다면 다음 주제들을 학습해보세요:
-
-### 🌐 웹 개발
-
-- **Flask** 또는 **Django** 프레임워크
-- **HTML/CSS/JavaScript** 기초
-- **데이터베이스** 연동
-
-### 📊 데이터 분석
-
-- **NumPy/Pandas** 데이터 처리
-- **Matplotlib/Seaborn** 시각화
-- **머신러닝** 기초
-
-### 🤖 자동화
-
-- **Selenium** 웹 자동화
-- **BeautifulSoup** 웹 크롤링
-- **스크립트** 개발
-
-### 🎮 게임 개발
-
-- **Pygame** 게임 엔진
-- **간단한 게임** 제작
-- **GUI 프로그래밍**
-
-## 📞 도움말
-
-### 질문이 있으시다면:
-
-1. 각 노트북의 주석을 다시 읽어보세요
-2. `exercises.py`의 해답을 참고하세요
-3. Python 커뮤니티에 질문하세요
-
-### 좋은 질문 방법:
-
-- 구체적인 코드와 에러 메시지를 함께 공유
-- 시도해본 방법들을 설명
-- 기대했던 결과와 실제 결과를 비교
+- **Python 기반 AI/ML 개발 역량**
+- **암호학 및 ZKP 이론 이해**
+- **ZKML 실전 프로젝트 구현**
+- **Rust로 고성능 시스템 개발**
+- **포트폴리오 완성 및 취업/창업 준비**
 
 ---
 
-**🎯 목표:** 파이썬 마스터가 되어 멋진 프로그램을 만들어보세요!
+## 📁 프로젝트 구조
 
-**📅 권장 학습 기간:** 2-4주 (하루 1시간 기준)
-
-**🏆 완주 시 얻는 것:** 탄탄한 파이썬 기초와 프로그래밍 자신감!
+```
+📦 AI_ZKP_Master_Plan_2025/
+├── 📋 AI_ZKP_MASTER_PLAN.md          # 전체 로드맵
+├── 📊 WEEKLY_TRACKER.md              # 주간 학습 추적
+├── 📄 requirements.txt               # Python 패키지 의존성
+├──
+├── 📂 phase1/ (기초 다지기 1-2개월)
+│   ├── 📂 week1-2_python_basics/      # ✅ Python 기초 완료
+│   │   ├── 01_python_basics.ipynb
+│   │   ├── 02_control_statements.ipynb
+│   │   ├── 03_functions.ipynb
+│   │   ├── 04_data_structures.ipynb
+│   │   ├── 05_mini_projects.ipynb
+│   │   ├── 06_numpy_basics.ipynb
+│   │   ├── 07_pandas_basics.ipynb
+│   │   └── exercises.py
+│   │
+│   ├── 📂 week3-4_ai_basics/          # 🎯 다음 목표
+│   │   └── README.md                  # scikit-learn & 첫 ML 프로젝트
+│   │
+│   └── 📂 week5-8_crypto_basics/      # ⏳ 암호학 기초
+│       └── README.md                  # 해시, 공개키, ZKP 입문
+│
+├── 📂 phase2/ (실전 돌입 2-4개월)
+│   ├── 📂 month3_ai_advanced/         # PyTorch & 딥러닝
+│   ├── 📂 month4_zkp_practice/        # Circom & snarkjs
+│   └── 📂 month5-6_zkml/              # EZKL & ZKML 프로젝트
+│
+├── 📂 phase3/ (전문가 되기 4-6개월)
+│   ├── 📂 month7-8_rust/              # Rust & candle
+│   ├── 📂 month9-10_advanced_zkml/    # 고급 ZKML
+│   └── 📂 month11-12_portfolio/       # 포트폴리오 완성
+│
+├── 📂 projects/                       # 실전 프로젝트들
+├── 📂 resources/                      # 학습 자료
+│   ├── 📂 books/                      # 추천 도서
+│   ├── 📂 papers/                     # 논문 모음
+│   └── 📂 tutorials/                  # 튜토리얼
+```
 
 ---
 
-_Happy Coding! 🐍💻_
+## 🎯 현재 진행 상황
+
+### ✅ 완료 (Week 1-2)
+
+- **Python 기초 문법** - JS 경험을 활용한 빠른 습득
+- **NumPy 기초** - AI를 위한 배열 연산 및 선형대수
+- **Pandas 기초** - 데이터 분석 및 전처리 패턴
+- **Jupyter Notebook** - 환경 구축 및 노트북 작성법
+
+### 🎯 진행 중 (Week 3-4)
+
+- **scikit-learn 기초** - 분류/회귀 알고리즘 실습
+- **첫 ML 프로젝트** - 타이타닉 생존 예측 or 아이리스 분류
+- **머신러닝 이론** - "혼자 공부하는 머신러닝" 책 학습
+
+---
+
+## 🚀 빠른 시작
+
+### 1. 환경 설정
+
+```bash
+# 저장소 클론
+git clone https://github.com/POcodingWER/python.git
+cd python
+
+# 가상환경 생성 (권장)
+python -m venv venv
+source venv/bin/activate  # macOS/Linux
+# venv\Scripts\activate   # Windows
+
+# 의존성 설치
+pip install -r requirements.txt
+
+# Jupyter 노트북 실행
+jupyter notebook
+```
+
+### 2. 학습 순서
+
+1. **Phase 1 기초** → `phase1/week1-2_python_basics/` 노트북들 실행
+2. **진행 추적** → `WEEKLY_TRACKER.md`에서 체크리스트 확인
+3. **전체 계획** → `AI_ZKP_MASTER_PLAN.md`에서 로드맵 확인
+
+---
+
+## 📊 학습 진행률
+
+```
+전체 진행률: ████░░░░░░░░░░░░░░░░ 10% (1/12개월)
+
+Phase 1 기초: ████████░░ 25% (2/8주)
+├── Week 1-2 Python: ████████████ 100% ✅
+├── Week 3-4 AI기초: ░░░░░░░░░░░░ 0% 🎯
+└── Week 5-8 암호학: ░░░░░░░░░░░░ 0%
+
+Phase 2 실전: ░░░░░░░░░░░░ 0%
+Phase 3 전문가: ░░░░░░░░░░░░ 0%
+```
+
+---
+
+## 📚 핵심 학습 자료
+
+### 무료 리소스
+
+- **AI**: [CS229 Stanford](https://cs229.stanford.edu/), [Fast.ai](https://www.fast.ai/)
+- **ZKP**: [ZK-Learning.org](https://zk-learning.org/), [Circom Docs](https://docs.circom.io/)
+- **Rust**: [The Rust Book](https://doc.rust-lang.org/book/) (한국어판 있음)
+
+### 추천 도서
+
+- "혼자 공부하는 머신러닝" (AI 기초)
+- "Real-World Cryptography" (암호학)
+- "밑바닥부터 시작하는 딥러닝" (딥러닝)
+
+---
+
+## 🎯 주요 마일스톤
+
+| 시기          | 목표              | 성과물                      |
+| ------------- | ----------------- | --------------------------- |
+| **3개월 후**  | 기본 AI + ZKP     | 간단한 ML모델 + ZK증명 생성 |
+| **6개월 후**  | ZKML 프로젝트     | 개인정보보호 AI 시스템      |
+| **9개월 후**  | Rust 고성능 구현  | 블록체인 연동 ZKML          |
+| **12개월 후** | 전문가 포트폴리오 | 취업/창업 준비 완료         |
+
+---
+
+## 💡 학습 철학
+
+1. **실습 위주**: 이론보다 직접 만들어보기
+2. **꾸준함**: 매일 1-2시간씩 지속적 학습
+3. **기록 습관**: 배운 것은 반드시 정리하고 공유
+4. **커뮤니티**: 혼자 하지 말고 함께 성장
+5. **완주**: 포기하지 않고 끝까지 해내기
+
+---
+
+## 🤝 기여 및 피드백
+
+이 프로젝트는 개인 학습용이지만, 같은 목표를 가진 분들과의 교류를 환영합니다!
+
+- **Issues**: 질문이나 제안사항
+- **Pull Requests**: 개선사항이나 추가 자료
+- **Discussions**: 학습 경험 공유
+
+---
+
+**시작일**: 2025년 1월 12일  
+**목표 완료일**: 2025년 12월 31일  
+**현재 상태**: Week 1-2 완료, Week 3-4 진행 예정 🚀
