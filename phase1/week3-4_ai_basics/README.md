@@ -11,7 +11,7 @@
 ### Week 3: scikit-learn 기초
 
 - [x] 분류 알고리즘 - Decision Tree ✅ (아이리스 꽃 분류 완료)
-- [ ] 분류 알고리즘 - Random Forest, SVM
+- [x] 분류 알고리즘 - Random Forest, SVM ✅ (3개 알고리즘 대결 완료)
 - [ ] 회귀 알고리즘 (Linear/Ridge/Lasso Regression)
 - [x] 모델 평가 방법 - train_test_split ✅
 - [ ] 모델 평가 방법 - cross_validation
@@ -40,7 +40,7 @@
 
 ## 🎯 완료 기준
 
-- [ ] 3개 이상의 알고리즘 구현 및 비교 (1/3 완료 - Decision Tree ✅)
+- [x] 3개 이상의 알고리즘 구현 및 비교 ✅ (Decision Tree, Random Forest, SVM 완료)
 - [x] 완전한 ML 파이프라인 구축 ✅ (데이터 로드→분할→학습→평가→예측)
 - [x] GitHub에 프로젝트 업로드 ✅
 - [x] 결과 분석 및 개선점 도출 ✅
