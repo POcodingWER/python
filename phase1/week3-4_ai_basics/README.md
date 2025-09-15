@@ -12,7 +12,7 @@
 
 - [x] 분류 알고리즘 - Decision Tree ✅ (아이리스 꽃 분류 완료)
 - [x] 분류 알고리즘 - Random Forest, SVM ✅ (3개 알고리즘 대결 완료)
-- [ ] 회귀 알고리즘 (Linear/Ridge/Lasso Regression)
+- [x] 회귀 알고리즘 (Linear/Ridge/Lasso Regression) ✅ (3개 회귀 알고리즘 대결 완료)
 - [x] 모델 평가 방법 - train_test_split ✅
 - [ ] 모델 평가 방법 - cross_validation
 - [ ] 혼동행렬, 정확도, 정밀도, 재현율 이해
