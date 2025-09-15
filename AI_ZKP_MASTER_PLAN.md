@@ -17,13 +17,13 @@
 - [x] Pandas 기초 (데이터 다루기) ✅
 - [x] Jupyter Notebook 환경 구축 ✅
 
-### Week 3-4: AI 맛보기
+### Week 3-4: AI 맛보기 ✅
 
-- [ ] **scikit-learn 기본**
+- [x] **scikit-learn 기본** ✅
 
-  - [ ] 분류 알고리즘 (Decision Tree, Random Forest)
-  - [ ] 회귀 알고리즘 (Linear Regression, Ridge)
-  - [ ] 모델 평가 (cross-validation, metrics)
+  - [x] 분류 알고리즘 (Decision Tree, Random Forest, SVM) ✅
+  - [x] 회귀 알고리즘 (Linear Regression, Ridge, Lasso) ✅
+  - [x] 모델 평가 (cross-validation, metrics) ✅
   - [ ] 데이터 전처리 파이프라인
 
 - [ ] **머신러닝 책 선택 및 학습**
@@ -32,10 +32,10 @@
   - [ ] 첫 3-4챕터 완독
   - [ ] 핵심 개념 정리 노트 작성
 
-- [ ] **첫 ML 프로젝트**
-  - [ ] 타이타닉 생존 예측 또는 아이리스 분류
-  - [ ] 데이터 탐색 → 전처리 → 모델링 → 평가 전 과정
-  - [ ] GitHub에 프로젝트 업로드
+- [x] **첫 ML 프로젝트** ✅
+  - [x] 아이리스 분류 (Decision Tree, Random Forest, SVM 비교) ✅
+  - [x] 데이터 탐색 → 전처리 → 모델링 → 평가 전 과정 ✅
+  - [x] GitHub에 프로젝트 업로드 ✅
 
 ### Week 5-8: 암호학 기초
 
@@ -244,4 +244,4 @@
 
 **시작일**: 2025년 1월  
 **목표 완료일**: 2025년 12월  
-**현재 진행률**: Week 1-2 완료 ✅ (약 6%)
+**현재 진행률**: Week 1-4 완료 ✅ (약 15%)
