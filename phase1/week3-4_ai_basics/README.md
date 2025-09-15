@@ -15,7 +15,7 @@
 - [x] 회귀 알고리즘 (Linear/Ridge/Lasso Regression) ✅ (3개 회귀 알고리즘 대결 완료)
 - [x] 모델 평가 방법 - train_test_split ✅
 - [x] 모델 평가 방법 - cross_validation ✅ (5-Fold CV 완료)
-- [ ] 혼동행렬, 정확도, 정밀도, 재현율 이해
+- [x] 혼동행렬, 정확도, 정밀도, 재현율 이해 ✅ (평가지표 완전 정복 완료)
 
 ### Week 4: 첫 ML 프로젝트
 
