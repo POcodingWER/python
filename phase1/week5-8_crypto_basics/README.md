@@ -58,17 +58,17 @@
 
 ### Week 8: ZKP 입문
 
-- [ ] **Zero-Knowledge의 정의**
+- [x] **Zero-Knowledge의 정의** ✅
 
-  - Completeness (완전성)
-  - Soundness (건실성)
-  - Zero-Knowledge (영지식성)
+  - [x] Completeness (완전성) - 진실은 항상 증명 가능
+  - [x] Soundness (건실성) - 거짓은 속일 수 없음
+  - [x] Zero-Knowledge (영지식성) - 비밀은 완전 보호
 
-- [ ] **알리바바 동굴 예제**
+- [x] **알리바바 동굴 예제** ✅
 
-  - Interactive ZKP 이해
-  - Prover와 Verifier 역할
-  - 실제 시뮬레이션 구현
+  - [x] Interactive ZKP 이해 (상호작용형 증명)
+  - [x] Prover와 Verifier 역할 체험
+  - [x] 실제 시뮬레이션 구현 및 확률 분석
 
 - [ ] **zk-SNARKs vs zk-STARKs**
   - 각각의 특징과 장단점
@@ -99,7 +99,7 @@
 
 ### 중급 실습
 
-5. **간단한 ZKP 프로토콜** - 나이 증명 시스템
+5. **알리바바 동굴 ZKP** - Interactive 증명 시스템 ✅ **완료!**
 6. **Merkle Tree 구현** - 데이터 무결성 증명
 7. **Commitment Scheme** - 비밀 값 약속 시스템 ✅ **완료!**
 
@@ -111,8 +111,8 @@
 - [x] RSA와 ECC 수학적 원리 완전 이해 ✅ (소인수분해 vs 이산로그)
 - [x] 디지털 서명 완전 이해 ✅ (RSA/ECDSA, k 보안, 블록체인 적용)
 - [x] PKI 신뢰 체인 완전 이해 ✅ (Root CA, 인증서, TLS Handshake)
-- [ ] ZKP의 3가지 조건 완전 이해
-- [ ] 알리바바 동굴 시뮬레이션 구현
+- [x] ZKP의 3가지 조건 완전 이해 ✅ (Completeness, Soundness, Zero-Knowledge)
+- [x] 알리바바 동굴 시뮬레이션 구현 ✅ (Interactive ZKP 체험)
 - [ ] 암호학 개념 정리 노트 작성
 
 ## 🔗 유용한 링크
