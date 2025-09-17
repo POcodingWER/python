@@ -49,10 +49,12 @@
   - [x] 비트코인 ECDSA 거래 서명 실습
   - [x] 블록체인에서의 디지털 서명 활용 (UTXO, 트랜잭션 검증)
 
-- [ ] **PKI (Public Key Infrastructure)**
-  - 인증서와 CA(Certificate Authority)
-  - 신뢰 체인 구조
-  - TLS/SSL 동작 원리
+- [x] **PKI (Public Key Infrastructure)** ✅
+  - [x] 인증서와 CA(Certificate Authority) (디지털 신분증 개념)
+  - [x] 신뢰 체인 구조 (Root → Intermediate → End Entity)
+  - [x] TLS/SSL 동작 원리 (PKI + 대칭암호 하이브리드)
+  - [x] 브라우저 인증서 검증 과정 실습
+  - [x] 실제 CA 생태계 이해 (상용/무료/정부)
 
 ### Week 8: ZKP 입문
 
@@ -108,6 +110,7 @@
 - [x] 대칭 암호와 공개키 암호 차이점 이해 ✅ (AES vs RSA vs ECC)
 - [x] RSA와 ECC 수학적 원리 완전 이해 ✅ (소인수분해 vs 이산로그)
 - [x] 디지털 서명 완전 이해 ✅ (RSA/ECDSA, k 보안, 블록체인 적용)
+- [x] PKI 신뢰 체인 완전 이해 ✅ (Root CA, 인증서, TLS Handshake)
 - [ ] ZKP의 3가지 조건 완전 이해
 - [ ] 알리바바 동굴 시뮬레이션 구현
 - [ ] 암호학 개념 정리 노트 작성
