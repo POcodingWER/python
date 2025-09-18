@@ -70,10 +70,11 @@
   - [x] Prover와 Verifier 역할 체험
   - [x] 실제 시뮬레이션 구현 및 확률 분석
 
-- [ ] **zk-SNARKs vs zk-STARKs**
-  - 각각의 특징과 장단점
-  - Trusted Setup의 필요성
-  - 블록체인에서의 활용 사례
+- [ ] **zk-SNARKs vs zk-STARKs vs Halo**
+  - zk-SNARKs: 작고 빠름 vs Trusted Setup 위험
+  - zk-STARKs: 투명하고 양자내성 vs 큰 증명 크기
+  - Halo: Setup-free SNARKs의 혁신
+  - 실제 블록체인 프로젝트 비교 (Zcash, StarkNet, Mina)
 
 ## 📖 추천 학습 자료
 
@@ -100,8 +101,9 @@
 ### 중급 실습
 
 5. **알리바바 동굴 ZKP** - Interactive 증명 시스템 ✅ **완료!**
-6. **Merkle Tree 구현** - 데이터 무결성 증명
-7. **Commitment Scheme** - 비밀 값 약속 시스템 ✅ **완료!**
+6. **zk-SNARKs vs STARKs vs Halo** - 고급 ZKP 비교 분석
+7. **Merkle Tree 구현** - 데이터 무결성 증명
+8. **Commitment Scheme** - 비밀 값 약속 시스템 ✅ **완료!**
 
 ## 🎯 완료 기준
 
