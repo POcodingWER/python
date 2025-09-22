@@ -1,0 +1,9 @@
+{
+  "ceremony_id": "3160006ec38eef76",
+  "max_constraints": 100,
+  "participants": 3,
+  "tau_powers_count": 30,
+  "alpha_powers_count": 30,
+  "created_at": 1758524106.362795,
+  "status": "completed"
+}
