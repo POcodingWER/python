@@ -1,0 +1,19 @@
+{
+  "technology": "Halo/Halo2",
+  "implementation": "py_ecc \uae30\ubc18 \ud504\ub85c\ub355\uc158\uae09",
+  "key_features": [
+    "Recursive Composition",
+    "IPA Protocol",
+    "BN128 Curve (py_ecc)",
+    "No Trusted Setup",
+    "Partial Quantum Resistance"
+  ],
+  "comparison_with_snarks_starks": {
+    "proof_size": "1KB (SNARKs: 200B, STARKs: 100KB)",
+    "verification_time": "10ms (SNARKs: 1ms, STARKs: 100ms)",
+    "trusted_setup": "\ubd88\ud544\uc694 (SNARKs: \ud544\uc694, STARKs: \ubd88\ud544\uc694)",
+    "quantum_resistance": "\ubd80\ubd84\uc801 (SNARKs: \uc5c6\uc74c, STARKs: \uc644\uc804)"
+  },
+  "implementation_date": "2025-09-23 17:14:51",
+  "library_used": "py_ecc (SNARKs\uc640 \ub3d9\uc77c)"
+}
