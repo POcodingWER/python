@@ -44,20 +44,28 @@ Phase 1에서 scikit-learn으로 기초를 다졌으니, 이제 **딥러닝의 �
 - **한글 폰트 문제 해결**: matplotlib 시각화 완벽 구현
 - **실무 수준 PyTorch 구현**: autograd, 훈련 루프, 모델 평가 전 과정 마스터
 
-### Week 2: CNN (Convolutional Neural Networks)
+### Week 2: CNN (Convolutional Neural Networks) ✅
 
-- [ ] **CNN 이론 이해**
+- [x] **CNN 이론 이해** ✅
 
-  - [ ] Convolution 연산 원리
-  - [ ] Pooling, Stride, Padding
-  - [ ] Feature Map 시각화
-  - [ ] CNN vs 일반 NN 비교
+  - [x] Convolution 연산 원리 ✅ - 수동 구현 및 시각화 완료
+  - [x] Pooling, Stride, Padding ✅ - MaxPool2d, 패딩 개념 마스터
+  - [x] Feature Map 시각화 ✅ - 랜덤 패턴 실험으로 이해 강화
+  - [x] CNN vs 일반 NN 비교 ✅ - 파라미터 수 및 성능 비교 분석
 
-- [ ] **CIFAR-10 이미지 분류 프로젝트**
-  - [ ] 데이터 로더 & 전처리
-  - [ ] CNN 아키텍처 설계
-  - [ ] 훈련 & 검증 파이프라인
-  - [ ] 예측 결과 시각화
+- [x] **CIFAR-10 이미지 분류 프로젝트** ✅
+  - [x] 데이터 로더 & 전처리 ✅ - 조건부 다운로드, 한글 클래스명 자동 매핑
+  - [x] CNN 아키텍처 설계 ✅ - 3층 CNN (Conv2d-ReLU-MaxPool) 구조
+  - [x] 훈련 & 검증 파이프라인 ✅ - **76.22% 정확도 달성**
+  - [x] 예측 결과 시각화 ✅ - 한글 폰트 문제 해결 완료
+
+**🎉 Week 2 완료 성과:**
+
+- **CIFAR-10 이미지 분류 성공**: 76.22% 정확도 (10 epochs)
+- **데이터 증강 실험**: RandomFlip, Rotation, ColorJitter 효과 검증
+- **CNN 3총사 마스터**: Conv2d, ReLU, MaxPool2d 핵심 이해
+- **실전 PyTorch 활용**: `model.train()`, `model.eval()`, `torch.no_grad()` 완벽 구현
+- **성능 최적화 개념**: BatchNorm, Scheduler, Early Stopping 학습
 
 ### Week 3: RNN/LSTM & 자연어 처리
 
@@ -175,8 +183,9 @@ pandas                # 데이터 조작
 ## 🎯 완료 기준
 
 - [x] **Week 1 PyTorch 기초** ✅ - Linear Regression + 분류 신경망 완성
-- [ ] PyTorch로 3개 이상 딥러닝 모델 구현 (1/3 완료: 분류 신경망)
-- [ ] CNN, RNN, Transformer 각각 1개씩 프로젝트 완성
+- [x] **Week 2 CNN 기초** ✅ - CIFAR-10 이미지 분류 완성
+- [ ] PyTorch로 3개 이상 딥러닝 모델 구현 (2/3 완료: 분류 신경망 + CNN)
+- [ ] CNN, RNN, Transformer 각각 1개씩 프로젝트 완성 (1/3 완료: CNN)
 - [x] GPU 가속 활용한 모델 훈련 ✅ - MPS(Apple M1/M2) 가속 활용
 - [x] 모델 성능 Phase 1 대비 현저한 향상 ✅ - 97.5% vs 95% (scikit-learn)
 - [ ] 웹앱 or API로 모델 배포
@@ -244,10 +253,11 @@ jupyter notebook 01_pytorch_basics.ipynb
 
 **시작일**: 2025년 9월 25일 ✅  
 **목표 완료일**: 4주 후  
-**현재 상태**: Week 1 완료 ✅ → Week 2 준비 중 🚀
+**현재 상태**: Week 2 완료 ✅ → Week 3 준비 중 🚀
 **완성 파일**:
 
 - `01_pytorch_basics.ipynb` ✅ - PyTorch 기초, autograd, Linear Regression
-- `02_classification_neural_network.ipynb` ✅ - 3층 신경망, 과적합 실험
+- `02_classification_neural_network.ipynb` ✅ - 3층 신경망, 과적합 실험, 골디락스 원리
+- `03_cnn_basics.ipynb` ✅ - CNN 이론, CIFAR-10 분류, 데이터 증강 실험
 
-**다음 할 일**: Week 2 CNN (Convolutional Neural Networks) 시작!
+**다음 할 일**: Week 3 RNN/LSTM & 자연어 처리 시작!

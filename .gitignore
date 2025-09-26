@@ -134,3 +134,9 @@ dmypy.json
 # Custom temp files
 temp/
 tmp/
+# 데이터셋 파일들 (용량 큰 파일)
+phase2/month3_ai_advanced/03_cnn_test_data/
+*.tar.gz
+*.zip
+*.pkl
+*.pth
