@@ -83,17 +83,32 @@ Phase 1에서 scikit-learn으로 기초를 다졌으니, 이제 **딥러닝의 �
   - [x] 실제 한국어 감정 분석 ✅ - **100% 훈련 정확도 + 100% 테스트 정확도**
   - [x] 훈련 과정 시각화 ✅ - 손실/정확도 곡선, 한글 폰트 완벽 대응
 
-- [ ] **텍스트 생성 프로젝트** (추가 도전 과제)
-  - [ ] 언어 모델 구현 (다음 단어 예측)
-  - [ ] 셰익스피어 스타일 텍스트 생성
-  - [ ] 창의적 텍스트 생성 시스템
+- [x] **LSTM & 고급 자연어 처리** ✅
 
-**🎉 Week 3 Day 1 완료 성과:**
+  - [x] LSTM vs RNN 비교 분석 ✅ - Gate 메커니즘, Cell State 완전 이해
+  - [x] 감정 분석 성능 비교 ✅ - RNN vs LSTM 직접 비교 실험
+  - [x] 텍스트 생성 모델 구현 ✅ - `TextGeneratorLSTM` 클래스 완성
+  - [x] 대용량 텍스트 데이터셋 구축 ✅ - 150+개 다양한 스타일 문장 자동 생성
+
+- [x] **텍스트 생성 프로젝트** ✅
+  - [x] 문자 단위 언어 모델 구현 ✅ - 다음 문자 예측 시스템
+  - [x] 자동 문장 생성기 개발 ✅ - 패턴 기반 + 주제별 확장
+  - [x] 다양한 스타일 텍스트 생성 ✅ - 일상대화, 뉴스, 소셜미디어, 리뷰 스타일
+
+**🎉 Week 3 완료 성과:**
+
+**Day 1 - RNN 기초:**
 
 - **RNN 핵심 원리 완전 이해**: 순차 처리, 은닉 상태, tanh 활성화 함수
 - **실전 자연어 처리 구현**: 어휘 구축 → 임베딩 → RNN → 분류 전 과정 마스터
 - **100% 감정 분석 성공**: 긍정/부정 문장 완벽 분류 (24개 훈련 문장 → 6개 테스트 문장)
-- **텍스트 데이터 흐름 이해**: 단어 → 인덱스 → 임베딩 → 순차 처리 → 감정 예측
+
+**Day 2 - LSTM 고급:**
+
+- **LSTM vs RNN 완벽 비교**: Gate 메커니즘(Forget, Input, Output), Cell State 개념 마스터
+- **텍스트 생성 AI 구현**: 문자 단위 언어 모델로 한국어 텍스트 자동 생성
+- **대용량 데이터셋 구축**: 150+개 문장, 자동 생성 시스템으로 다양한 스타일 확보
+- **실전 데이터 수집 방법**: 위키피디아, 뉴스, 소셜미디어, 리뷰 스타일별 데이터 생성
 
 ### Week 4: Transformer & Attention
 
@@ -197,8 +212,9 @@ pandas                # 데이터 조작
 
 - [x] **Week 1 PyTorch 기초** ✅ - Linear Regression + 분류 신경망 완성
 - [x] **Week 2 CNN 기초** ✅ - CIFAR-10 이미지 분류 완성
-- [x] PyTorch로 3개 이상 딥러닝 모델 구현 ✅ (3/3 완료: 분류 신경망 + CNN + RNN)
-- [ ] CNN, RNN, Transformer 각각 1개씩 프로젝트 완성 (2/3 완료: CNN + RNN)
+- [x] **Week 3 RNN/LSTM 기초** ✅ - 감정 분석 + 텍스트 생성 완성
+- [x] PyTorch로 4개 이상 딥러닝 모델 구현 ✅ (4/4 완료: 분류 신경망 + CNN + RNN + LSTM)
+- [ ] CNN, RNN, Transformer 각각 1개씩 프로젝트 완성 (2/3 완료: CNN + RNN/LSTM)
 - [x] GPU 가속 활용한 모델 훈련 ✅ - MPS(Apple M1/M2) 가속 활용
 - [x] 모델 성능 Phase 1 대비 현저한 향상 ✅ - 97.5% vs 95% (scikit-learn)
 - [ ] 웹앱 or API로 모델 배포
@@ -266,12 +282,13 @@ jupyter notebook 01_pytorch_basics.ipynb
 
 **시작일**: 2025년 9월 25일 ✅  
 **목표 완료일**: 4주 후  
-**현재 상태**: Week 3 Day 1 완료 ✅ → Week 3 Day 2 (LSTM) 준비 중 🚀
+**현재 상태**: Week 3 완료 ✅ → Week 4 (Transformer) 준비 중 🚀
 **완성 파일**:
 
 - `01_pytorch_basics.ipynb` ✅ - PyTorch 기초, autograd, Linear Regression
 - `02_classification_neural_network.ipynb` ✅ - 3층 신경망, 과적합 실험, 골디락스 원리
 - `03_cnn_basics.ipynb` ✅ - CNN 이론, CIFAR-10 분류, 데이터 증강 실험
 - `04_rnn_basics.ipynb` ✅ - RNN 원리, 텍스트 전처리, 감정 분석 (100% 정확도)
+- `05_lstm_advanced.ipynb` ✅ - LSTM vs RNN 비교, 텍스트 생성, 대용량 데이터셋 구축
 
-**다음 할 일**: Week 3 Day 2 - LSTM & 고급 자연어 처리! (또는 텍스트 생성 도전)
+**다음 할 일**: Week 4 - Transformer & Attention 메커니즘! 🤖✨
