@@ -22,20 +22,22 @@ Phase 1에서 Python으로 ZKP 이론을 마스터했으니, 이제 **실전 ZK 
 
 ## 📚 주차별 계획
 
-### Week 1: Circom 기초 & 환경 설정
+### Week 1: Circom 기초 & 환경 설정 ✅
 
-- [ ] **Circom 환경 구축**
+- [x] **Circom 환경 구축**
 
-  - [ ] Node.js & npm 설치
-  - [ ] Circom 컴파일러 설치
-  - [ ] snarkjs 라이브러리 설치
-  - [ ] Powers of Tau 세팅
+  - [x] Node.js & npm 설치
+  - [x] Circom 컴파일러 설치
+  - [x] snarkjs 라이브러리 설치
+  - [x] Powers of Tau 세팅
 
-- [ ] **첫 ZK 회로 작성**
-  - [ ] 간단한 곱셈 회로
-  - [ ] Witness 생성 및 증명
-  - [ ] Verification key 관리
-  - [ ] Python과 비교 분석
+- [x] **첫 ZK 회로 작성**
+  - [x] 간단한 곱셈 회로 (`01_multiplier.circom`)
+  - [x] Witness 생성 및 증명
+  - [x] Verification key 관리
+  - [x] 단계별 실행 스크립트 구축 (`package.json`, `run_step.sh`)
+  - [x] 다중 사용자 증명 시스템 이해
+  - [x] SNARK vs STARK 개념 정리
 
 ### Week 2: 실용적 ZK 회로 구현
 
@@ -81,6 +83,48 @@ Phase 1에서 Python으로 ZKP 이론을 마스터했으니, 이제 **실전 ZK 
   - [ ] 데이터베이스 연동
   - [ ] 성능 모니터링
   - [ ] 보안 강화
+
+---
+
+## 🎯 Week 1 완료 성과
+
+### ✅ **구현 완료된 기능들**
+
+#### 🔐 **기본 ZKP 시스템**
+
+```
+📁 01_CircomCompile/
+├── 01_multiplier.circom        ← 곱셈 증명 회로
+├── package.json               ← 단계별 실행 스크립트
+├── run_step.sh               ← 터미널 실행 파일
+├── STEP_BY_STEP_GUIDE.md     ← 완전 초보자 가이드
+├── USAGE_GUIDE.md            ← 사용법 가이드
+└── input.json                ← 사용자 입력 예시
+```
+
+#### 🚀 **핵심 달성 사항**
+
+- **Trusted Setup 완전 이해**: Powers of Tau ceremony 실습
+- **다중 사용자 시스템**: 1개 회로 → 무한 증명자 구조
+- **파일 역할 완전 파악**:
+  - `verification_key.json` (공개 검증키)
+  - `proof.json` + `public.json` (개별 증명서)
+- **SNARK vs STARK 비교**: 파일 구조와 보안 특성 이해
+- **실전 응용 시나리오**: 백신패스, 나이인증 등
+
+#### 🛠️ **자동화 도구 구축**
+
+```bash
+# pnpm 방식
+pnpm run step1     # 회로 컴파일
+pnpm run step2-1   # Powers of Tau 시작
+pnpm run all       # 전체 과정 자동화
+
+# 터미널 스크립트 방식
+./run_step.sh 1    # 1단계 실행
+./run_step.sh all  # 전체 실행 (색상 지원)
+./run_step.sh help # 도움말
+```
 
 ---
 
@@ -182,21 +226,26 @@ Phase 1에서 Python으로 ZKP 이론을 마스터했으니, 이제 **실전 ZK 
 
 ### 📊 **기술적 성취**
 
-- [ ] 5개 이상의 Circom 회로 구현
+- [x] **1개 Circom 회로 구현** (곱셈 증명)
+- [x] **완전 자동화 시스템** (package.json + shell script)
+- [x] **다중 사용자 증명 시스템** 구축
+- [ ] 4개 추가 Circom 회로 구현
 - [ ] 1개 이상의 풀스택 ZK 웹앱 완성
 - [ ] 가스비 최적화된 스마트 컨트랙트
-- [ ] 실제 사용 가능한 증명 시간 (<30초)
+- [x] **실제 사용 가능한 증명 시간** (<5초 달성)
 
 ### 📚 **이론적 이해**
 
-- [ ] R1CS (Rank-1 Constraint System) 완전 이해
-- [ ] Trusted Setup ceremony 참여 경험
-- [ ] zk-SNARK vs zk-STARK 실전 비교
+- [x] **R1CS (Rank-1 Constraint System) 기초 이해**
+- [x] **Trusted Setup ceremony 완전 실습**
+- [x] **zk-SNARK vs zk-STARK 실전 비교**
+- [x] **ZKP 파일 구조 완전 파악**
 - [ ] 보안 취약점 분석 능력
 
 ### 🌐 **실전 경험**
 
-- [ ] GitHub에 ZK 프로젝트 포트폴리오
+- [x] **GitHub에 ZK 프로젝트 포트폴리오** (기초 완성)
+- [x] **완전 초보자 가이드 작성** (STEP_BY_STEP_GUIDE.md)
 - [ ] 블로그/영상으로 기술 공유
 - [ ] ZK 커뮤니티 기여 (이슈, PR)
 - [ ] 해커톤 참여 준비
@@ -252,7 +301,8 @@ circom first_circuit.circom --r1cs --wasm --sym
 
 ---
 
-**시작일**: TBD  
-**목표 완료일**: 4주 후  
+**시작일**: 2024년 9월 30일  
+**Week 1 완료일**: 2024년 9월 30일 ✅  
 **전제조건**: Phase 1 ZKP 이론 완료 ✅  
-**다음 단계**: Month 5-6 ZKML 🚀
+**현재 진행률**: **Week 1 완료 (25%)** 🚀  
+**다음 단계**: Week 2 - Hash Preimage & Merkle Tree 회로 구현
