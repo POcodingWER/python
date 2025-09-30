@@ -32,12 +32,20 @@ Phase 1에서 Python으로 ZKP 이론을 마스터했으니, 이제 **실전 ZK 
   - [x] Powers of Tau 세팅
 
 - [x] **첫 ZK 회로 작성**
+
   - [x] 간단한 곱셈 회로 (`01_multiplier.circom`)
   - [x] Witness 생성 및 증명
   - [x] Verification key 관리
   - [x] 단계별 실행 스크립트 구축 (`package.json`, `run_step.sh`)
   - [x] 다중 사용자 증명 시스템 이해
   - [x] SNARK vs STARK 개념 정리
+
+- [x] **고급 보안 분석 & 최적화**
+  - [x] 보안 취약점 분석 시스템 구축 (`02_SecurityAnalysis/`)
+  - [x] 증명서 조작 공격 시뮬레이션
+  - [x] 입력 오버플로우 공격 테스트
+  - [x] 성능 벤치마크 분석 도구
+  - [x] 자동화된 보안 테스트 스위트
 
 ### Week 2: 실용적 ZK 회로 구현
 
@@ -100,6 +108,19 @@ Phase 1에서 Python으로 ZKP 이론을 마스터했으니, 이제 **실전 ZK 
 ├── STEP_BY_STEP_GUIDE.md     ← 완전 초보자 가이드
 ├── USAGE_GUIDE.md            ← 사용법 가이드
 └── input.json                ← 사용자 입력 예시
+
+📁 02_SecurityAnalysis/
+├── 01_multiplier.circom        ← 분석 대상 회로
+├── package.json               ← 보안 테스트 자동화
+├── run_step.sh               ← ZKP 환경 구축 도구
+├── run_security_tests.sh     ← 종합 보안 테스트
+├── attacks/                  ← 공격 시나리오 폴더
+│   ├── 01_proof_manipulation.js  ← 증명서 조작 공격
+│   └── 02_input_overflow.js      ← 입력 오버플로우 공격
+├── benchmarks/               ← 성능 분석 폴더
+│   ├── performance_analysis.js   ← 성능 벤치마크 도구
+│   └── performance_report.json   ← 성능 분석 리포트
+└── README.md                 ← 보안 분석 랩 가이드
 ```
 
 #### 🚀 **핵심 달성 사항**
@@ -111,19 +132,29 @@ Phase 1에서 Python으로 ZKP 이론을 마스터했으니, 이제 **실전 ZK 
   - `proof.json` + `public.json` (개별 증명서)
 - **SNARK vs STARK 비교**: 파일 구조와 보안 특성 이해
 - **실전 응용 시나리오**: 백신패스, 나이인증 등
+- **보안 취약점 분석**: 증명서 조작, 입력 오버플로우 공격 시뮬레이션
+- **성능 최적화**: 벤치마크 분석 및 병목 지점 식별
 
 #### 🛠️ **자동화 도구 구축**
 
 ```bash
-# pnpm 방식
+# 기본 ZKP 환경 구축 (01_CircomCompile/)
 pnpm run step1     # 회로 컴파일
 pnpm run step2-1   # Powers of Tau 시작
 pnpm run all       # 전체 과정 자동화
+
+# 고급 보안 분석 (02_SecurityAnalysis/)
+pnpm run attack1   # 증명서 조작 공격
+pnpm run attack2   # 입력 오버플로우 공격
+pnpm run benchmark # 성능 벤치마크 분석
+pnpm run security  # 종합 보안 테스트
+pnpm run test      # 전체 테스트 스위트
 
 # 터미널 스크립트 방식
 ./run_step.sh 1    # 1단계 실행
 ./run_step.sh all  # 전체 실행 (색상 지원)
 ./run_step.sh help # 도움말
+./run_security_tests.sh # 보안 분석 실행
 ```
 
 ---
@@ -233,6 +264,7 @@ pnpm run all       # 전체 과정 자동화
 - [ ] 1개 이상의 풀스택 ZK 웹앱 완성
 - [ ] 가스비 최적화된 스마트 컨트랙트
 - [x] **실제 사용 가능한 증명 시간** (<5초 달성)
+- [x] **보안 취약점 분석 시스템** (공격 시뮬레이션 + 성능 분석)
 
 ### 📚 **이론적 이해**
 
@@ -240,7 +272,7 @@ pnpm run all       # 전체 과정 자동화
 - [x] **Trusted Setup ceremony 완전 실습**
 - [x] **zk-SNARK vs zk-STARK 실전 비교**
 - [x] **ZKP 파일 구조 완전 파악**
-- [ ] 보안 취약점 분석 능력
+- [x] **보안 취약점 분석 능력** (증명서 조작, 오버플로우 공격 실습)
 
 ### 🌐 **실전 경험**
 
@@ -304,5 +336,5 @@ circom first_circuit.circom --r1cs --wasm --sym
 **시작일**: 2024년 9월 30일  
 **Week 1 완료일**: 2024년 9월 30일 ✅  
 **전제조건**: Phase 1 ZKP 이론 완료 ✅  
-**현재 진행률**: **Week 1 완료 (25%)** 🚀  
+**현재 진행률**: **Week 1 완료 + 고급 보안 분석 완료 (30%)** 🚀  
 **다음 단계**: Week 2 - Hash Preimage & Merkle Tree 회로 구현
