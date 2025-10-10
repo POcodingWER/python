@@ -1,0 +1,49 @@
+{
+  "name": "hash-preimage-zkp",
+  "version": "1.0.0",
+  "description": "Week 2: Hash Preimage ZK Circuit - SHA-256 역산 증명 시스템",
+  "main": "02_hash_preimage.circom",
+  "scripts": {
+    "step1": "echo '🔐 1단계: Hash Preimage 회로 컴파일' && circom 02_hash_preimage.circom --r1cs --wasm --sym -l node_modules && echo '✅ 1단계 완료! 생성된 파일들:' && ls -la *.r1cs *.sym && ls -la 02_hash_preimage_js/",
+    "step2-1": "echo '🔑 2-1단계: Powers of Tau 시작' && snarkjs powersoftau new bn128 12 pot12_0000.ptau -v && echo '✅ 2-1단계 완료! pot12_0000.ptau 생성됨'",
+    "step2-1-big": "echo '🔑 2-1단계: Powers of Tau 시작 (큰 회로용)' && snarkjs powersoftau new bn128 16 pot16_0000.ptau -v && echo '✅ 2-1단계 완료! pot16_0000.ptau 생성됨 (2^16 = 65,536 제약조건 지원)'",
+    "step2-2": "echo '🔐 2-2단계: 엔트로피 기여' && echo 'Hash Preimage Secret Key' | snarkjs powersoftau contribute pot12_0000.ptau pot12_0001.ptau --name='Hash contribution' -v && echo '✅ 2-2단계 완료! pot12_0001.ptau 생성됨'",
+    "step2-2-big": "echo '🔐 2-2단계: 엔트로피 기여 (큰 회로용)' && echo 'Hash Preimage Secret Key' | snarkjs powersoftau contribute pot16_0000.ptau pot16_0001.ptau --name='Hash contribution' -v && echo '✅ 2-2단계 완료! pot16_0001.ptau 생성됨'",
+    "step2-3": "echo '🎯 2-3단계: Phase 2 준비' && snarkjs powersoftau prepare phase2 pot12_0001.ptau pot12_final.ptau -v && echo '✅ 2-3단계 완료! pot12_final.ptau 생성됨'",
+    "step2-3-big": "echo '🎯 2-3단계: Phase 2 준비 (큰 회로용)' && snarkjs powersoftau prepare phase2 pot16_0001.ptau pot16_final.ptau -v && echo '✅ 2-3단계 완료! pot16_final.ptau 생성됨'",
+    "step3-1": "echo '🔧 3-1단계: ZKey 생성' && snarkjs groth16 setup 02_hash_preimage.r1cs pot12_final.ptau hash_preimage_0000.zkey && echo '✅ 3-1단계 완료! hash_preimage_0000.zkey 생성됨'",
+    "step3-1-big": "echo '🔧 3-1단계: ZKey 생성 (큰 회로용)' && snarkjs groth16 setup 02_hash_preimage.r1cs pot16_final.ptau hash_preimage_0000.zkey && echo '✅ 3-1단계 완료! hash_preimage_0000.zkey 생성됨'",
+    "step3-2": "echo '🔑 3-2단계: ZKey 기여' && echo 'Hash Preimage Secret Key' | snarkjs zkey contribute hash_preimage_0000.zkey hash_preimage_final.zkey --name='Hash key contribution' -v && echo '✅ 3-2단계 완료! hash_preimage_final.zkey 생성됨'",
+    "step3-3": "echo '📋 3-3단계: 검증키 추출' && snarkjs zkey export verificationkey hash_preimage_final.zkey verification_key.json && echo '✅ 3-3단계 완료! verification_key.json 생성됨'",
+    "step4-1": "echo '🧮 4-1단계: Witness 계산' && snarkjs wtns calculate 02_hash_preimage_js/02_hash_preimage.wasm input_preimage.json witness.wtns && echo '✅ 4-1단계 완료! witness.wtns 생성됨'",
+    "step4-2": "echo '📝 4-2단계: 증명 생성' && snarkjs groth16 prove hash_preimage_final.zkey witness.wtns proof.json public.json && echo '✅ 4-2단계 완료! proof.json, public.json 생성됨'",
+    "step5": "echo '✅ 5단계: 증명 검증' && snarkjs groth16 verify verification_key.json public.json proof.json && echo '🎉 Hash Preimage 검증 완료! ZKP 성공!'",
+    "all": "npm run step1 && npm run step2-1 && npm run step2-2 && npm run step2-3 && npm run step3-1 && npm run step3-2 && npm run step3-3 && npm run step4-1 && npm run step4-2 && npm run step5",
+    "all-big": "npm run step1 && npm run step2-1-big && npm run step2-2-big && npm run step2-3-big && npm run step3-1-big && npm run step3-2 && npm run step3-3 && npm run step4-1 && npm run step4-2 && npm run step5",
+    "test-password": "echo '🔐 패스워드 검증 테스트' && echo 'Hello World!' | xxd -p | head -c 32 && echo '' && echo '위 해시값으로 패스워드 증명 테스트 진행...'",
+    "generate-hash": "echo '🔍 테스트 해시 생성' && node -e \"const crypto = require('crypto'); const hash = crypto.createHash('sha256').update('Hello World!').digest('hex'); console.log('Original: Hello World!'); console.log('SHA256:', hash); console.log('Hex chunks:', hash.match(/.{8}/g));\"",
+    "clean": "echo '🧹 정리 중...' && rm -f pot12_*.ptau hash_preimage_*.zkey *.wtns *.r1cs *.wasm *.sym && rm -f proof.json public.json witness.wtns verification_key.json && rm -rf 02_hash_preimage_js/ && echo '✅ 생성된 임시 파일 삭제 완료! (input_preimage.json, package.json 보존)'",
+    "clean-all": "echo '🚨 전체 정리 중... (주의: 모든 파일 삭제)' && rm -f *.ptau *.zkey *.wtns *.r1cs *.wasm *.sym *.json && rm -rf 02_hash_preimage_js/ && echo '⚠️  모든 파일 삭제 완료! package.json과 input_preimage.json도 삭제됨'",
+    "status": "echo '📊 현재 상태:' && echo '====================' && (ls -la *.ptau *.zkey *.wtns *.r1cs *.sym *.json 2>/dev/null || true) && (ls -la 02_hash_preimage_js/ 2>/dev/null || true) && echo '파일 확인 완료'",
+    "help": "echo '🎯 Hash Preimage ZKP 사용 가능한 명령어:' && echo '=======================================' && echo '' && echo '📋 기본 ZKP 단계:' && echo 'pnpm run step1     - 1단계: 회로 컴파일' && echo 'pnpm run step2-1   - 2-1단계: Powers of Tau 시작' && echo 'pnpm run step2-2   - 2-2단계: 엔트로피 기여' && echo 'pnpm run step2-3   - 2-3단계: Phase 2 준비' && echo 'pnpm run step3-1   - 3-1단계: ZKey 생성' && echo 'pnpm run step3-2   - 3-2단계: ZKey 기여' && echo 'pnpm run step3-3   - 3-3단계: 검증키 추출' && echo 'pnpm run step4-1   - 4-1단계: Witness 계산' && echo 'pnpm run step4-2   - 4-2단계: 증명 생성' && echo 'pnpm run step5     - 5단계: 증명 검증' && echo 'pnpm run all       - 모든 단계 자동 실행' && echo '' && echo '🔐 해시 유틸리티:' && echo 'pnpm run generate-hash  - 테스트 해시 생성' && echo 'pnpm run test-password  - 패스워드 검증 테스트' && echo '' && echo '🛠️ 유틸리티:' && echo 'pnpm run clean     - 임시 파일 삭제 (안전)' && echo 'pnpm run clean-all - 모든 파일 삭제 (주의!)' && echo 'pnpm run status    - 현재 상태 확인'"
+  },
+  "keywords": [
+    "zero-knowledge",
+    "zkp",
+    "circom",
+    "snarkjs",
+    "hash",
+    "preimage",
+    "sha256",
+    "password",
+    "verification"
+  ],
+  "author": "ZKP Student",
+  "license": "MIT",
+  "dependencies": {
+    "circomlib": "^2.0.5"
+  },
+  "devDependencies": {
+    "snarkjs": "^0.7.0"
+  }
+}

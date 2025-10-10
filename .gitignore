@@ -140,3 +140,6 @@ phase2/month3_ai_advanced/03_cnn_test_data/
 *.zip
 *.pkl
 *.pth
+
+# Node.js
+*node_modules/
