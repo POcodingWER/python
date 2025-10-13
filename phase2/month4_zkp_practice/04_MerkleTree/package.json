@@ -1,0 +1,31 @@
+{
+    "name": "merkle-tree-zkp",
+    "version": "1.0.0",
+    "description": "머클트리 증명 ZKP 회로 - 새로운 도전!",
+    "scripts": {
+        "step1": "circom 04_merkle_proof.circom --r1cs --wasm --sym -l node_modules",
+        "step2-1": "snarkjs powersoftau new bn128 12 pot12_0000.ptau -v",
+        "step2-2": "snarkjs powersoftau contribute pot12_0000.ptau pot12_0001.ptau --name=\"First contribution\" -v -e=\"random text\"",
+        "step2-3": "snarkjs powersoftau prepare phase2 pot12_0001.ptau pot12_final.ptau -v",
+        "step3-1": "snarkjs groth16 setup 04_merkle_proof.r1cs pot12_final.ptau merkle_proof_0000.zkey",
+        "step3-2": "snarkjs zkey contribute merkle_proof_0000.zkey merkle_proof_0001.zkey --name=\"1st Contributor Name\" -v -e=\"Another random entropy\"",
+        "step3-3": "snarkjs zkey export verificationkey merkle_proof_0001.zkey verification_key.json",
+        "step4-1-valid": "snarkjs groth16 fullprove input_valid.json 04_merkle_proof_js/04_merkle_proof.wasm merkle_proof_0001.zkey proof_valid.json public_valid.json",
+        "step4-1-invalid": "snarkjs groth16 fullprove input_invalid.json 04_merkle_proof_js/04_merkle_proof.wasm merkle_proof_0001.zkey proof_invalid.json public_invalid.json",
+        "step4-2-valid": "snarkjs groth16 verify verification_key.json public_valid.json proof_valid.json",
+        "step4-2-invalid": "snarkjs groth16 verify verification_key.json public_invalid.json proof_invalid.json",
+        "step5": "snarkjs zkey export solidityverifier merkle_proof_0001.zkey verifier.sol",
+        "generate-data": "node generate_merkle_data.js",
+        "all": "npm run step1 && npm run step2-1 && npm run step2-2 && npm run step2-3 && npm run step3-1 && npm run step3-2 && npm run step3-3",
+        "test-valid": "npm run step4-1-valid && npm run step4-2-valid",
+        "test-invalid": "npm run step4-1-invalid && npm run step4-2-invalid",
+        "test-all": "npm run test-valid && npm run test-invalid",
+        "clean": "rm -f *.ptau *.zkey *.r1cs *.sym verification_key.json verifier.sol proof_*.json public_*.json && rm -rf 04_merkle_proof_js/"
+    },
+    "dependencies": {
+        "circomlib": "^2.0.5"
+    },
+    "devDependencies": {
+        "snarkjs": "^0.7.0"
+    }
+}

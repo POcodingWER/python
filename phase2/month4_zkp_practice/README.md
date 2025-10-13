@@ -59,11 +59,14 @@ Phase 1에서 Python으로 ZKP 이론을 마스터했으니, 이제 **실전 ZK 
   - [x] Powers of Tau 최적화 (bn128 16 지원)
   - [x] 실제 응용 사례 분석 (Zcash, 투표 시스템 등)
 
-- [ ] **Merkle Tree 회로**
-  - [ ] Merkle proof 검증 회로
-  - [ ] 데이터 무결성 증명
-  - [ ] 대용량 데이터 처리
-  - [ ] 블록체인 연동 준비
+- [x] **Merkle Tree 회로**
+  - [x] Merkle proof 검증 회로 (`04_merkle_proof.circom`)
+  - [x] 1레벨 머클트리 ZKP 구현 (246개 제약조건)
+  - [x] Poseidon 해시 함수 활용
+  - [x] pathElements, pathIndices 완전 이해
+  - [x] 유효/무효 증명 구분 시스템 (`isValid = 1/0`)
+  - [x] 자동화된 테스트 스위트 (`test-valid`, `test-invalid`)
+  - [x] poseidon-lite 패키지 통합
 
 ### Week 3: 고급 ZK 회로 & 최적화
 
@@ -126,7 +129,7 @@ Phase 1에서 Python으로 ZKP 이론을 마스터했으니, 이제 **실전 ZK 
 └── README.md                 ← 보안 분석 랩 가이드
 ```
 
-#### 🔒 **실용적 ZKP 시스템 (Week 2)**
+#### 🔒 **실용적 ZKP 시스템 (Week 2-3)**
 
 ```
 📁 03_HashPreimage/
@@ -139,6 +142,19 @@ Phase 1에서 Python으로 ZKP 이론을 마스터했으니, 이제 **실전 ZK 
     ├── public.json            ← 공개 해시값
     ├── verification_key.json  ← 검증키
     └── witness.wtns           ← Witness 데이터
+
+📁 04_MerkleTree/
+├── 04_merkle_proof.circom      ← 머클트리 증명 회로 (1레벨)
+├── package.json               ← 완전 자동화 테스트 시스템
+├── input_valid.json           ← 유효한 증명 데이터
+├── input_invalid.json         ← 무효한 증명 데이터
+├── README.md                  ← 머클트리 ZKP 가이드
+└── [생성 파일들]
+    ├── proof_valid.json       ← 유효한 증명서
+    ├── proof_invalid.json     ← 무효한 증명서
+    ├── public_valid.json      ← 유효 결과 (isValid=1)
+    ├── public_invalid.json    ← 무효 결과 (isValid=0)
+    └── verification_key.json  ← 검증키
 ```
 
 #### 🚀 **핵심 달성 사항**
@@ -163,6 +179,16 @@ Phase 1에서 Python으로 ZKP 이론을 마스터했으니, 이제 **실전 ZK 
 - **자동화 파이프라인**: `pnpm run all-big` 원클릭 ZKP 생성
 - **패스워드 시스템 혁신**: 서버 해킹 방지 ZK 인증
 
+**Week 3 성과:**
+
+- **머클트리 ZKP 마스터**: 1레벨 머클트리 증명 회로 (246개 제약조건)
+- **Poseidon 해시 통합**: ZK-friendly 해시 함수 실전 활용
+- **pathElements/pathIndices 완전 이해**: 머클 경로 증명 핵심 개념
+- **유효성 검증 시스템**: `isValid = 1/0` 완벽한 구분 달성
+- **회로 디버깅 마스터**: 0레벨 → 1레벨 전환을 통한 실제 머클트리 구현
+- **poseidon-lite 패키지 통합**: 실제 해시 값 계산 및 검증
+- **자동화 테스트 스위트**: `test-valid`, `test-invalid` 완전 분리
+
 #### 🛠️ **자동화 도구 구축**
 
 ```bash
@@ -184,6 +210,14 @@ pnpm run all-big   # 대규모 회로용 전체 과정 (bn128 16)
 pnpm run generate-hash # 테스트 해시 생성
 pnpm run clean     # 임시 파일 정리
 pnpm run status    # 현재 상태 확인
+
+# 머클트리 ZKP 시스템 (04_MerkleTree/)
+pnpm run step1     # 머클트리 회로 컴파일 (246개 제약조건)
+pnpm run all       # 전체 ZKP 파이프라인 (Powers of Tau + zKey)
+pnpm run test-valid   # 유효한 증명 테스트 (isValid=1)
+pnpm run test-invalid # 무효한 증명 테스트 (isValid=0)
+pnpm run test-all  # 전체 테스트 스위트
+pnpm run clean     # 모든 생성 파일 정리 (proof, public 포함)
 
 # 터미널 스크립트 방식
 ./run_step.sh 1    # 1단계 실행
@@ -292,16 +326,18 @@ pnpm run status    # 현재 상태 확인
 
 ### 📊 **기술적 성취**
 
-- [x] **2개 Circom 회로 구현** (곱셈 증명 + SHA-256 Hash Preimage)
+- [x] **3개 Circom 회로 구현** (곱셈 증명 + SHA-256 Hash Preimage + 머클트리)
 - [x] **완전 자동화 시스템** (package.json + shell script)
 - [x] **다중 사용자 증명 시스템** 구축
 - [x] **대규모 회로 지원** (31,536개 제약조건 처리)
-- [ ] 3개 추가 Circom 회로 구현 (Merkle Tree, 나이 검증, 투표)
+- [x] **머클트리 ZKP 구현** (246개 제약조건, Poseidon 해시)
+- [ ] 2개 추가 Circom 회로 구현 (나이 검증, 투표)
 - [ ] 1개 이상의 풀스택 ZK 웹앱 완성
 - [ ] 가스비 최적화된 스마트 컨트랙트
 - [x] **실제 사용 가능한 증명 시간** (<5초 달성)
 - [x] **보안 취약점 분석 시스템** (공격 시뮬레이션 + 성능 분석)
 - [x] **실용적 프라이버시 보호** (95% 프라이버시 향상 달성)
+- [x] **유효성 검증 시스템** (isValid = 1/0 완벽 구분)
 
 ### 📚 **이론적 이해**
 
@@ -373,6 +409,7 @@ circom first_circuit.circom --r1cs --wasm --sym
 **시작일**: 2024년 9월 30일  
 **Week 1 완료일**: 2024년 9월 30일 ✅  
 **Week 2 완료일**: 2024년 10월 10일 ✅  
+**Week 3 완료일**: 2024년 10월 13일 ✅  
 **전제조건**: Phase 1 ZKP 이론 완료 ✅  
-**현재 진행률**: **Week 1-2 완료 + Hash Preimage ZKP 마스터 (50%)** 🚀  
-**다음 단계**: Week 3 - Merkle Tree & 나이 검증 회로 구현
+**현재 진행률**: **Week 1-3 완료 + 머클트리 ZKP 마스터 (75%)** 🚀  
+**다음 단계**: Week 4 - 나이 검증 회로 & 풀스택 ZK 웹앱 구축
