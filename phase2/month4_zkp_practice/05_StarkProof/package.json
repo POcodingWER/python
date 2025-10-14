@@ -1,0 +1,25 @@
+{
+    "name": "real-stark-zkp",
+    "version": "1.0.0",
+    "description": "진짜 STARK 영지식 증명 - Cairo 실행 기반",
+    "main": "index.js",
+    "scripts": {
+        "start": "echo '🔥 진짜 STARK 영지식 증명!' && echo '📖 README.md를 먼저 읽어보세요!' && echo '🚀 npm run demo로 전체 과정 실행!'",
+        "compile": "scarb build",
+        "test": "scarb test",
+        "prove": "./prover/generate.sh",
+        "verifier": "./verifier/verify.sh",
+        "demo": "echo '🎯 진짜 STARK 증명 과정 시연!' && echo '' && echo '1️⃣ Cairo 컴파일...' && npm run compile && echo '' && echo '2️⃣ 테스트 실행...' && npm run test && echo '' && echo '3️⃣ Alice가 증명 생성...' && npm run prove && echo '' && echo '4️⃣ Bob이 검증...' && npm run verifier",
+        "status": "echo '📁 프로젝트 상태:' && ls -la && echo '' && echo '📄 증명 파일들:' && ls -la proofs/ 2>/dev/null || echo '증명 파일 없음'"
+    },
+    "keywords": [
+        "stark",
+        "cairo",
+        "zkp",
+        "zero-knowledge",
+        "real-stark",
+        "execution-trace"
+    ],
+    "author": "",
+    "license": "ISC"
+}

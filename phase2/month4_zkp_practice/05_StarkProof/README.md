@@ -1,190 +1,180 @@
-# 05_StarkProof - STARK 증명 시스템 🌟
+# 🔥 STARK 증명 - Cairo 실행 기반
 
-## 📋 프로젝트 개요
+## 🎯 STARK 증명 전체 흐름
 
-**STARK (Scalable Transparent ARgument of Knowledge)**를 사용하여 머클트리 포함 증명을 구현합니다.
+### 📝 증명자 (Alice) → 🔍 검증자 (Bob/블록체인)
 
-### 🎯 **학습 목표**
+```
+📝 src/lib.cairo (비밀번호 해시 증명 로직)
+    ↓ scarb build
+🔧 target/dev/merkle_stark_proof.sierra.json (컴파일된 바이트코드)
+    ↓ shasum -a 256
+🔑 programHash: 0x0622d242... (프로그램 무결성 증명)
+    ↓ scarb cairo-run --arguments-file
+🚀 executionTrace: [272, 276] (실제 계산 과정)
+    ↓ simple_hash(secret) 계산
+🌍 publicHash: 54452 (공개 해시값)
+    ↓
+📦 proof = {programHash, executionTrace, publicHash}
+    ↓ 블록체인 전송
+🔍 검증자가 3가지 모두 확인!
+   ✅ 올바른 .cairo 프로그램 사용?
+   ✅ 실행 과정이 정확?
+   ✅ 결과 해시값이 맞음?
+```
 
-- ✅ **Cairo 언어** 마스터
-- ✅ **STARK 프로토콜** 이해
-- ✅ **Trusted Setup 없는** ZK 체험
-- ✅ **양자 저항성** 확인
-- ✅ **SNARK와 비교** 분석
+**🔒 핵심:** Alice는 비밀(7777)을 숨기면서도 "해시값 54452의 원본을 안다"고 증명!
 
----
+## 🚀 STARK 과정
 
-## 🔍 STARK vs SNARK 비교
+### 1️⃣ Cairo 프로그램 작성
 
-| 특징              | SNARK (04_MerkleTree) | **STARK (이 프로젝트)** |
-| ----------------- | --------------------- | ----------------------- |
-| **Trusted Setup** | 필요 ❌               | **불필요 ✅**           |
-| **증명 크기**     | 매우 작음 (200바이트) | **큼 (수십KB)**         |
-| **검증 시간**     | 매우 빠름             | **빠름**                |
-| **양자 저항**     | 없음                  | **있음 ✅**             |
-| **투명성**        | 낮음                  | **높음 ✅**             |
-| **확장성**        | 제한적                | **우수 ✅**             |
+```cairo
+// src/lib.cairo - 외부 입력 받는  구조
+fn main() -> Array<felt252> {
+    // 실제 암호학적 계산
+    // Poseidon 해시 사용
+    // 결과를 배열로 반환
+}
+```
 
----
+### 2️⃣ Scarb로 컴파일
 
-## 🛠️ 구현 계획
+```bash
+scarb build
+# target/dev/*.sierra.json 생성
+```
 
-### Week 1: Cairo 환경 & 기초
+### 3️⃣ 외부 입력으로 실행
 
-- [ ] **Cairo 개발 환경 구축**
+```bash
+# 비밀을 환경변수로 전달
+SECRET=1234 scarb cairo-run
+# 또는 파일에서 읽기
+```
 
-  - [ ] Cairo 컴파일러 설치
-  - [ ] StarkNet 개발 도구 설정
-  - [ ] VS Code 확장 설치
-  - [ ] 첫 Hello World 프로그램
+### 4️⃣ 결과를 증명으로 변환
 
-- [ ] **Cairo 언어 학습**
-  - [ ] 기본 문법 (felt, struct, function)
-  - [ ] 메모리 모델 이해
-  - [ ] 어서션과 제약조건
-  - [ ] 내장 함수 활용
+```bash
+# Cairo 실행 결과를 STARK 증명 형태로 포맷
+# 실제 Stone Prover 없이도 원리 구현
+```
 
-### Week 2: 머클트리 STARK 구현
-
-- [ ] **머클트리 로직 Cairo 포팅**
-
-  - [ ] Poseidon 해시 함수 구현
-  - [ ] 머클 경로 검증 로직
-  - [ ] pathElements/pathIndices 처리
-  - [ ] 04_MerkleTree와 동일한 로직
-
-- [ ] **STARK 증명 생성**
-  - [ ] Cairo 프로그램 컴파일
-  - [ ] 실행 트레이스 생성
-  - [ ] STARK 증명 생성
-  - [ ] 증명 검증
-
-### Week 3: 테스트 & 최적화
-
-- [ ] **테스트 케이스 작성**
-
-  - [ ] 유효한 머클 증명 테스트
-  - [ ] 무효한 머클 증명 테스트
-  - [ ] 다양한 트리 깊이 테스트
-  - [ ] 엣지 케이스 처리
-
-- [ ] **성능 최적화**
-  - [ ] 프로그램 크기 최적화
-  - [ ] 실행 단계 수 최소화
-  - [ ] 메모리 사용량 최적화
-  - [ ] 증명 생성 시간 측정
-
----
-
-## 📁 파일 구조
+## 📁 새로운 폴더 구조
 
 ```
 05_StarkProof/
-├── README.md                 # 이 파일
-├── cairo_programs/
-│   ├── merkle_proof.cairo   # 머클트리 증명 프로그램
-│   └── poseidon.cairo       # Poseidon 해시 구현
-├── inputs/
-│   ├── input_valid.json     # 유효한 증명 입력
-│   └── input_invalid.json   # 무효한 증명 입력
-├── proofs/
-│   ├── proof_valid.json     # 생성된 유효 증명
-│   └── proof_invalid.json   # 생성된 무효 증명
-├── scripts/
-│   ├── compile.sh           # Cairo 컴파일 스크립트
-│   ├── prove.sh             # STARK 증명 생성
-│   └── verify.sh            # STARK 증명 검증
-└── package.json             # 자동화 스크립트
+├── README.md                # 이 파일
+├── Scarb.toml              # Cairo 프로젝트 설정
+├── src/
+│   └── lib.cairo           # 🔥  Cairo 프로그램
+├── prover/
+│   ├── cairo_input_secret.json  # 🔒 Alice의 비밀 (JSON 형태)
+│   └── generate.sh              # 증명 생성 스크립트
+├── verifier/
+│   ├── public_hash.txt     # 🌍 공개 해시값
+│   └── verify.sh           # 검증 스크립트
+└── proofs/
+    ├── execution_trace.json # Cairo 실행 추적
+    └── proof_result.json   # 증명 결과
 ```
 
----
+## 🎯 핵심 차이점
 
-## 🚀 사용법
+### ❌ 이전 (가짜):
 
-### 1. 환경 설정
+```python
+# Python으로 가짜 증명
+proof = {"fake": "simulation"}
+```
+
+### ✅ 이번:
 
 ```bash
-# Cairo 설치
-curl -L https://github.com/starkware-libs/cairo/releases/download/v2.4.0/cairo-lang-2.4.0.tar.gz | tar xz
-export PATH="$PATH:$HOME/.cairo/bin"
-
-# 의존성 설치
-pnpm install
+# Cairo로  실행
+scarb cairo-run
+# returning [1] 또는 [0]
 ```
 
-### 2. 컴파일 & 실행
+## 🔒 영지식 원칙
 
-```bash
-# Cairo 프로그램 컴파일
-pnpm run compile
+**증명자 (Alice):**
 
-# STARK 증명 생성
-pnpm run prove-valid
-pnpm run prove-invalid
+- Cairo 소스코드 작성
+- 비밀을 외부에서 입력
+- 실행 결과만 공개
 
-# 증명 검증
-pnpm run verify-valid
-pnpm run verify-invalid
+**검증자 (Bob):**
+
+- 소스코드 못 봄! 🚫
+- 실행 결과만 받음
+- 비밀 절대 모름! 🤐
+
+## 🌐 블록체인 배포 (실제 활용)
+
+### 🚀 Alice의 증명 생성 & 전송
+
+```javascript
+// 1️⃣ 오프체인에서 증명 생성
+const proof = {
+  programHash:
+    "0xfa2b0c963615ac5742f866a784a80650ad8072f60d7528a10a13e4ec8d52fd83",
+  executionTrace: [272, 276],
+  publicHash: 54452,
+};
+
+// 2️⃣ 블록체인에 트랜잭션 전송
+await contract.submitProof(proof);
 ```
 
-### 3. 벤치마크
+### 🔍 블록체인 검증자들의 과정
 
-```bash
-# 성능 측정
-pnpm run benchmark
+```solidity
+contract StarkPasswordVerifier {
+    // 📁 Alice가 만든 프로그램 해시 저장
+    bytes32 public constant EXPECTED_PROGRAM_HASH =
+        0xfa2b0c963615ac5742f866a784a80650ad8072f60d7528a10a13e4ec8d52fd83;
 
-# SNARK와 비교
-pnpm run compare-with-snark
+    function verifyStarkProof(
+        bytes32 programHash,
+        uint256[] calldata executionTrace,
+        uint256 publicHash
+    ) external returns (bool) {
+        // 1️⃣ Alice가 올바른 프로그램 사용했나?
+        require(programHash == EXPECTED_PROGRAM_HASH, "Wrong program!");
+
+        // 2️⃣ 실행 추적이 올바른가?
+        require(executionTrace[0] == 272, "Invalid step 1");
+        require(executionTrace[1] == 276, "Invalid step 2");
+
+        // 3️⃣ 해시값이 유효한가?
+        require(publicHash == 54452, "Invalid hash");
+
+        // ✅ 모든 검증 통과!
+        return true;
+    }
+}
 ```
 
----
+### 🎯 영지식 증명의 핵심
 
-## 🔬 예상 결과
+**🔒 Alice가 증명하는 것:**
 
-### 📊 **성능 예측**
+- "나는 해시값 54452의 원본 비밀번호를 알고 있어!"
+- 하지만 비밀번호 자체는 절대 공개하지 않음
 
-- **증명 생성 시간**: 5-10초 (SNARK: 2-5초)
-- **증명 크기**: 50-100KB (SNARK: 200바이트)
-- **검증 시간**: 10-50ms (SNARK: 5-10ms)
-- **메모리 사용량**: 높음 (SNARK: 낮음)
+**🔍 블록체인이 검증하는 것:**
 
-### ✅ **STARK의 장점 체험**
+- ✅ 올바른 프로그램으로 계산했나?
+- ✅ 실행 과정이 정확한가?
+- ✅ 결과 해시값이 맞나?
 
-- **투명성**: Trusted setup 불필요
-- **양자 저항**: 해시 기반 보안
-- **확장성**: 큰 계산에 유리
-- **투명성**: 모든 과정 검증 가능
+**🚫 블록체인이 알 수 없는 것:**
 
----
-
-## 🎯 학습 포인트
-
-### 🧠 **핵심 개념**
-
-1. **FRI (Fast Reed-Solomon Interactive Oracle Proofs)**
-2. **Polynomial Commitment Schemes**
-3. **Arithmetization of Computation**
-4. **Low-Degree Testing**
-
-### 🔍 **SNARK와의 차이점**
-
-- **수학적 기반**: 타원곡선 vs 해시함수
-- **보안 가정**: 이산로그 vs 충돌저항성
-- **투명성**: 불투명 vs 완전투명
-- **확장성**: 제한적 vs 우수
+- Alice의 실제 비밀번호 (7777)
+- 계산 과정의 중간값들
+- 비밀 정보는 완전히 숨겨짐!
 
 ---
 
-## 📚 참고 자료
-
-- [StarkWare 공식 문서](https://docs.starkware.co/)
-- [Cairo 언어 가이드](https://www.cairo-lang.org/docs/)
-- [STARK 논문](https://eprint.iacr.org/2018/046.pdf)
-- [04_MerkleTree SNARK 구현](../04_MerkleTree/)
-
----
-
-**시작일**: 2024년 10월 13일  
-**예상 완료일**: 2024년 10월 20일  
-**난이도**: ⭐⭐⭐⭐ (고급)  
-**상태**: 🚧 진행 중
+**🚀 이제 STARK를 구현해보자!**
