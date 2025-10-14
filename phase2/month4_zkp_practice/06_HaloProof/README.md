@@ -1,209 +1,168 @@
-# 06_HaloProof - Halo2 증명 시스템 🌀
+# 🌀 진짜 Halo2 증명 - Rust 기반
 
-## 📋 프로젝트 개요
+## 🎯 Halo2 증명 전체 흐름
 
-**Halo2**를 사용하여 머클트리 포함 증명을 구현합니다. Zcash에서 개발한 최신 ZK 프로토콜입니다.
+### 📝 증명자 (Alice) → 🔍 검증자 (Bob/블록체인)
 
-### 🎯 **학습 목표**
+```
+📝 src/circuit.rs (비밀번호 해시 회로)
+    ↓ cargo build
+🔧 target/release/halo_proof (컴파일된 바이너리)
+    ↓ cargo run
+🔑 proof.json (Halo2 증명)
+🌍 public.json (공개 입력: 54452)
+    ↓
+📦 proof = {proof.json, public.json}
+    ↓ 블록체인 전송
+🔍 검증자가 2가지 확인!
+   ✅ 올바른 회로 사용?
+   ✅ 증명이 유효?
+```
 
-- ✅ **Rust 언어** 실전 활용
-- ✅ **Halo2 프로토콜** 마스터
-- ✅ **재귀적 증명** 구현
-- ✅ **PLONKish 아키텍처** 이해
-- ✅ **ZKML 연결점** 확보
+**🔒 핵심:** Alice는 비밀(7777)을 숨기면서도 "해시값 54452의 원본을 안다"고 증명!
 
----
+## 🚀 STARK vs Halo2 비교
 
-## 🔍 Halo2 vs SNARK vs STARK 비교
+| **구분**     | **STARK (05번)**          | **Halo2 (06번)**        |
+| ------------ | ------------------------- | ----------------------- |
+| **언어**     | Cairo                     | Rust                    |
+| **파일**     | `.cairo` → `.sierra.json` | `.rs` → `proof.json`    |
+| **검증키**   | ❌ 불필요 (투명)          | ❌ 불필요 (Halo2 특징!) |
+| **증명크기** | 큰 증명 (~100KB)          | 작은 증명 (~1KB)        |
+| **특징**     | 양자 저항성               | 재귀적 증명             |
 
-| 특징              | SNARK     | STARK     | **Halo2 (이 프로젝트)** |
-| ----------------- | --------- | --------- | ----------------------- |
-| **Trusted Setup** | 필요 ❌   | 불필요 ✅ | **불필요 ✅**           |
-| **증명 크기**     | 매우 작음 | 큼        | **작음**                |
-| **검증 시간**     | 매우 빠름 | 빠름      | **빠름**                |
-| **양자 저항**     | 없음      | 있음 ✅   | **부분적**              |
-| **재귀적 증명**   | 어려움    | 가능      | **최적화됨 ✅**         |
-| **개발 복잡도**   | 보통      | 높음      | **높음**                |
+## 🚀 진짜 Halo2 과정
 
----
+### 1️⃣ Rust 회로 작성
 
-## 🛠️ 구현 계획
+```rust
+// src/circuit.rs - 간단한 해시 회로
+use halo2_proofs::*;
 
-### Week 1: Rust & Halo2 환경
+struct SimpleHashCircuit {
+    secret: Value<u64>,  // Alice의 비밀 (7777)
+}
 
-- [ ] **Rust 개발 환경 구축**
+impl Circuit<Fp> for SimpleHashCircuit {
+    fn synthesize(&self, mut layouter: impl Layouter<Fp>) -> Result<(), Error> {
+        // secret * 7 + 13 = public_hash
+        // 실제 암호학적 계산
+    }
+}
+```
 
-  - [ ] Rust 툴체인 설치
-  - [ ] Cargo 프로젝트 생성
-  - [ ] Halo2 의존성 추가
-  - [ ] 개발 도구 설정
+### 2️⃣ Cargo로 컴파일
 
-- [ ] **Halo2 기초 학습**
-  - [ ] Circuit trait 이해
-  - [ ] Chip 아키텍처 학습
-  - [ ] Constraint system 구조
-  - [ ] 첫 간단한 회로 구현
+```bash
+cargo build --release
+# target/release/ 생성
+```
 
-### Week 2: 머클트리 Halo2 구현
+### 3️⃣ 증명 생성
 
-- [ ] **Poseidon Chip 구현**
+```bash
+cargo run --bin prove
+# proof.json + public.json 생성
+```
 
-  - [ ] Poseidon 해시 회로
-  - [ ] 상태 전이 로직
-  - [ ] 제약조건 정의
-  - [ ] 테스트 케이스 작성
+### 4️⃣ 검증
 
-- [ ] **머클트리 Circuit 구현**
-  - [ ] MerkleProof Circuit 정의
-  - [ ] pathElements/pathIndices 처리
-  - [ ] 재귀적 해시 계산
-  - [ ] 04_MerkleTree와 동일한 로직
+```bash
+cargo run --bin verify
+# Halo2 검증 실행
+```
 
-### Week 3: 고급 기능 & 최적화
-
-- [ ] **재귀적 증명 실험**
-
-  - [ ] 증명의 증명 구현
-  - [ ] Aggregation 기법
-  - [ ] 성능 최적화
-  - [ ] 메모리 효율성
-
-- [ ] **벤치마크 & 비교**
-  - [ ] 성능 측정 도구
-  - [ ] SNARK/STARK와 비교
-  - [ ] 최적화 포인트 분석
-  - [ ] 실용성 평가
-
----
-
-## 📁 파일 구조
+## 📁 간단한 폴더 구조
 
 ```
 06_HaloProof/
-├── README.md                 # 이 파일
-├── Cargo.toml               # Rust 프로젝트 설정
+├── README.md                # 이 파일
+├── Cargo.toml              # Rust 프로젝트 설정
 ├── src/
-│   ├── lib.rs               # 라이브러리 루트
-│   ├── circuits/
-│   │   ├── mod.rs           # 회로 모듈
-│   │   ├── poseidon.rs      # Poseidon 해시 회로
-│   │   └── merkle.rs        # 머클트리 회로
-│   ├── chips/
-│   │   ├── mod.rs           # 칩 모듈
-│   │   └── poseidon_chip.rs # Poseidon 칩 구현
-│   └── utils/
-│       ├── mod.rs           # 유틸리티 모듈
-│       └── test_utils.rs    # 테스트 헬퍼
-├── examples/
-│   ├── merkle_proof.rs      # 머클 증명 예제
-│   └── benchmark.rs         # 벤치마크 도구
-├── tests/
-│   ├── integration_tests.rs # 통합 테스트
-│   └── test_vectors.rs      # 테스트 벡터
-├── inputs/
-│   ├── input_valid.json     # 유효한 증명 입력
-│   └── input_invalid.json   # 무효한 증명 입력
-└── package.json             # npm 스크립트 (선택적)
+│   ├── simple_lib.rs      # 🔥 핵심 라이브러리 (lib.cairo 역할)
+│   ├── simple_prove.rs    # 🔒 Alice 증명 생성 (generate.sh 역할)
+│   ├── simple_verify.rs   # 🔍 Bob 검증 (verify.sh 역할)
+│   ├── lib.rs            # 복잡한 Halo2 (나중에 사용)
+│   ├── prove.rs          # 복잡한 증명 (나중에 사용)
+│   └── verify.rs         # 복잡한 검증 (나중에 사용)
+│
+│
+├── prover/
+│   └── secret_input.json   # 🔒 Alice의 비밀 (7777)
+├── verifier/
+│   └── public_hash.txt     # 🌍 공개 해시값 (54452)
+└── proofs/
+    ├── proof.json          # Halo2 증명
+    └── public.json         # 공개 입력
 ```
 
----
+## 🔒 진짜 영지식 원칙
 
-## 🚀 사용법
+**증명자 (Alice):**
 
-### 1. 환경 설정
+- Rust 회로 코드 작성
+- 비밀을 외부에서 입력
+- 증명 파일만 공개
 
-```bash
-# Rust 설치
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-source ~/.cargo/env
+**검증자 (Bob):**
 
-# 프로젝트 의존성 설치
-cargo build
+- 소스코드 못 봄! 🚫
+- 증명 파일만 받음
+- 비밀 절대 모름! 🤐
+
+## 🌐 블록체인 배포 (실제 활용)
+
+### 🚀 Alice의 증명 생성 & 전송
+
+```rust
+// Halo2 증명 생성
+let proof = create_proof(&circuit, &params, &pk, &[public_input]).unwrap();
+
+// 블록체인에 전송
+let tx_data = {
+    proof: proof_bytes,
+    public_hash: 54452
+};
 ```
 
-### 2. 컴파일 & 실행
+### 🔍 블록체인 검증자들의 과정
 
-```bash
-# 머클 증명 예제 실행
-cargo run --example merkle_proof
+```solidity
+contract Halo2PasswordVerifier {
+    function verifyHalo2Proof(
+        bytes calldata proof,
+        uint256 publicHash
+    ) external returns (bool) {
+        // 1️⃣ Halo2 증명 검증
+        require(verifyProof(proof, publicHash), "Invalid proof!");
 
-# 테스트 실행
-cargo test
+        // 2️⃣ 공개 해시값 확인
+        require(publicHash == 54452, "Invalid hash");
 
-# 벤치마크 실행
-cargo run --example benchmark --release
+        // ✅ 모든 검증 통과!
+        return true;
+    }
+}
 ```
 
-### 3. 고급 기능
+### 🎯 영지식 증명의 핵심
 
-```bash
-# 재귀적 증명 실험
-cargo run --example recursive_proof
+**🔒 Alice가 증명하는 것:**
 
-# 다른 프로토콜과 비교
-cargo run --example comparison
-```
+- "나는 해시값 54452의 원본 비밀번호를 알고 있어!"
+- 하지만 비밀번호 자체는 절대 공개하지 않음
 
----
+**🔍 블록체인이 검증하는 것:**
 
-## 🔬 예상 결과
+- ✅ Halo2 증명이 유효한가?
+- ✅ 공개 해시값이 맞나?
 
-### 📊 **성능 예측**
+**🚫 블록체인이 알 수 없는 것:**
 
-- **증명 생성 시간**: 3-8초 (SNARK: 2-5초, STARK: 5-10초)
-- **증명 크기**: 1-5KB (SNARK: 200바이트, STARK: 50-100KB)
-- **검증 시간**: 5-20ms (SNARK: 5-10ms, STARK: 10-50ms)
-- **메모리 사용량**: 보통 (SNARK: 낮음, STARK: 높음)
-
-### ✅ **Halo2의 장점 체험**
-
-- **재귀적 증명**: 증명의 증명 가능
-- **유연성**: 복잡한 회로 구현 용이
-- **최적화**: PLONKish 아키텍처 효율성
-- **미래 지향**: ZKML 연결점
+- Alice의 실제 비밀번호 (7777)
+- 계산 과정의 중간값들
+- 비밀 정보는 완전히 숨겨짐!
 
 ---
 
-## 🎯 학습 포인트
-
-### 🧠 **핵심 개념**
-
-1. **PLONKish Arithmetization**
-2. **Polynomial Commitment Schemes (IPA)**
-3. **Lookup Arguments**
-4. **Custom Gates and Chips**
-
-### 🔍 **Halo2 특징**
-
-- **Inner Product Argument**: KZG 대신 IPA 사용
-- **Recursive Composition**: 증명 집계 최적화
-- **Circuit Compiler**: 고수준 추상화
-- **Flexible Constraints**: 다양한 제약조건 지원
-
----
-
-## 🌉 ZKML 연결점
-
-### 🤖 **Month 5-6 ZKML 준비**
-
-- **EZKL**: Halo2 기반 ZKML 프레임워크
-- **Rust 경험**: ZKML 개발에 필수
-- **회로 설계**: ML 모델 → 회로 변환 이해
-- **성능 최적화**: 대규모 회로 처리 경험
-
----
-
-## 📚 참고 자료
-
-- [Halo2 공식 문서](https://zcash.github.io/halo2/)
-- [Halo2 Book](https://zcash.github.io/halo2/concepts/arithmetization.html)
-- [EZKL 프로젝트](https://github.com/zkonduit/ezkl)
-- [04_MerkleTree SNARK 구현](../04_MerkleTree/)
-- [05_StarkProof STARK 구현](../05_StarkProof/)
-
----
-
-**시작일**: 2024년 10월 20일 (STARK 완료 후)  
-**예상 완료일**: 2024년 10월 27일  
-**난이도**: ⭐⭐⭐⭐⭐ (최고급)  
-**상태**: ⏳ 대기 중
+**🚀 이제 STARK처럼 간단한 Halo2를 구현해보자!**

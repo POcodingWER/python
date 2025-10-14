@@ -1,0 +1,32 @@
+[package]
+name = "halo_password_proof"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "aggregate_prove"
+path = "src/aggregate_prove.rs"
+
+[[bin]]
+name = "aggregate_verify"
+path = "src/aggregate_verify.rs"
+
+[lib]
+name = "halo_password_proof"
+path = "src/lib.rs"
+
+[dependencies]
+# 진짜 Halo2 암호학적 검증!
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+# 실제 암호학 라이브러리들
+halo2_proofs = "0.3"
+halo2curves = "0.6"
+ff = "0.13"
+group = "0.13"
+rand = "0.8"
+hex = "0.4"
+
+[dev-dependencies]
+# 테스트용 의존성은 나중에 추가

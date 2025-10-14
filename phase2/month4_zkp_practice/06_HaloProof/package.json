@@ -1,0 +1,24 @@
+{
+    "name": "halo2-password-proof",
+    "version": "1.0.0",
+    "description": "Simple Halo2 Zero-Knowledge Password Proof",
+    "main": "index.js",
+    "scripts": {
+        "start": "echo '🌀 진짜 Halo2 영지식 증명!' && echo '📖 README.md를 먼저 읽어보세요!' && echo '🚀 npm run demo로 전체 과정 실행!'",
+        "build": "cargo build --release",
+        "test": "cargo test -- --nocapture",
+        "prove": "cargo run --bin aggregate_prove",
+        "verify": "cargo run --bin aggregate_verify",
+        "demo": "echo '🎯 진짜 Halo2 증명 과정 시연!' && echo '' && echo '1️⃣ Rust 컴파일...' && npm run build && echo '' && echo '2️⃣ 테스트 실행...' && npm run test && echo '' && echo '3️⃣ Alice가 증명 생성...' && npm run prove && echo '' && echo '4️⃣ Bob이 검증...' && npm run verify",
+        "clean": "cargo clean && rm -rf proofs/*.json proofs/*.bin verifier/*.bin verifier/*.txt 2>/dev/null || true",
+        "status": "echo '📁 프로젝트 상태:' && ls -la && echo '' && echo '📄 증명 파일들:' && ls -la proofs/ 2>/dev/null || echo '증명 파일 없음'"
+    },
+    "keywords": [
+        "halo2",
+        "rust",
+        "zero-knowledge",
+        "zkp"
+    ],
+    "author": "",
+    "license": "ISC"
+}
