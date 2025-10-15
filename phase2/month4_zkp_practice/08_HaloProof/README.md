@@ -75,7 +75,7 @@ cargo run --bin verify
 ## 📁 간단한 폴더 구조
 
 ```
-06_HaloProof/
+08_HaloProof/
 ├── README.md                # 이 파일
 ├── Cargo.toml              # Rust 프로젝트 설정
 ├── src/

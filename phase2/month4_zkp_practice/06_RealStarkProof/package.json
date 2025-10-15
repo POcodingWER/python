@@ -1,0 +1,22 @@
+{
+    "name": "real-stark-proof",
+    "version": "1.0.0",
+    "description": "진짜 STARK 영지식 증명 - 교육용이 아닌 실제 암호학적 검증",
+    "scripts": {
+        "install-deps": "cargo build --release",
+        "prove": "cargo run --bin prover --release",
+        "verify": "cargo run --bin verifier --release",
+        "clean": "rm -rf proofs/* target/",
+        "start": "echo '🔥 진짜 STARK 영지식 증명' && echo '1. npm run install-deps  # Rust 의존성 설치' && echo '2. npm run prove         # Alice: 증명 생성' && echo '3. npm run verify        # Bob: 증명 검증' && echo '4. inputs/secret.json 에서 비밀 수정 가능'"
+    },
+    "keywords": [
+        "stark",
+        "zkp",
+        "zero-knowledge",
+        "rust",
+        "cairo",
+        "cryptography"
+    ],
+    "author": "ZKP Student",
+    "license": "MIT"
+}

@@ -1,0 +1,22 @@
+{
+    "name": "arkworks-stark-library",
+    "version": "1.0.0",
+    "description": "🔥 Arkworks 라이브러리 기반 다항식 증명",
+    "scripts": {
+        "install-deps": "cargo build --release",
+        "prove": "cargo run --bin prover --release",
+        "verify": "cargo run --bin verifier --release",
+        "demo": "npm run prove && npm run verify",
+        "clean": "rm -rf proofs/* target/",
+        "start": "echo '🚀 Arkworks 라이브러리 STARK 데모' && echo '1️⃣ npm run prove - Alice가 증명 생성' && echo '2️⃣ npm run verify - Bob이 증명 검증' && echo '3️⃣ npm run demo - 전체 과정 실행' && echo '📁 결과: proofs/alice_proof.json'"
+    },
+    "keywords": [
+        "arkworks",
+        "polynomial",
+        "zkp",
+        "zero-knowledge",
+        "rust"
+    ],
+    "author": "ZKP Student",
+    "license": "MIT"
+}
