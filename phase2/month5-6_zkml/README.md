@@ -1,5 +1,109 @@
 # Month 5-6: ZKML - Zero-Knowledge Machine Learning 🧠🔐
 
+> **AI + 영지식증명의 결합!** 프라이버시를 보호하면서 AI 예측을 검증하는 기술을 배웁니다.
+
+---
+
+## 🚀 5초 만에 시작하기
+
+```bash
+npm run setup    # 1️⃣ 처음 한번만 실행
+npm run example  # 2️⃣ 첫 ZKML 예제 실행
+```
+
+**끝!** 🎉 이제 ZKML이 실행됐어요!
+
+---
+
+## 📦 주요 명령어
+
+| 명령어            | 설명                  | 언제 사용?                     |
+| ----------------- | --------------------- | ------------------------------ |
+| `npm run setup`   | 전체 설정 (원클릭)    | **처음 한번만**                |
+| `npm run example` | 예제 코드 실행        | ZKML 코드 테스트할 때          |
+| `npm run jupyter` | Jupyter Notebook 실행 | 노트북으로 학습할 때           |
+| `npm test`        | 설치 확인             | 제대로 설치됐는지 확인할 때    |
+| `npm run clean`   | 가상환경 삭제         | 처음부터 다시 설치하고 싶을 때 |
+| `npm run help`    | 도움말 보기           | 명령어를 잊어버렸을 때         |
+
+---
+
+## 📂 프로젝트 구조
+
+```
+phase2/month5-6_zkml/
+├── 📁 ezkl/                # EZKL 라이브러리 (참고용)
+│   └── examples/           # 40+ 공식 예제
+├── 📁 week1_ezkl_basics/   # 🔥 여기서 실습!
+│   └── *.py                # Python 실습 코드
+├── 📁 zkml_env/            # Python 가상환경 (자동 생성)
+├── 📁 scripts/             # 설정 스크립트
+├── 📄 package.json         # NPM 명령어 설정
+└── 📄 README.md            # 이 파일
+```
+
+**💡 Tip:** `week1_ezkl_basics/` 폴더에서 주로 작업하게 됩니다!
+
+---
+
+## 🎯 학습 흐름
+
+### **1단계: 환경 설정** ⚙️
+
+```bash
+npm run setup
+```
+
+이 명령어가 자동으로:
+
+- 1️⃣ EZKL 다운로드
+- 2️⃣ Python 가상환경 생성
+- 3️⃣ 필수 패키지 설치 (PyTorch, ONNX, EZKL 등)
+- 4️⃣ 설치 확인
+
+### **2단계: 첫 예제 실행** 🧪
+
+```bash
+npm run example
+```
+
+**실행 결과:**
+
+```
+🧠 ZKML 첫 걸음: 선형 회귀 → ZK 회로
+📊 모델: y = 2x + 1
+🧮 테스트: x=3.0 → y=7.00
+✅ ONNX 모델 저장 완료
+✅ 설정 파일 생성 완료
+🚀 ZKML 첫 예제 준비 완료!
+```
+
+### 수동설정
+
+```bash
+# 1. EZKL 다운로드
+git clone https://github.com/zkonduit/ezkl.git
+
+# 2. 가상환경 생성
+python3 -m venv zkml_env
+
+# 3. 가상환경 활성화
+source zkml_env/bin/activate  # Mac/Linux
+# zkml_env\Scripts\activate   # Windows
+
+# 4. 패키지 설치
+pip install ezkl torch torchvision onnx onnxruntime \
+            scikit-learn numpy matplotlib jupyter
+
+# 5. 확인
+python -c "import ezkl; print('✅ EZKL OK')"
+
+# 6. 종료
+deactivate
+```
+
+---
+
 ## 📋 학습 목표
 
 **AI + ZKP의 완벽한 결합!** Phase 1에서 이론을, Month 3-4에서 실전을 배웠으니 이제 최신 기술 융합!
