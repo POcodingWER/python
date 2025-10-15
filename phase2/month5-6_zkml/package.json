@@ -5,7 +5,7 @@
     "scripts": {
         "setup": "npm run setup:clone && npm run setup:venv && npm run setup:install && npm run setup:check",
         "setup:clone": "if [ -d ezkl ]; then echo '⚠️  ezkl 폴더가 이미 존재합니다.'; else echo '1️⃣ EZKL 다운로드 중...' && git clone https://github.com/zkonduit/ezkl.git && echo '✅ EZKL 다운로드 완료!'; fi",
-        "setup:venv": "if [ -d zkml_env ]; then echo '⚠️  zkml_env가 이미 존재합니다.'; else echo '2️⃣ Python 가상환경 생성 중...' && python3 -m venv zkml_env && echo '✅ 가상환경 생성 완료!'; fi",
+        "setup:venv": "if [ -d zkml_env ]; then echo '⚠️  zkml_env가 이미 존재합니다.'; else echo '2️⃣ Python 가상환경 생성 중...' && python3.10 -m venv zkml_env && echo '✅ 가상환경 생성 완료!'; fi",
         "setup:install": "echo '3️⃣ 필수 패키지 설치 중...' && bash scripts/install-packages.sh",
         "setup:check": "echo '4️⃣ 설치 확인 중...' && source zkml_env/bin/activate && python -c 'import ezkl; print(\"✅ EZKL: OK\")' && python -c 'import torch; print(\"✅ PyTorch:\", torch.__version__)' && python -c 'import onnx; print(\"✅ ONNX:\", onnx.__version__)'",
         "example": "source zkml_env/bin/activate && cd week1_ezkl_basics && python 01_simple_linear_regression.py",

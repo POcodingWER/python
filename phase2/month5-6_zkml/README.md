@@ -85,7 +85,7 @@ npm run example
 git clone https://github.com/zkonduit/ezkl.git
 
 # 2. 가상환경 생성
-python3 -m venv zkml_env
+python3.10 -m venv zkml_env
 
 # 3. 가상환경 활성화
 source zkml_env/bin/activate  # Mac/Linux
