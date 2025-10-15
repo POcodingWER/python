@@ -1,0 +1,32 @@
+{
+    "name": "zkp-comparison-benchmark",
+    "version": "1.0.0",
+    "description": "ZKP 프로토콜 성능 비교 도구 (SNARK vs STARK vs Halo2)",
+    "main": "benchmark.js",
+    "scripts": {
+        "start": "echo '🚀 ZKP 벤치마크 도구 시작!' && node benchmark.js",
+        "benchmark": "node benchmark.js",
+        "snark-only": "node benchmark.js --protocol=snark",
+        "stark-only": "node benchmark.js --protocol=stark",
+        "halo2-only": "node benchmark.js --protocol=halo2",
+        "install-deps": "echo '📦 의존성 설치 중...' && npm install",
+        "clean": "rm -rf results/ && mkdir -p results",
+        "report": "node generate_report.js"
+    },
+    "dependencies": {
+        "fs-extra": "^11.1.1",
+        "chalk": "^4.1.2",
+        "cli-table3": "^0.6.3",
+        "performance-now": "^2.1.0"
+    },
+    "keywords": [
+        "zkp",
+        "snark",
+        "stark",
+        "halo2",
+        "benchmark",
+        "comparison"
+    ],
+    "author": "ZKP Practice Team",
+    "license": "MIT"
+}
