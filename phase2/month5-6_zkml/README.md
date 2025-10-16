@@ -20,7 +20,8 @@ npm run example  # 2️⃣ 첫 ZKML 예제 실행
 | 명령어            | 설명                  | 언제 사용?                     |
 | ----------------- | --------------------- | ------------------------------ |
 | `npm run setup`   | 전체 설정 (원클릭)    | **처음 한번만**                |
-| `npm run example` | 예제 코드 실행        | ZKML 코드 테스트할 때          |
+| `npm run week1`   | Week 1 예제 (~30초)   | 선형 회귀 ZKML 실행            |
+| `npm run week2`   | Week 2 예제 (~2분)    | MLP (Iris) ZKML 실행 ✅        |
 | `npm run jupyter` | Jupyter Notebook 실행 | 노트북으로 학습할 때           |
 | `npm test`        | 설치 확인             | 제대로 설치됐는지 확인할 때    |
 | `npm run clean`   | 가상환경 삭제         | 처음부터 다시 설치하고 싶을 때 |
@@ -34,15 +35,17 @@ npm run example  # 2️⃣ 첫 ZKML 예제 실행
 phase2/month5-6_zkml/
 ├── 📁 ezkl/                # EZKL 라이브러리 (참고용)
 │   └── examples/           # 40+ 공식 예제
-├── 📁 week1_ezkl_basics/   # 🔥 여기서 실습!
-│   └── *.py                # Python 실습 코드
+├── 📁 week1_ezkl_basics/   # Week 1: 선형 회귀 (완료 ✅)
+│   └── 01_simple_linear_regression.py
+├── 📁 week2_real_models/   # Week 2: MLP (완료 ✅)
+│   └── 01_mlp_zkml.py      # Iris 분류
 ├── 📁 zkml_env/            # Python 가상환경 (자동 생성)
 ├── 📁 scripts/             # 설정 스크립트
 ├── 📄 package.json         # NPM 명령어 설정
 └── 📄 README.md            # 이 파일
 ```
 
-**💡 Tip:** `week1_ezkl_basics/` 폴더에서 주로 작업하게 됩니다!
+**💡 Tip:** Week 1부터 순서대로 진행하세요!
 
 ---
 
@@ -61,10 +64,10 @@ npm run setup
 - 3️⃣ 필수 패키지 설치 (PyTorch, ONNX, EZKL 등)
 - 4️⃣ 설치 확인
 
-### **2단계: 첫 예제 실행** 🧪
+### **2단계: Week 1 예제 실행** 🧪
 
 ```bash
-npm run example
+npm run week1
 ```
 
 **실행 결과:**
@@ -73,9 +76,24 @@ npm run example
 🧠 ZKML 첫 걸음: 선형 회귀 → ZK 회로
 📊 모델: y = 2x + 1
 🧮 테스트: x=3.0 → y=7.00
-✅ ONNX 모델 저장 완료
-✅ 설정 파일 생성 완료
-🚀 ZKML 첫 예제 준비 완료!
+✅ 증명 생성 완료 (~30초)
+🎉 검증 성공!
+```
+
+### **3단계: Week 2 예제 실행** 🚀
+
+```bash
+npm run week2
+```
+
+**실행 결과:**
+
+```
+🧠 Week 2-1: MLP → ZKML
+📊 아이리스 분류 (3개 클래스)
+✅ 훈련 정확도: 100%
+✅ 증명 생성 완료 (~2분)
+🎉 검증 성공!
 ```
 
 ### 수동설정
@@ -127,35 +145,40 @@ deactivate
 
 ## 🔥 **Month 5: ZKML 기초 & EZKL**
 
-### Week 1: EZKL 환경 & 첫 ZKML 구현
+### Week 1: EZKL 환경 & 첫 ZKML 구현 ✅
 
-- [ ] **EZKL 환경 구축**
+- [x] **EZKL 환경 구축** ✅
 
-  - [ ] Rust 설치 및 EZKL 빌드
-  - [ ] Python-Rust 인터페이스 설정
-  - [ ] ONNX 모델 변환 파이프라인
-  - [ ] 개발 환경 최적화
+  - [x] Rust 설치 및 EZKL 빌드 (완료)
+  - [x] Python 인터페이스 설정 (완료)
+  - [x] ONNX 모델 변환 파이프라인 (완료)
+  - [x] 개발 환경 최적화 (완료)
 
-- [ ] **첫 ZKML 예제**
-  - [ ] 간단한 선형 회귀 → ZK 회로
-  - [ ] MNIST 숫자 분류 → ZKML
-  - [ ] 추론 시간 vs 증명 시간 비교
-  - [ ] Phase 1 Python 구현과 벤치마크
+- [x] **첫 ZKML 예제** ✅
+  - [x] 간단한 선형 회귀 → ZK 회로 (완료)
+  - [x] 추론 시간 vs 증명 시간 비교 (완료)
+  - [ ] MNIST 숫자 분류 → ZKML (Week 2-2로 이동)
 
-### Week 2: ML 모델 → ZK 회로 변환
+**Week 1 완료**: 선형 회귀 실행 성공 ✅  
+**다음**: Week 2 MLP 모델
 
-- [ ] **신경망 변환 마스터**
+### Week 2: ML 모델 → ZK 회로 변환 ✅
 
-  - [ ] Dense Layer → ZK 제약조건
-  - [ ] ReLU, Sigmoid 활성화 함수
-  - [ ] Batch Normalization 처리
-  - [ ] 모델 크기 vs 회로 복잡도
+- [x] **신경망 변환 마스터** ✅
 
-- [ ] **Month 3 프로젝트 포팅**
-  - [ ] CNN 모델 → ZKML 변환
-  - [ ] RNN 모델 → ZKML 변환
+  - [x] Linear Layer → ZK 제약조건 (완료)
+  - [x] MLP (Iris 분류) → ZKML 변환 (완료)
+  - [x] 모델 크기 vs 회로 복잡도 분석 (완료)
+  - [ ] ReLU, Sigmoid 활성화 함수 (EZKL 호환성 대기)
+
+- [ ] **Month 3 프로젝트 포팅** (Week 3-4로 이동)
+  - [ ] CNN 모델 → ZKML 변환 (대형 모델)
+  - [ ] RNN 모델 → ZKML 변환 (순환 구조)
   - [ ] 성능 비교 및 최적화
   - [ ] 실용성 평가
+
+**Week 2 완료**: MLP (Iris) 실행 성공 ✅  
+**다음**: 모델 최적화 및 고급 기법
 
 ### Week 3: 고급 ZKML 기법
 
