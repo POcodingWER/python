@@ -26,6 +26,10 @@ else
     echo "📊 ONNX 설치 중..."
     "$PROJECT_DIR/zkml_env/bin/pip" install --only-binary :all: onnx onnxruntime
     
+    # ONNX 관련 추가 패키지
+    echo "📝 ONNX Script 설치 중..."
+    "$PROJECT_DIR/zkml_env/bin/pip" install onnxscript
+    
     # 나머지 패키지
     echo "🛠️  추가 패키지 설치 중..."
     "$PROJECT_DIR/zkml_env/bin/pip" install ezkl scikit-learn matplotlib jupyter hummingbird-ml
@@ -37,6 +41,6 @@ echo ""
 echo "설치된 패키지:"
 echo "  - ezkl (ZKML 프레임워크)"
 echo "  - torch (PyTorch)"
-echo "  - onnx (모델 변환)"
+echo "  - onnx + onnxscript (모델 변환)"
 echo "  - jupyter (노트북)"
 

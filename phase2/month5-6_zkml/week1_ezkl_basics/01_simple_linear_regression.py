@@ -13,6 +13,7 @@ import onnx
 import ezkl
 import os
 import json
+import asyncio
 
 print("🧠 ZKML 첫 걸음: 선형 회귀 → ZK 회로")
 print("=" * 50)
@@ -54,11 +55,8 @@ torch.onnx.export(
     opset_version=11,
     do_constant_folding=True,
     input_names=['input'],
-    output_names=['output'],
-    dynamic_axes={
-        'input': {0: 'batch_size'},
-        'output': {0: 'batch_size'}
-    }
+    output_names=['output']
+    # EZKL을 위해 dynamic_axes 제거 (고정 배치 크기 사용)
 )
 
 print(f"✅ ONNX 모델 저장: {onnx_path}")
@@ -77,9 +75,9 @@ def create_ezkl_config():
                 "val": 0.0,
                 "scale": 1.0
             },
-            "input_visibility": "public",
-            "output_visibility": "public",
-            "param_visibility": "fixed"
+            "input_visibility": "Public",   # 입력 공개
+            "output_visibility": "Public",  # 출력 공개
+            "param_visibility": "Fixed"     # 파라미터 숨김
         }
     }
     
@@ -90,9 +88,9 @@ def create_ezkl_config():
 
 create_ezkl_config()
 
-# 7. 입력 데이터 JSON 파일 생성
+# 7. 입력 데이터 JSON 파일 생성 (EZKL 형식)
 input_data = {
-    "input_data": [[[3.0]]]  # EZKL 형식에 맞게 3차원 배열
+    "input_data": [[3.0]]  # EZKL이 기대하는 간단한 형식
 }
 
 with open("input.json", "w") as f:
@@ -100,12 +98,83 @@ with open("input.json", "w") as f:
 
 print("✅ 입력 데이터 파일 생성: input.json")
 
-print("\n🎯 다음 단계:")
-print("1. ezkl gen-settings 실행")
-print("2. ezkl calibrate-settings 실행")
-print("3. ezkl compile-circuit 실행")
-print("4. ezkl setup 실행")
-print("5. ezkl prove 실행")
-print("6. ezkl verify 실행")
+# ========================================
+# EZKL 워크플로우 자동화
+# ========================================
+async def run_ezkl_workflow():
+    """EZKL 전체 워크플로우 실행 (Async)"""
+    print("\n" + "="*50)
+    print("🔧 EZKL 워크플로우 시작")
+    print("="*50)
 
-print("\n🚀 ZKML 첫 예제 준비 완료!")
+    # 파일 경로 정의
+    model_path = "simple_linear.onnx"
+    compiled_model_path = "network.ezkl"
+    settings_path = "settings.json"
+    witness_path = "witness.json"
+    pk_path = "test.pk"
+    vk_path = "test.vk"
+    proof_path = "test.pf"
+    srs_path = "kzg.srs"
+    data_path = "input.json"
+
+    # Step 1: Settings 생성
+    print("\n[1/7] 📝 Settings 생성 중...")
+    ezkl.gen_settings(model_path, settings_path)
+    print("✅ Settings 생성 완료")
+
+    # Step 2: 회로 컴파일
+    print("\n[2/7] 🔨 ZK 회로 컴파일 중...")
+    ezkl.compile_circuit(model_path, compiled_model_path, settings_path)
+    print("✅ 회로 컴파일 완료")
+
+    # Step 3: SRS 확인/다운로드
+    print("\n[3/7] 🎲 SRS 준비 중...")
+    if not os.path.exists(srs_path):
+        print("  SRS 다운로드 시도...")
+        try:
+            await ezkl.get_srs(settings_path, srs_path=srs_path)
+        except:
+            print("  ⚠️  다운로드 실패, CLI로 생성 시도...")
+            os.system(f"ezkl gen-srs --srs-path={srs_path} --logrows=17")
+    else:
+        print("  기존 SRS 파일 사용")
+    print("✅ SRS 준비 완료")
+
+    # Step 4: Setup (키 생성)
+    print("\n[4/7] 🔑 증명/검증 키 생성 중...")
+    ezkl.setup(compiled_model_path, vk_path, pk_path, srs_path)
+    print("✅ 키 생성 완료")
+
+    # Step 5: Witness 생성
+    print("\n[5/7] ⚡ Witness 생성 중...")
+    ezkl.gen_witness(data_path, compiled_model_path, witness_path)
+    print("✅ Witness 생성 완료")
+
+    # Step 6: 증명 생성
+    print("\n[6/7] 🔐 ZK 증명 생성 중...")
+    ezkl.prove(witness_path, compiled_model_path, pk_path, proof_path, "single", srs_path)
+    print("✅ 증명 생성 완료")
+
+    # Step 7: 증명 검증
+    print("\n[7/7] ✅ 증명 검증 중...")
+    result = ezkl.verify(proof_path, settings_path, vk_path, srs_path)
+
+    print("\n" + "="*50)
+    if result:
+        print("🎉 검증 성공! ZK 증명이 유효합니다!")
+    else:
+        print("❌ 검증 실패!")
+    print("="*50)
+
+    print("\n📁 생성된 파일:")
+    print(f"  - {model_path} (ONNX 모델)")
+    print(f"  - {compiled_model_path} (ZK 회로)")
+    print(f"  - {proof_path} (ZK 증명)")
+    print(f"  - {vk_path} (검증 키)")
+    print(f"  - {pk_path} (증명 키)")
+
+    print("\n🚀 ZKML 전체 워크플로우 완료!")
+
+# 워크플로우 실행
+asyncio.run(run_ezkl_workflow())

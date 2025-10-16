@@ -1,0 +1,12 @@
+# ZKML 생성 파일들
+*.onnx
+*.onnx.data
+network.ezkl
+settings.json
+input.json
+witness.json
+*.pf
+*.pk
+*.vk
+kzg.srs
+
