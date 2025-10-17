@@ -6,14 +6,15 @@
 
 ## 📚 학습한 모델 목록
 
-| 모델                  | 파일                                   | 복잡도       | ZKML 적용 | 현재 상태      |
-| --------------------- | -------------------------------------- | ------------ | --------- | -------------- |
-| **Linear Regression** | 01_pytorch_basics.ipynb                | ⭐           | ✅ 완료   | Week 1 ✅      |
-| **MLP (분류)**        | 02_classification_neural_network.ipynb | ⭐⭐         | ✅ 완료   | Week 2 ✅      |
-| **CNN**               | 03_cnn_basics.ipynb                    | ⭐⭐⭐⭐     | ⚠️ 대기   | EZKL Opset 18  |
-| **RNN**               | 04_rnn_basics.ipynb                    | ⭐⭐⭐⭐     | ⚠️ 대기   | 순환 구조 복잡 |
-| **LSTM**              | 05_lstm_advanced.ipynb                 | ⭐⭐⭐⭐⭐   | ⚠️ 대기   | Gate 구조 복잡 |
-| **Transformer**       | 06_transformer_attention.ipynb         | ⭐⭐⭐⭐⭐⭐ | ❌ 어려움 | Attention 복잡 |
+| 모델                  | 파일                                   | 복잡도       | ZKML 적용 | 현재 상태        |
+| --------------------- | -------------------------------------- | ------------ | --------- | ---------------- |
+| **Linear Regression** | 01_pytorch_basics.ipynb                | ⭐           | ✅ 완료   | Week 1 ✅        |
+| **MLP (분류)**        | 02_classification_neural_network.ipynb | ⭐⭐         | ✅ 완료   | Week 2 ✅        |
+| **Tiny MLP (MNIST)**  | -                                      | ⭐⭐⭐       | ✅ 완료   | Week 3 ✅        |
+| **CNN**               | 03_cnn_basics.ipynb                    | ⭐⭐⭐⭐     | ❌ 불가   | Conv2d 미지원    |
+| **RNN**               | 04_rnn_basics.ipynb                    | ⭐⭐⭐⭐     | ❌ 불가   | 순환 구조 미지원 |
+| **LSTM**              | 05_lstm_advanced.ipynb                 | ⭐⭐⭐⭐⭐   | ❌ 불가   | Gate 구조 미지원 |
+| **Transformer**       | 06_transformer_attention.ipynb         | ⭐⭐⭐⭐⭐⭐ | ❌ 불가   | Attention 미지원 |
 
 ---
 
@@ -249,19 +250,57 @@ class SentimentRNN(nn.Module):
 - **순환 구조**: t-1 출력 → t 입력
 - **시퀀스 처리**: 가변 길이 입력
 
-### ⚠️ ZKML 적용 (어려움)
+### ❌ ZKML 적용 (Week 3 실험 완료 - 불가능 확인)
+
+**파일**: `week3_cnn_challenge/02_tiny_rnn_zkml.py` (실험)
+
+**실험 결과**:
+
+| 시도                | ONNX 연산                          | Settings | Calibration | 결과 |
+| ------------------- | ---------------------------------- | -------- | ----------- | ---- |
+| `nn.RNN`            | `RNN`, `Gemm`, `Gather`, `Squeeze` | ✅       | ❌          | 실패 |
+| Unrolled RNN        | `Gemm`, `Gather`, `Add`            | ✅       | ❌          | 실패 |
+| Flat RNN (MLP 변형) | `Gemm`                             | ✅       | ✅          | 성공 |
 
 **문제점**:
 
-1. ❌ Embedding → 정수 인덱스 입력 (ONNX 변환 복잡)
-2. ❌ 순환 구조 → ONNX에서 펼쳐진(unrolled) 구조로 변환
-3. ❌ 가변 길이 → EZKL은 고정 길이만 지원
-4. ❌ Hidden state → ZK 회로 복잡도 급증
+1. ❌ `RNN` 연산 자체 미지원 (EZKL)
+2. ❌ `Gather` (인덱싱) 미지원
+3. ❌ `Squeeze/Unsqueeze` 미지원
+4. ❌ 순환 구조 (Loop/Scan) 미지원
+5. ❌ Embedding → 정수 인덱스 처리 복잡
+6. ❌ 가변 길이 → EZKL은 고정 길이만 지원
+
+**성공한 것**:
+
+```python
+# "Flat RNN" - 사실상 MLP
+class FlatRNN(nn.Module):
+    def __init__(self):
+        self.fc1 = nn.Linear(3, 4)  # [a,b,c] → hidden
+        self.fc2 = nn.Linear(4, 1)  # hidden → output
+
+    def forward(self, x):
+        # x: (batch, 3) - 이미 flatten된 시퀀스
+        # 시간적 순서를 고려하지 않음 (단순 MLP)
+        return self.fc2(self.fc1(x))
+```
+
+- ✅ ZKML 변환 성공
+- ✅ 증명 시간: 1.1초
+- ⚠️ 하지만 진짜 RNN이 아님 (시퀀스 순서 무시)
+
+**결론**:
+
+- **진짜 RNN은 현재 ZKML 불가능**
+- Time-Delay MLP나 1D CNN 같은 대안 필요
+- 또는 다른 ZKML 프레임워크 탐색 필요
 
 **실무 대안**:
 
-- Transformer 사용 (순환 구조 없음)
-- 또는 단순 MLP로 시작
+- ✅ Time-Delay MLP (시간 윈도우 flatten)
+- ✅ 1D CNN (가능성 있음)
+- ⚠️ Transformer (Attention 미지원으로 어려움)
 
 ---
 
@@ -374,29 +413,29 @@ class TransformerBlock(nn.Module):
 
 ---
 
-## 🎯 ZKML 적용 가능성 요약
+## 🎯 ZKML 적용 가능성 요약 (2025년 기준)
 
-### ✅ **현재 가능** (Week 1-2)
-
-```
-Linear Regression  ⭐       30초    ✅ 완료
-MLP (Iris)         ⭐⭐     2분     ✅ 완료
-```
-
-### ⚠️ **최적화 필요** (Week 3-4)
+### ✅ **현재 가능** (Week 1-3)
 
 ```
-단순 MLP (MNIST)   ⭐⭐⭐   5-15분  🔧 작업 중
-경량 CNN           ⭐⭐⭐⭐  30분+   ⚠️ 대기
+Linear Regression  ⭐       ~30초    ✅ 완료
+MLP (Iris)         ⭐⭐     ~2분     ✅ 완료
+Tiny MLP (MNIST)   ⭐⭐⭐   5-10분   ✅ 완료
 ```
 
-### ❌ **현재 어려움** (Month 6+)
+### ❌ **현재 불가능** (실험 완료)
 
 ```
-Full CNN           ⭐⭐⭐⭐⭐     몇 시간  ❌ 불가
-RNN/LSTM           ⭐⭐⭐⭐⭐⭐    몇 시간  ❌ 불가
-Transformer        ⭐⭐⭐⭐⭐⭐⭐   며칠     ❌ 불가
+Full CNN           ⭐⭐⭐⭐⭐     N/A      ❌ Conv2d 미지원
+RNN/LSTM           ⭐⭐⭐⭐⭐⭐    N/A      ❌ 순환 구조 미지원
+Transformer        ⭐⭐⭐⭐⭐⭐⭐   N/A      ❌ Attention 미지원
 ```
+
+### 💡 **핵심 결론**
+
+- ✅ **가능**: Linear, 간단한 MLP (파라미터 ~3,000개까지)
+- ❌ **불가능**: RNN, CNN, Transformer (ONNX Opset 18 + EZKL 미지원)
+- ⚠️ **현실**: 2025년 ZKML은 연구/POC 단계, 상용화 어려움
 
 ---
 
