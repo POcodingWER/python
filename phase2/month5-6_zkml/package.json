@@ -10,6 +10,8 @@
         "setup:check": "echo '4️⃣ 설치 확인 중...' && source zkml_env/bin/activate && python -c 'import ezkl; print(\"✅ EZKL: OK\")' && python -c 'import torch; print(\"✅ PyTorch:\", torch.__version__)' && python -c 'import onnx; print(\"✅ ONNX:\", onnx.__version__)'",
         "week1": "source zkml_env/bin/activate && cd week1_ezkl_basics && python 01_simple_linear_regression.py",
         "week2": "source zkml_env/bin/activate && cd week2_real_models && python 01_mlp_zkml.py",
+        "week3": "source zkml_env/bin/activate && cd week3_cnn_challenge && python 01_tiny_mlp_zkml.py",
+        "week3_mnist": "source zkml_env/bin/activate && cd week3_cnn_challenge && python 01_mnist_mlp_zkml.py",
         "jupyter": "source zkml_env/bin/activate && jupyter notebook",
         "jupyter:ezkl": "source zkml_env/bin/activate && cd ezkl/examples/notebooks && jupyter notebook",
         "test": "source zkml_env/bin/activate && python -c 'import ezkl; import torch; import onnx; print(\"✅ All packages working!\")'",

@@ -1,0 +1,25 @@
+# MNIST 데이터
+data/
+
+# ONNX 모델
+*.onnx
+*.onnx.data
+
+# EZKL 생성 파일
+network.ezkl
+settings.json
+input.json
+witness.json
+*.pf
+*.pk
+*.vk
+kzg.srs
+
+# 로그
+*.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+

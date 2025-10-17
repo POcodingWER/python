@@ -22,6 +22,7 @@ npm run example  # 2️⃣ 첫 ZKML 예제 실행
 | `npm run setup`   | 전체 설정 (원클릭)    | **처음 한번만**                |
 | `npm run week1`   | Week 1 예제 (~30초)   | 선형 회귀 ZKML 실행            |
 | `npm run week2`   | Week 2 예제 (~2분)    | MLP (Iris) ZKML 실행 ✅        |
+| `npm run week3`   | Week 3 예제 (~5-10분) | Tiny MLP (MNIST) ZKML 실행 ✅  |
 | `npm run jupyter` | Jupyter Notebook 실행 | 노트북으로 학습할 때           |
 | `npm test`        | 설치 확인             | 제대로 설치됐는지 확인할 때    |
 | `npm run clean`   | 가상환경 삭제         | 처음부터 다시 설치하고 싶을 때 |
@@ -33,16 +34,19 @@ npm run example  # 2️⃣ 첫 ZKML 예제 실행
 
 ```
 phase2/month5-6_zkml/
-├── 📁 ezkl/                # EZKL 라이브러리 (참고용)
-│   └── examples/           # 40+ 공식 예제
-├── 📁 week1_ezkl_basics/   # Week 1: 선형 회귀 (완료 ✅)
+├── 📁 ezkl/                   # EZKL 라이브러리 (참고용)
+│   └── examples/              # 40+ 공식 예제
+├── 📁 week1_ezkl_basics/      # Week 1: 선형 회귀 (완료 ✅)
 │   └── 01_simple_linear_regression.py
-├── 📁 week2_real_models/   # Week 2: MLP (완료 ✅)
-│   └── 01_mlp_zkml.py      # Iris 분류
-├── 📁 zkml_env/            # Python 가상환경 (자동 생성)
-├── 📁 scripts/             # 설정 스크립트
-├── 📄 package.json         # NPM 명령어 설정
-└── 📄 README.md            # 이 파일
+├── 📁 week2_real_models/      # Week 2: MLP (완료 ✅)
+│   └── 01_mlp_zkml.py         # Iris 분류
+├── 📁 week3_cnn_challenge/    # Week 3: MNIST MLP (완료 ✅)
+│   ├── 01_mnist_mlp_zkml.py   # 28×28 버전
+│   └── 01_tiny_mlp_zkml.py    # 14×14 버전 (성공!)
+├── 📁 zkml_env/               # Python 가상환경 (PyTorch 1.13)
+├── 📁 scripts/                # 설정 스크립트
+├── 📄 package.json            # NPM 명령어 설정
+└── 📄 README.md               # 이 파일
 ```
 
 **💡 Tip:** Week 1부터 순서대로 진행하세요!
@@ -93,6 +97,23 @@ npm run week2
 📊 아이리스 분류 (3개 클래스)
 ✅ 훈련 정확도: 100%
 ✅ 증명 생성 완료 (~2분)
+🎉 검증 성공!
+```
+
+### **4단계: Week 3 예제 실행** 🎯
+
+```bash
+npm run week3
+```
+
+**실행 결과:**
+
+```
+🧠 Week 3: Tiny MLP → ZKML
+📊 MNIST 손글씨 분류 (14×14, 10 클래스)
+✅ 테스트 정확도: 91.50%
+✅ 파라미터: 3,322개
+✅ 증명 생성 완료 (~5-10분)
 🎉 검증 성공!
 ```
 
@@ -180,20 +201,26 @@ deactivate
 **Week 2 완료**: MLP (Iris) 실행 성공 ✅  
 **다음**: 모델 최적화 및 고급 기법
 
-### Week 3: 고급 ZKML 기법
+### Week 3: CNN Challenge & PyTorch 1.13 환경 구축 ✅
 
-- [ ] **모델 압축 & 최적화**
+- [x] **CNN → ZKML 시도 및 문제 해결** ✅
 
-  - [ ] Quantization (양자화)
-  - [ ] Pruning (가지치기)
-  - [ ] Knowledge Distillation
-  - [ ] ZK-friendly 아키텍처 설계
+  - [x] MNIST MLP 시도 (14×14, 3,322 파라미터)
+  - [x] PyTorch 2.x + EZKL 호환성 문제 확인
+  - [x] ONNX Opset 18 → 11 변환 실패 원인 파악
+  - [x] **PyTorch 1.13 환경 구축으로 해결** ✅
 
-- [ ] **프라이버시 기법 결합**
-  - [ ] Differential Privacy + ZKML
-  - [ ] Federated Learning + ZK
-  - [ ] Homomorphic Encryption 비교
-  - [ ] 다양한 프라이버시 기법 벤치마크
+- [x] **최종 성공!** ✅
+  - [x] PyTorch 1.13.1 + NumPy 1.26.4 설치
+  - [x] ONNX Opset 11 정상 변환
+  - [x] Tiny MLP ZKML 완전 작동 (5-10분 증명)
+  - [x] `npm run week3` 스크립트 추가
+  - [x] 두 버전 비교 (`mnist_mlp` vs `tiny_mlp`)
+
+**Week 3 완료**: Tiny MLP ZKML 성공! ✅  
+**핵심 교훈**: PyTorch 1.13 사용 시 Linear 모델 작동 가능  
+**성능**: 91.50% 정확도, 3,322 파라미터, ~5-10분 증명  
+**다음**: Week 4 실전 프로젝트 또는 Month 4 (ZKP Practice)
 
 ### Week 4: 실전 ZKML 애플리케이션
 
