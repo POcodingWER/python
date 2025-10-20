@@ -1,0 +1,29 @@
+{
+    "name": "zkml-pyo3-binding",
+    "version": "1.0.0",
+    "description": "Week 3: PyO3 - Rust → Python Binding for ZKML",
+    "scripts": {
+        "setup": "npm run setup:venv && npm run setup:install && npm run setup:check",
+        "setup:venv": "[ -d .venv ] && echo '⚠️  .venv가 이미 존재합니다.' || (echo '1️⃣ Python 가상환경 생성 중...' && python3 -m venv .venv && echo '✅ 가상환경 생성 완료!')",
+        "setup:install": "echo '2️⃣ maturin 설치 중...' && source .venv/bin/activate && python3 -m pip install maturin && echo '✅ maturin 설치 완료!'",
+        "setup:check": "echo '3️⃣ 설치 확인 중...' && rustc --version && cargo --version && source .venv/bin/activate && python3 -c 'import maturin; print(\"✅ maturin: OK\")' && echo '✅ 모든 설정 완료!'",
+        "build": "source .venv/bin/activate && maturin develop --release",
+        "build:wheel": "source .venv/bin/activate && maturin build --release",
+        "test": "source .venv/bin/activate && python3 test_zkml_py.py",
+        "run": "npm run build && npm test",
+        "clean": "cargo clean && rm -rf .venv && echo '✅ 정리 완료!'",
+        "clean:build": "cargo clean",
+        "clean:venv": "rm -rf .venv && echo '✅ 가상환경 삭제 완료!'",
+        "help": "echo '\n🦀 PyO3 Python 바인딩 NPM Scripts 가이드\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n📦 설정 명령어:\n  npm run setup              - 전체 설정 (원클릭)\n  npm run setup:venv         - Python 가상환경 생성\n  npm run setup:install      - maturin 설치\n  npm run setup:check        - 설치 확인\n\n🔨 빌드 명령어:\n  npm run build              - Rust 컴파일 + Python 설치\n  npm run build:wheel        - Python wheel 생성\n\n🧪 테스트 명령어:\n  npm test                   - 성능 테스트 실행\n  npm run run                - 빌드 + 테스트 (한번에)\n\n🧹 정리 명령어:\n  npm run clean              - 전체 정리 (빌드 + venv)\n  npm run clean:build        - Rust 빌드만 정리\n  npm run clean:venv         - Python venv만 삭제\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n📌 빠른 시작:\n  1. npm run setup           (처음 한번만)\n  2. npm run run             (빌드 + 테스트)\n\n⚡ 코드 수정 후:\n  npm run build              (재빌드)\n  npm test                   (재테스트)\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n📊 성능 결과:\n  - 벡터 내적:     1.7배 빠름 ⚡\n  - 배치 처리:     3.2배 빠름 🚀\n  - 개별 호출:     0.88배 (오버헤드)\n\n💡 팁:\n  - 배치 처리를 사용하세요!\n  - 개별 호출은 오버헤드가 큽니다.\n'"
+    },
+    "keywords": [
+        "rust",
+        "python",
+        "pyo3",
+        "zkml",
+        "binding",
+        "performance"
+    ],
+    "author": "",
+    "license": "MIT"
+}
