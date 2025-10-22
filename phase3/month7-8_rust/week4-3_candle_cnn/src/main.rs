@@ -1,6 +1,6 @@
 // Week 4-3: CNN 합성곱 신경망(Convolutional Neural Network) 🧠
 // MNIST 손글씨 숫자 인식 모델
-//
+// 참고: https://wikidocs.net/64066
 // 🔥 CNN 구조:
 // 1. Conv2D (합성곱 레이어) - 이미지 특징 추출
 // 2. MaxPool2D (풀링) - 크기 축소
