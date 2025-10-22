@@ -1,4 +1,4 @@
-// Week 4-3: CNN (Convolutional Neural Network) 🧠
+// Week 4-3: CNN 합성곱 신경망(Convolutional Neural Network) 🧠
 // MNIST 손글씨 숫자 인식 모델
 //
 // 🔥 CNN 구조:
