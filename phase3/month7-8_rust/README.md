@@ -1,21 +1,21 @@
 # Month 7-8: Rust - 고성능 시스템 개발 ⚡
 
-> **완료일**: 2025-10-22  
+> **완료일**: 2025-10-23  
 > **진행 상황**: Week 1-4 완료 ✅ (Month 7 완전 마스터!)  
 > **성과**: Python 대비 **5,257배** 성능 향상 🚀  
-> **AI 모델**: CNN, RNN, LSTM 완전 구현 완료! 🎉
+> **AI 모델**: CNN, RNN, LSTM, **Transformer** 완전 구현 완료! 🎉
 
 ---
 
 ## 🎯 현재 상태
 
-| Week        | 내용           | 상태         | 성과                    |
-| ----------- | -------------- | ------------ | ----------------------- |
-| **Week 1**  | Rust 기초      | ✅ 완료      | 소유권 시스템 이해      |
-| **Week 2**  | ZKML Rust 구현 | ✅ 완료      | 5,257배 빠름!           |
-| **Week 3**  | PyO3 바인딩    | ✅ 완료      | 배치 처리 3.2배         |
-| **Week 4**  | Candle AI      | ✅ 완료      | CNN/RNN/LSTM 완전 마스터! 🎉 |
-| **Month 8** | 고성능 ZK      | 📍 다음 목표 | halo2 심화              |
+| Week        | 내용           | 상태         | 성과                                  |
+| ----------- | -------------- | ------------ | ------------------------------------- |
+| **Week 1**  | Rust 기초      | ✅ 완료      | 소유권 시스템 이해                    |
+| **Week 2**  | ZKML Rust 구현 | ✅ 완료      | 5,257배 빠름!                         |
+| **Week 3**  | PyO3 바인딩    | ✅ 완료      | 배치 처리 3.2배                       |
+| **Week 4**  | Candle AI      | ✅ 완료      | CNN/RNN/LSTM/Transformer 완전 마스터! |
+| **Month 8** | 고성능 ZK      | 📍 다음 목표 | halo2 심화                            |
 
 ---
 
@@ -126,17 +126,27 @@ Python으로 프로토타입을 만들었다면, 이제 **프로덕션 수준의
   - [x] 주식 가격 예측 구현 📈
 
 - [x] **모델 관리**
+
   - [x] safetensors 저장/불러오기
   - [x] Fine-tuning (추가 학습)
   - [x] 버전 관리 전략
   - [x] 47배 빠른 불러오기! ⚡
 
 - [x] **LSTM (장기 기억)** 🎉
+
   - [x] LSTM 구조 완전 이해
   - [x] 3개 게이트 (Forget, Input, Output)
   - [x] Cell State (장기 기억 저장소)
   - [x] 30일 주식 예측 (오차 33원!)
   - [x] Gradient Vanishing 문제 해결
+
+- [x] **Transformer (Attention)** 🚀
+  - [x] Self-Attention 메커니즘 이해
+  - [x] Query, Key, Value 구조
+  - [x] Multi-Head Attention 개념
+  - [x] Feed Forward & Layer Norm
+  - [x] 시퀀스 패턴 학습 ([1,2,3,4,5] → [2,3,4,5,6])
+  - [x] 정규화/역정규화로 일반화 향상
 
 ---
 
