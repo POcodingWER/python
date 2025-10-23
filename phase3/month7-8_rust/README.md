@@ -3,19 +3,19 @@
 > **완료일**: 2025-10-23  
 > **진행 상황**: Week 1-4 완료 ✅ (Month 7 완전 마스터!)  
 > **성과**: Python 대비 **5,257배** 성능 향상 🚀  
-> **AI 모델**: CNN, RNN, LSTM, **Transformer** 완전 구현 완료! 🎉
+> **AI 모델**: CNN, RNN, LSTM, Transformer, **Multi-Layer Transformer** 완전 구현 완료! 🎉
 
 ---
 
 ## 🎯 현재 상태
 
-| Week        | 내용           | 상태         | 성과                                  |
-| ----------- | -------------- | ------------ | ------------------------------------- |
-| **Week 1**  | Rust 기초      | ✅ 완료      | 소유권 시스템 이해                    |
-| **Week 2**  | ZKML Rust 구현 | ✅ 완료      | 5,257배 빠름!                         |
-| **Week 3**  | PyO3 바인딩    | ✅ 완료      | 배치 처리 3.2배                       |
-| **Week 4**  | Candle AI      | ✅ 완료      | CNN/RNN/LSTM/Transformer 완전 마스터! |
-| **Month 8** | 고성능 ZK      | 📍 다음 목표 | halo2 심화                            |
+| Week        | 내용           | 상태         | 성과                                              |
+| ----------- | -------------- | ------------ | ------------------------------------------------- |
+| **Week 1**  | Rust 기초      | ✅ 완료      | 소유권 시스템 이해                                |
+| **Week 2**  | ZKML Rust 구현 | ✅ 완료      | 5,257배 빠름!                                     |
+| **Week 3**  | PyO3 바인딩    | ✅ 완료      | 배치 처리 3.2배                                   |
+| **Week 4**  | Candle AI      | ✅ 완료      | CNN/RNN/LSTM/Transformer/Multi-Layer 완전 마스터! |
+| **Month 8** | 고성능 ZK      | 📍 다음 목표 | halo2 심화                                        |
 
 ---
 
@@ -141,12 +141,22 @@ Python으로 프로토타입을 만들었다면, 이제 **프로덕션 수준의
   - [x] Gradient Vanishing 문제 해결
 
 - [x] **Transformer (Attention)** 🚀
+
   - [x] Self-Attention 메커니즘 이해
   - [x] Query, Key, Value 구조
   - [x] Multi-Head Attention 개념
   - [x] Feed Forward & Layer Norm
   - [x] 시퀀스 패턴 학습 ([1,2,3,4,5] → [2,3,4,5,6])
   - [x] 정규화/역정규화로 일반화 향상
+
+- [x] **Multi-Layer Transformer (감성 분석)** 🎯
+  - [x] 3층 Transformer 구조 (Block 0 → Block 1 → Block 2)
+  - [x] Token Embedding (단어 → 벡터)
+  - [x] Positional Encoding (위치 정보)
+  - [x] 독립적인 가중치로 역할 분화
+  - [x] Feed Forward 은닉층 (32→64→32)
+  - [x] 감성 분석 구현 (긍정/부정 분류)
+  - [x] 90% 이상 정확도 달성! 🎉
 
 ---
 
