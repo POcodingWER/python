@@ -1,9 +1,9 @@
 # Month 7-8: Rust - 고성능 시스템 개발 ⚡
 
-> **완료일**: 2025-10-23  
+> **완료일**: 2025-10-24  
 > **진행 상황**: Week 1-4 완료 ✅ (Month 7 완전 마스터!)  
 > **성과**: Python 대비 **5,257배** 성능 향상 🚀  
-> **AI 모델**: CNN, RNN, LSTM, Transformer, **Multi-Layer Transformer** 완전 구현 완료! 🎉
+> **AI 모델**: CNN, RNN, LSTM, Transformer, Multi-Layer Transformer, **Mini GPT** 완전 구현 완료! 🎉
 
 ---
 
@@ -14,7 +14,7 @@
 | **Week 1**  | Rust 기초      | ✅ 완료      | 소유권 시스템 이해                                |
 | **Week 2**  | ZKML Rust 구현 | ✅ 완료      | 5,257배 빠름!                                     |
 | **Week 3**  | PyO3 바인딩    | ✅ 완료      | 배치 처리 3.2배                                   |
-| **Week 4**  | Candle AI      | ✅ 완료      | CNN/RNN/LSTM/Transformer/Multi-Layer 완전 마스터! |
+| **Week 4**  | Candle AI      | ✅ 완료      | CNN/RNN/LSTM/Transformer/Multi-Layer/GPT 완전 마스터! |
 | **Month 8** | 고성능 ZK      | 📍 다음 목표 | halo2 심화                                        |
 
 ---
@@ -157,6 +157,15 @@ Python으로 프로토타입을 만들었다면, 이제 **프로덕션 수준의
   - [x] Feed Forward 은닉층 (32→64→32)
   - [x] 감성 분석 구현 (긍정/부정 분류)
   - [x] 90% 이상 정확도 달성! 🎉
+
+- [x] **Mini GPT (텍스트 생성)** 🤖
+  - [x] Auto-regressive 텍스트 생성
+  - [x] Temperature Sampling (창의성 조절)
+  - [x] 특수 토큰 (<PAD>, <UNK>, <EOS>)
+  - [x] 대용량 데이터 학습 (500줄 셰익스피어)
+  - [x] 단어 사전 자동 생성 (1,308개 단어)
+  - [x] 파일에서 텍스트 읽기
+  - [x] 셰익스피어 스타일 문장 생성 성공! 🎭
 
 ---
 

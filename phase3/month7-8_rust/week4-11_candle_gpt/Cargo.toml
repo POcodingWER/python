@@ -1,5 +1,5 @@
 [package]
-name = "week4-11_candle_llm_basic"
+name = "week4-11_candle_gpt"
 version = "0.1.0"
 edition = "2021"
 
