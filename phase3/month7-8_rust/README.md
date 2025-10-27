@@ -3,7 +3,7 @@
 > **완료일**: 2025-10-24  
 > **진행 상황**: Week 1-4 완료 ✅ (Month 7 완전 마스터!)  
 > **성과**: Python 대비 **5,257배** 성능 향상 🚀  
-> **AI 모델**: CNN, RNN, LSTM, Transformer, Multi-Layer Transformer, Mini GPT, **진짜 GPT-2** 완전 구현 완료! 🎉
+> **AI 모델**: CNN, RNN, LSTM, Transformer, Multi-Layer Transformer, Mini GPT, **진짜 GPT-2**, **채팅봇 API** 완전 구현 완료! 🎉
 
 ---
 
@@ -14,7 +14,7 @@
 | **Week 1**  | Rust 기초      | ✅ 완료      | 소유권 시스템 이해                                    |
 | **Week 2**  | ZKML Rust 구현 | ✅ 완료      | 5,257배 빠름!                                         |
 | **Week 3**  | PyO3 바인딩    | ✅ 완료      | 배치 처리 3.2배                                       |
-| **Week 4**  | Candle AI      | ✅ 완료      | CNN/RNN/LSTM/Transformer/Multi-Layer/GPT/GPT-2 완전 마스터! |
+| **Week 4**  | Candle AI      | ✅ 완료      | CNN/RNN/LSTM/Transformer/GPT-2/채팅봇 API 완전 마스터! |
 | **Month 8** | 고성능 ZK      | 📍 다음 목표 | halo2 심화                                            |
 
 ---
@@ -177,6 +177,18 @@ Python으로 프로토타입을 만들었다면, 이제 **프로덕션 수준의
   - [x] Temperature Sampling (창의성 조절)
   - [x] 4-Layer Transformer (128 embed size)
   - [x] 완벽한 GPT-2 아키텍처 구현! 🎉
+
+- [x] **GPT-2 채팅봇 API (실전 프로젝트)** 🌐
+  - [x] REST API 서버 (Actix-web)
+  - [x] 웹 UI (채팅 인터페이스)
+  - [x] 대화 히스토리 관리
+  - [x] 한글/영어 이중 언어 지원
+  - [x] 동적 Tokenizer (자동 단어 사전 생성)
+  - [x] Transfer Learning (전이 학습)
+  - [x] API 데이터 자동 수집 (quotable.io, icanhazdadjoke.com)
+  - [x] 학습 히스토리 자동 저장
+  - [x] 모델 가중치 저장/로드 (safetensors)
+  - [x] 실시간 채팅 가능! 💬
 
 ---
 

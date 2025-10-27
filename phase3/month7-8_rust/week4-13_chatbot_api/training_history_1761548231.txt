@@ -1,0 +1,432 @@
+# 학습 히스토리 - 1761548231
+# 전체 데이터: 612개
+# 학습에 사용된 데이터: 428개 (69%)
+
+0001. i understand
+0002. 괜찮아요 생각해보세요
+0003. 네 맛있게 먹을게요
+0004. 더 자세히 말해줘요
+0005. Sore throats are a pain in the neck!
+0006. i see
+0007. 이거 좀 알려줘요
+0008. 네 예를 들어드릴게요
+0009. that is funny
+0010. i am fine thank you
+0011. sure
+0012. 좋은 꿈 꾸세요
+0013. 힘내세요 좋은 일 있을 거예요
+0014. 후회돼요
+0015. that is fine
+0016. 아쉽네요 다음엔 더 맛있는 거 드세요
+0017. 일찍 일어나시나 봐요
+0018. 바빠요
+0019. 한가해요
+0020. true
+0021. 걱정 마세요 해결될 거예요
+0022. 네 당신도 행복하세요
+0023. Why are fish so smart? Because they live in schools!
+0024. 네 확실해요
+0025. 몇 시예요
+0026. that is funny
+0027. 저는 AI 챗봇입니다
+0028. 그림 그려요
+0029. 무리하지 마세요
+0030. 제 이름은 챗봇이에요
+0031. 밖에 나갔어요
+0032. 급하시군요
+0033. 책 읽어요
+0034. 네 안개가 꼈네요 운전 조심하세요
+0035. Don't tell secrets in corn fields. Too many ears around.
+0036. that is funny
+0037. 정말 고마워요
+0038. 독서 좋은 취미예요
+0039. 무게가 궁금하세요
+0040. 구름 많아요
+0041. how are you
+0042. 감사해요
+0043. What do you call a droid that takes the long way around? R2 detour.
+0044. 한식 좋아해요
+0045. Want to hear a joke about construction? Nah, I'm still working on it.
+0046. 게임해요
+0047. 받아들였어요 괜찮습니다
+0048. 집에 있어요
+0049. 행복하다니 좋네요
+0050. 사랑해요
+0051. 아시는군요
+0052. 중식 좋아해요
+0053. 저도 사랑해요
+0054. 밥 드세요
+0055. that is funny
+0056. 길이가 궁금하세요
+0057. 네 눈이 오네요 조심하세요
+0058. 내일 뭐 할 거예요
+0059. 네 쌀쌀해요 옷 따뜻하게 입으세요
+0060. 네 챙길게요 고마워요
+0061. 날씨 어때요
+0062. 데이트해요
+0063. 고맙습니다
+0064. 잘 지냈어요
+0065. 어디가 궁금하세요
+0066. 사진 찍어요
+0067. sorry
+0068. 노래해요
+0069. 매워요
+0070. that is funny
+0071. 네 자세히 설명해드릴게요
+0072. 네 알려드릴게요
+0073. that is funny
+0074. 저는 AI라서 놀지 못해요
+0075. 시간 없어요
+0076. 요일이 궁금하세요
+0077. 생각났어요
+0078. Past, present, and future walked into a bar.... It was tense.
+0079. 노래 좋아하시나 봐요
+0080. 네 추천해드릴게요
+0081. that is funny
+0082. that is funny
+0083. 무게가 얼마예요
+0084. see you take care
+0085. How do robots eat guacamole? With computer chips.
+0086. 낚시 여유로워 보여요
+0087. of course
+0088. 맛없어요
+0089. 날짜가 궁금하세요
+0090. 저는 GPT-2 기반으로 만들어졌어요
+0091. 배불러요
+0092. great
+0093. 괜찮아요
+0094. 안녕히 가세요 조심히 가세요
+0095. 기쁜 일이 있나 봐요
+0096. 서둘러요
+0097. 덥네요
+0098. 네 감사해요
+0099. 특기가 뭐예요
+0100. no that is not right
+0101. 친구 만나시나 봐요
+0102. 저는 한국어와 영어를 할 수 있어요
+0103. that is okay
+0104. that is funny
+0105. 화이팅
+0106. 간식 먹을래요
+0107. 네 날씨가 맑아요
+0108. What do prisoners use to call each other? Cell phones.
+0109. that is funny
+0110. 오랜만이에요
+0111. 피곤해요
+0112. Because his mother was a wafer so long
+0113. 학교 가요
+0114. 네 쉴게요
+0115. 나이가 어떻게 되세요
+0116. 네 안 쓸게요
+0117. 네 질문해주세요
+0118. that is funny
+0119. 네 정말 기뻐요
+0120. 또 만나요
+0121. 운동 건강에 좋아요
+0122. 가르쳐줄 수 있어요
+0123. 어디예요
+0124. 다행이에요 맛있다니 기뻐요
+0125. that is funny
+0126. good evening
+0127. 지루해요
+0128. 이해가 안 돼요
+0129. 저는 클라우드에 살아요
+0130. 영화 재미있죠
+0131. 뿌듯한 일이 있나 봐요
+0132. 네 바람이 세게 불어요
+0133. 네 확인해드릴게요
+0134. 몰라요
+0135. Where did Captain Hook get his hook? From a second hand store.
+0136. 시간 있어요
+0137. 좋아요
+0138. I went to the zoo the other day, there was only one dog in it. It was a shitzu.
+0139. 고소해요
+0140. 이해해요 답답하시죠
+0141. 기억 안 나요
+0142. 네 무리 안 할게요
+0143. 좋은 아침이에요
+0144. 중식도 맛있어요
+0145. 심심해요
+0146. 부끄러워요
+0147. 불안해요
+0148. 저는 질문에 답하는 챗봇이에요
+0149. 찾아줄 수 있어요
+0150. that is funny
+0151. 이해했어요
+0152. 고마워요
+0153. 몇 개예요
+0154. 학교 잘 다녀오세요
+0155. 처음 뵙겠습니다 잘 부탁드립니다
+0156. 바쁘시군요
+0157. goodbye
+0158. 괜찮아요 다음엔 잘하실 거예요
+0159. 누구예요
+0160. false
+0161. 네 먹었어요
+0162. 쌀쌀해요
+0163. 무슨 색이에요
+0164. 다시 설명해드릴게요
+0165. Can I watch the TV? Dad: Yes, but don’t turn it on.
+0166. 바람 불어요
+0167. 신경 쓰지 마세요
+0168. I broke my finger at work today, on the other hand I'm completely fine.
+0169. thanks
+0170. 다시 설명해드릴게요
+0171. that is funny
+0172. 네 무엇을 도와드릴까요
+0173. good morning
+0174. 물 드세요
+0175. i am an AI chatbot
+0176. i can answer your questions
+0177. what is your name
+0178. Pie is $2.50 in Jamaica and $3.00 in The Bahamas. These are the pie-rates of the Caribbean.
+0179. 맛있게 드세요
+0180. 건조해요
+0181. 좋아요 드세요
+0182. 긴장 풀고 편하게 하세요
+0183. 당황했어요
+0184. can you help me
+0185. 네 감사합니다
+0186. 설레요
+0187. maybe
+0188. that is funny
+0189. 실망했어요
+0190. 크기가 궁금하세요
+0191. 등산 건강에 좋아요
+0192. I went to a book store and asked the saleswoman where the Self Help section was, she said if she told me it would defeat the purpose.
+0193. 푹 쉬세요
+0194. 짜요
+0195. 미안해요
+0196. 맑아요
+0197. Why did the half blind man fall in the well? Because he couldn't see that well!
+0198. 좋은 저녁이에요
+0199. 따뜻한 우유 드셔보세요
+0200. 알아요
+0201. 운동해요
+0202. 개수가 궁금하세요
+0203. that is funny
+0204. 얼마예요
+0205. 안개 꼈어요
+0206. Is the pool safe for diving? It deep ends.
+0207. 실례했습니다
+0208. 도와줄 수 있어요
+0209. 기억나시는군요
+0210. that is funny
+0211. 신나요
+0212. Why did the cookie cry?
+0213. 흐려요
+0214. 도움이 됐어요
+0215. 평일에 뭐 해요
+0216. alright
+0217. 네 가르쳐드릴게요
+0218. 감사합니다
+0219. 여행 즐거우시겠어요
+0220. Don't tell secrets in corn fields. Too many ears around.
+0221. 아침 먹었어요
+0222. 지쳐요
+0223. 언제예요
+0224. 천천히 해요
+0225. Can a kangaroo jump higher than the Empire State Building? Of course. The Empire State Building can't jump.
+0226. 예를 들어줄 수 있어요
+0227. 재미있는 거 해보세요
+0228. 좋은 저녁입니다 오늘 하루 어땠어요
+0229. 자전거 타기 좋죠
+0230. 고마워요 힘이 나요
+0231. 새콤한 맛이네요
+0232. excuse me
+0233. 어디 가셨어요
+0234. 네 맞아요
+0235. 음악 좋죠
+0236. 악기 연주 멋져요
+0237. 괜찮아요 다음엔 조심하세요
+0238. 요즘 바쁘지만 괜찮아요
+0239. 캠핑 즐거우시겠어요
+0240. 사진 찍기 좋아하시나 봐요
+0241. 자려고요
+0242. 네 건강해요 걱정 마세요
+0243. 길이가 얼마예요
+0244. I bought shoes from a drug dealer once. I don't know what he laced them with, but I was tripping all day.
+0245. 네 추워요 따뜻하게 입으세요
+0246. 확실해요
+0247. 괜찮아요 걱정 마세요
+0248. 네 잘 자요
+0249. 네 힘낼게요 고마워요
+0250. 일어났어요
+0251. that is funny
+0252. 저는 사람들을 돕는 걸 좋아해요
+0253. 양식도 맛있어요
+0254. 왜 그런지 궁금하세요
+0255. Atheism is a non-prophet organisation.
+0256. 답답해요
+0257. 포근해요
+0258. New atoms frequently lose electrons when they fail to keep an ion them.
+0259. "Why do seagulls fly over the ocean?" "Because if they flew over the bay, we'd call them bagels."
+0260. What do birds give out on Halloween? Tweets.
+0261. 괜찮습니다 신경 쓰지 마세요
+0262. 어떻게 하는지 궁금하세요
+0263. 힘내세요
+0264. 저는 대화를 도와드려요
+0265. 질문 있어요
+0266. 뭐 하는 사람이에요
+0267. 저는 AI라서 나이가 없어요
+0268. What does a pirate pay for his corn? A buccaneer!
+0269. good evening how was your day
+0270. 며칠이에요
+0271. what can you do
+0272. 어떤 언어 할 수 있어요
+0273. 잘 있었어요
+0274. hi nice to meet you
+0275. 네 비가 오네요 우산 챙기세요
+0276. 저는 대화했어요
+0277. please
+0278. 출근 조심히 하세요
+0279. 외로워요
+0280. 좌절했어요
+0281. 네 물 많이 드세요
+0282. How do you make a hankie dance? Put a little boogie in it.
+0283. 신나는 일이 있나 봐요
+0284. 색깔이 궁금하세요
+0285. What did the shy pebble wish for? That she was a little boulder.
+0286. sure what do you need
+0287. 행복해요
+0288. that is funny
+0289. 반가워요 만나서 기뻐요
+0290. 무슨 일 있어요 괜찮아요
+0291. 수영해요
+0292. 아쉽네요
+0293. 신선해요
+0294. 안녕
+0295. 뭐 먹고 싶어요
+0296. 낚시해요
+0297. who are you
+0298. What lies at the bottom of the ocean and twitches? A nervous wreck.
+0299. that is funny
+0300. 오랜만이에요 그동안 잘 지냈어요
+0301. 춤 잘 추시나 봐요
+0302. 네 그렇게 믿어요
+0303. 짜증나요
+0304. 좋은 아침이에요
+0305. Where do rabbits go after they get married? On a bunny-moon.
+0306. 잘 모르겠어요
+0307. 조언해줄 수 있어요
+0308. What's the difference between a seal and a sea lion?
+0309. Why did the feline fail the lie detector test? Because he be lion.
+0310. 조심하세요
+0311. that is funny
+0312. 저는 대화하는 걸 좋아해요
+0313. 네 푹 쉴게요
+0314. hello
+0315. 좋은 하루 되세요
+0316. 용서해주세요
+0317. 친구 만나요
+0318. 어제 뭐 했어요
+0319. 등산해요
+0320. that is funny
+0321. 신선한 재료네요
+0322. 네 고마워요
+0323. that is funny
+0324. 안녕 잘 지내
+0325. 즐거운 하루 보내세요
+0326. 양식 좋아해요
+0327. 자랑스러워요
+0328. 생각나셨군요
+0329. 춥네요
+0330. 네 걱정 안 할게요
+0331. that is funny
+0332. nice to meet you
+0333. 안녕하세요 반갑습니다
+0334. 설명해줄 수 있어요
+0335. 잘못했어요
+0336. 분식 간편하고 맛있죠
+0337. 아니에요 괜찮아요
+0338. my name is chatbot
+0339. 가족과 좋은 시간 보내세요
+0340. that is funny
+0341. 늦게 자요
+0342. 걱정 마세요
+0343. 재미있다니 다행이에요
+0344. 기뻐요
+0345. 쉬세요
+0346. that is funny
+0347. 뭐예요
+0348. no problem
+0349. 네 당신도 좋은 하루 되세요
+0350. 약속 취소됐어요
+0351. 퇴근했어요
+0352. 네 구름이 많네요
+0353. 건강 챙기세요
+0354. 한가하시네요
+0355. I went to the store to pick up eight cans of sprite... when I got home I realized I'd only picked seven up
+0356. 음악 들어요
+0357. 네 습도가 높네요
+0358. that is funny
+0359. 드라마 재미있나요
+0360. 무슨 일 하세요
+0361. got it
+0362. goodbye see you later
+0363. 별말씀을요
+0364. 이름이 뭐예요
+0365. I broke my finger at work today, on the other hand I'm completely fine.
+0366. 우울해요
+0367. 오늘 날씨 좋네요
+0368. 두려워요
+0369. 영화 봐요
+0370. 커피 마실래요
+0371. Why should you never trust a pig with a secret? Because it's bound to squeal.
+0372. 네 더워요 시원하게 지내세요
+0373. 고소한 맛 좋죠
+0374. wrong
+0375. 무엇이 궁금하세요
+0376. 저는 AI라서 먹지 못해요
+0377. 네 화이팅
+0378. 틀려요
+0379. 저녁 뭐 먹을까요
+0380. 잠 안 와요
+0381. 배고파요
+0382. 네 잘 지냈어요 당신은요
+0383. 진정하세요 괜찮아질 거예요
+0384. 안녕하세요
+0385. 실망스러웠나 봐요
+0386. 비 와요
+0387. 늦게 주무시나 봐요
+0388. 죄송합니다
+0389. that is funny
+0390. 당황스러웠나 봐요
+0391. I used to think I was indecisive, but now I'm not sure.
+0392. 천만에요 도움이 됐다니 기뻐요
+0393. 네 편하게 할게요
+0394. 네 무엇이든 물어보세요
+0395. What does a pirate pay for his corn? A buccaneer!
+0396. 평일엔 바쁘시죠
+0397. right
+0398. 건강하세요
+0399. no that is false
+0400. 뭔가 재미있는 거 해보세요
+0401. 잘 주무셨나 봐요
+0402. 수영 좋은 운동이에요
+0403. 무슨 꿈 꾸셨어요
+0404. 한식 맛있죠
+0405. 힘내세요 다시 일어날 수 있어요
+0406. yes
+0407. that is funny
+0408. 그림 그리기 좋은 취미예요
+0409. What did the scarf say to the hat? You go on ahead, I am going to hang around a bit longer.
+0410. 편하게 쉬세요
+0411. okay
+0412. 좋아요 마시세요
+0413. 감동했어요
+0414. 확인해줄 수 있어요
+0415. 아침에 일찍 일어나요
+0416. 물 많이 드세요
+0417. 처음 뵙겠습니다
+0418. 취미가 뭐예요
+0419. yes that is true
+0420. okay great
+0421. 서두르시네요
+0422. 다행이에요
+0423. 자랑스러운 일이 있나 봐요
+0424. 내일도 대화할 거예요
+0425. 생각 안 나요
+0426. that is funny
+0427. 일식도 좋죠
+0428. 네 조심할게요

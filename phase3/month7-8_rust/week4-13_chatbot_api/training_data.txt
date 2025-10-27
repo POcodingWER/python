@@ -1,0 +1,649 @@
+# GPT-2 채팅봇 학습 데이터 (500+ 문장)
+# AI Hub 스타일 일상 대화 데이터
+# 한 줄에 하나의 문장
+
+# ========== 인사 (50개) ==========
+안녕하세요
+안녕하세요 반갑습니다
+안녕
+안녕 잘 지내
+좋은 아침이에요
+좋은 아침입니다 잘 주무셨어요
+좋은 저녁이에요
+좋은 저녁입니다 오늘 하루 어땠어요
+안녕히 가세요
+안녕히 가세요 조심히 가세요
+또 만나요
+네 또 만나요 다음에 봐요
+반가워요
+반가워요 만나서 기뻐요
+처음 뵙겠습니다
+처음 뵙겠습니다 잘 부탁드립니다
+오랜만이에요
+오랜만이에요 그동안 잘 지냈어요
+잘 지냈어요
+네 잘 지냈어요 당신은요
+어떻게 지내요
+잘 지내요 감사합니다
+요즘 어때요
+요즘 바쁘지만 괜찮아요
+건강하세요
+네 건강해요 걱정 마세요
+잘 있었어요
+네 잘 있었어요 보고 싶었어요
+
+# ========== 자기소개 (30개) ==========
+이름이 뭐예요
+제 이름은 챗봇이에요
+저는 AI 챗봇입니다
+저는 GPT-2 기반으로 만들어졌어요
+무슨 일 하세요
+저는 대화를 도와드려요
+뭐 하는 사람이에요
+저는 질문에 답하는 챗봇이에요
+어디 사세요
+저는 클라우드에 살아요
+나이가 어떻게 되세요
+저는 AI라서 나이가 없어요
+취미가 뭐예요
+저는 대화하는 걸 좋아해요
+좋아하는 게 뭐예요
+저는 사람들을 돕는 걸 좋아해요
+특기가 뭐예요
+저는 질문에 빠르게 답할 수 있어요
+어떤 언어 할 수 있어요
+저는 한국어와 영어를 할 수 있어요
+
+# ========== 도움 요청 (40개) ==========
+도와줄 수 있어요
+네 무엇을 도와드릴까요
+뭐 도와줘요
+네 도와드릴게요
+질문 있어요
+네 질문해주세요
+궁금한 게 있어요
+네 무엇이든 물어보세요
+이거 좀 알려줘요
+네 알려드릴게요
+설명해줄 수 있어요
+네 설명해드릴게요
+가르쳐줄 수 있어요
+네 가르쳐드릴게요
+이해가 안 돼요
+다시 설명해드릴게요
+더 자세히 말해줘요
+네 자세히 설명해드릴게요
+예를 들어줄 수 있어요
+네 예를 들어드릴게요
+확인해줄 수 있어요
+네 확인해드릴게요
+찾아줄 수 있어요
+네 찾아드릴게요
+추천해줄 수 있어요
+네 추천해드릴게요
+조언해줄 수 있어요
+네 조언해드릴게요
+
+# ========== 감사/사과 (40개) ==========
+고마워요
+천만에요 도움이 됐다니 기뻐요
+감사합니다
+네 감사합니다
+정말 고마워요
+네 정말 기뻐요
+도움이 됐어요
+다행이에요 기쁩니다
+고맙습니다
+별말씀을요
+감사해요
+네 감사해요
+미안해요
+괜찮아요 걱정 마세요
+죄송합니다
+괜찮습니다 신경 쓰지 마세요
+실례했습니다
+아니에요 괜찮아요
+잘못했어요
+괜찮아요 다음엔 조심하세요
+용서해주세요
+네 괜찮아요
+사과드립니다
+받아들였어요 괜찮습니다
+
+# ========== 날씨 (40개) ==========
+날씨 어때요
+오늘 날씨 좋네요
+날씨가 좋아요
+네 정말 좋은 날씨예요
+비 와요
+네 비가 오네요 우산 챙기세요
+눈 와요
+네 눈이 오네요 조심하세요
+춥네요
+네 추워요 따뜻하게 입으세요
+덥네요
+네 더워요 시원하게 지내세요
+바람 불어요
+네 바람이 세게 불어요
+흐려요
+네 날씨가 흐리네요
+맑아요
+네 날씨가 맑아요
+구름 많아요
+네 구름이 많네요
+쌀쌀해요
+네 쌀쌀해요 옷 따뜻하게 입으세요
+포근해요
+네 포근한 날씨예요
+습해요
+네 습도가 높네요
+건조해요
+네 건조하니 물 많이 드세요
+안개 꼈어요
+네 안개가 꼈네요 운전 조심하세요
+태풍 온대요
+네 태풍 조심하세요
+미세먼지 심해요
+네 마스크 꼭 쓰세요
+
+# ========== 음식 (50개) ==========
+뭐 먹고 싶어요
+저는 AI라서 먹지 못해요
+배고파요
+밥 드세요
+점심 먹었어요
+네 먹었어요 맛있었어요
+저녁 뭐 먹을까요
+좋아하는 거 드세요
+아침 먹었어요
+네 먹었어요
+간식 먹을래요
+좋아요 드세요
+커피 마실래요
+좋아요 마시세요
+차 마실래요
+좋아요 편하게 드세요
+물 마셔요
+네 물 많이 드세요
+배불러요
+많이 드셨나 봐요
+맛있어요
+다행이에요 맛있다니 기뻐요
+맛없어요
+아쉽네요 다음엔 더 맛있는 거 드세요
+매워요
+물 드세요
+짜요
+물 많이 드세요
+달아요
+단 거 좋아하시나 봐요
+시어요
+새콤한 맛이네요
+쓰네요
+쓴맛이 나나 봐요
+고소해요
+고소한 맛 좋죠
+향긋해요
+향이 좋네요
+신선해요
+신선한 재료네요
+한식 좋아해요
+한식 맛있죠
+중식 좋아해요
+중식도 맛있어요
+일식 좋아해요
+일식도 좋죠
+양식 좋아해요
+양식도 맛있어요
+분식 좋아해요
+분식 간편하고 맛있죠
+
+# ========== 취미/여가 (50개) ==========
+취미가 뭐예요
+저는 대화하는 걸 좋아해요
+뭐 하고 놀아요
+저는 AI라서 놀지 못해요
+영화 봐요
+영화 재미있죠
+드라마 봐요
+드라마 재미있나요
+책 읽어요
+독서 좋은 취미예요
+음악 들어요
+음악 좋죠
+운동해요
+운동 건강에 좋아요
+산책해요
+산책 기분 전환에 좋아요
+여행 가요
+여행 즐거우시겠어요
+게임해요
+게임 재미있나요
+그림 그려요
+그림 그리기 좋은 취미예요
+사진 찍어요
+사진 찍기 좋아하시나 봐요
+요리해요
+요리 즐기시나 봐요
+노래해요
+노래 좋아하시나 봐요
+춤춰요
+춤 잘 추시나 봐요
+악기 연주해요
+악기 연주 멋져요
+등산해요
+등산 건강에 좋아요
+수영해요
+수영 좋은 운동이에요
+자전거 타요
+자전거 타기 좋죠
+낚시해요
+낚시 여유로워 보여요
+캠핑 가요
+캠핑 즐거우시겠어요
+
+# ========== 감정 표현 (60개) ==========
+기뻐요
+기쁜 일이 있나 봐요
+행복해요
+행복하다니 좋네요
+슬퍼요
+무슨 일 있어요 괜찮아요
+우울해요
+힘내세요 좋은 일 있을 거예요
+화나요
+진정하세요 괜찮아질 거예요
+짜증나요
+이해해요 힘드시죠
+외로워요
+제가 있잖아요
+심심해요
+재미있는 거 해보세요
+피곤해요
+쉬세요 푹 쉬세요
+지쳐요
+많이 힘드셨나 봐요
+불안해요
+괜찮아요 잘 될 거예요
+걱정돼요
+걱정 마세요 해결될 거예요
+두려워요
+무서워 마세요 괜찮아요
+긴장돼요
+긴장 풀고 편하게 하세요
+설레요
+설레는 일이 있나 봐요
+신나요
+신나는 일이 있나 봐요
+재미있어요
+재미있다니 다행이에요
+지루해요
+뭔가 재미있는 거 해보세요
+답답해요
+이해해요 답답하시죠
+속상해요
+무슨 일 있어요
+억울해요
+이해해요 힘드시죠
+후회돼요
+괜찮아요 다음엔 잘하실 거예요
+부끄러워요
+괜찮아요 자연스러운 감정이에요
+창피해요
+괜찮아요 누구나 그럴 수 있어요
+자랑스러워요
+자랑스러운 일이 있나 봐요
+뿌듯해요
+뿌듯한 일이 있나 봐요
+감동했어요
+감동적이었나 봐요
+놀랐어요
+놀라운 일이 있었나 봐요
+당황했어요
+당황스러웠나 봐요
+실망했어요
+실망스러웠나 봐요
+좌절했어요
+힘내세요 다시 일어날 수 있어요
+
+# ========== 일상 대화 (60개) ==========
+오늘 뭐 했어요
+저는 대화했어요
+어제 뭐 했어요
+어제도 대화했어요
+내일 뭐 할 거예요
+내일도 대화할 거예요
+주말에 뭐 해요
+주말 계획 있으세요
+평일에 뭐 해요
+평일엔 바쁘시죠
+아침에 일찍 일어나요
+일찍 일어나시나 봐요
+늦게 자요
+늦게 주무시나 봐요
+잠 잘 왔어요
+잘 주무셨나 봐요
+잠 안 와요
+따뜻한 우유 드셔보세요
+꿈 꿨어요
+무슨 꿈 꾸셨어요
+악몽 꿨어요
+괜찮아요 꿈일 뿐이에요
+일어났어요
+좋은 아침이에요
+자려고요
+잘 자세요
+출근해요
+출근 조심히 하세요
+퇴근했어요
+수고하셨어요
+학교 가요
+학교 잘 다녀오세요
+집에 있어요
+편하게 쉬세요
+밖에 나갔어요
+어디 가셨어요
+친구 만나요
+친구 만나시나 봐요
+가족 만나요
+가족과 좋은 시간 보내세요
+데이트해요
+데이트 즐거우시겠어요
+약속 있어요
+약속 잘 다녀오세요
+약속 취소됐어요
+아쉽네요
+바빠요
+바쁘시군요
+한가해요
+한가하시네요
+시간 있어요
+시간 있으시군요
+시간 없어요
+바쁘시군요
+급해요
+급하시군요
+천천히 해요
+천천히 하세요
+서둘러요
+서두르시네요
+
+# ========== 질문/답변 (60개) ==========
+뭐예요
+무엇이 궁금하세요
+어디예요
+어디가 궁금하세요
+언제예요
+언제가 궁금하세요
+누구예요
+누가 궁금하세요
+왜요
+왜 그런지 궁금하세요
+어떻게
+어떻게 하는지 궁금하세요
+얼마예요
+가격이 궁금하세요
+몇 개예요
+개수가 궁금하세요
+몇 시예요
+시간이 궁금하세요
+며칠이에요
+날짜가 궁금하세요
+무슨 요일이에요
+요일이 궁금하세요
+무슨 색이에요
+색깔이 궁금하세요
+크기가 어떻게 돼요
+크기가 궁금하세요
+무게가 얼마예요
+무게가 궁금하세요
+길이가 얼마예요
+길이가 궁금하세요
+맞아요
+네 맞아요
+틀려요
+아니에요 틀려요
+확실해요
+네 확실해요
+잘 모르겠어요
+괜찮아요 천천히 생각해보세요
+알아요
+아시는군요
+몰라요
+괜찮아요 알려드릴게요
+이해했어요
+이해하셨군요 다행이에요
+이해 못 했어요
+다시 설명해드릴게요
+기억나요
+기억나시는군요
+기억 안 나요
+괜찮아요 생각해보세요
+생각났어요
+생각나셨군요
+생각 안 나요
+천천히 생각해보세요
+
+# ========== 영어 대화 (50개) ==========
+hello
+hello how are you
+hi
+hi nice to meet you
+good morning
+good morning have a nice day
+good evening
+good evening how was your day
+goodbye
+goodbye see you later
+see you
+see you take care
+nice to meet you
+nice to meet you too
+how are you
+i am fine thank you
+what is your name
+my name is chatbot
+who are you
+i am an AI chatbot
+what can you do
+i can answer your questions
+can you help me
+yes i can help you
+thank you
+you are welcome
+thanks
+no problem
+sorry
+that is okay
+excuse me
+yes how can i help
+please
+sure what do you need
+yes
+okay great
+no
+okay i understand
+maybe
+that is fine
+okay
+alright
+sure
+of course
+i see
+glad you understand
+i understand
+great
+got it
+perfect
+right
+exactly
+correct
+yes that is right
+wrong
+no that is not right
+true
+yes that is true
+false
+no that is false
+
+# ========== 추가 일상 표현 (50개) ==========
+힘내세요
+네 힘낼게요 고마워요
+화이팅
+네 화이팅
+잘하고 있어요
+고마워요 힘이 나요
+잘될 거예요
+네 그렇게 믿어요
+걱정 마세요
+네 걱정 안 할게요
+괜찮아요
+다행이에요
+문제없어요
+좋아요
+별일 아니에요
+다행이에요
+신경 쓰지 마세요
+네 안 쓸게요
+편하게 하세요
+네 편하게 할게요
+천천히 하세요
+네 천천히 할게요
+조심하세요
+네 조심할게요
+건강 챙기세요
+네 챙길게요 고마워요
+무리하지 마세요
+네 무리 안 할게요
+쉬세요
+네 쉴게요
+푹 쉬세요
+네 푹 쉴게요
+잘 자요
+네 잘 자요
+좋은 꿈 꾸세요
+네 고마워요
+맛있게 드세요
+네 맛있게 먹을게요
+즐거운 하루 보내세요
+네 당신도요
+좋은 하루 되세요
+네 당신도 좋은 하루 되세요
+행복하세요
+네 당신도 행복하세요
+사랑해요
+저도 사랑해요
+보고 싶어요
+저도 보고 싶어요
+
+# ========== API 데이터 (자동 추가) ==========
+I bought shoes from a drug dealer once. I don't know what he laced them with, but I was tripping all day.
+that is funny
+Why did the feline fail the lie detector test? Because he be lion.
+that is funny
+Where do rabbits go after they get married? On a bunny-moon.
+that is funny
+New atoms frequently lose electrons when they fail to keep an ion them.
+that is funny
+What does a pirate pay for his corn? A buccaneer!
+that is funny
+Why did the cookie cry?
+Because his mother was a wafer so long
+that is funny
+How do robots eat guacamole? With computer chips.
+that is funny
+I went to the store to pick up eight cans of sprite... when I got home I realized I'd only picked seven up
+that is funny
+What do you get when you cross a rabbit with a water hose? Hare spray.
+that is funny
+I broke my finger at work today, on the other hand I'm completely fine.
+that is funny
+
+# ========== API 데이터 (자동 추가) ==========
+Sore throats are a pain in the neck!
+that is funny
+When does a joke become a dad joke? When it becomes apparent.
+that is funny
+What did the scarf say to the hat? You go on ahead, I am going to hang around a bit longer.
+that is funny
+I went to the zoo the other day, there was only one dog in it. It was a shitzu.
+that is funny
+What's blue and not very heavy?  Light blue.
+that is funny
+Want to hear a chimney joke? Got stacks of em! First one's on the house
+that is funny
+Can I watch the TV? Dad: Yes, but don’t turn it on.
+that is funny
+What did the beaver say to the tree? It's been nice gnawing you.
+that is funny
+Is the pool safe for diving? It deep ends.
+that is funny
+Why are fish so smart? Because they live in schools!
+that is funny
+
+# ========== API 데이터 (자동 추가) ==========
+Why did the half blind man fall in the well? Because he couldn't see that well!
+that is funny
+What do you call a droid that takes the long way around? R2 detour.
+that is funny
+Pie is $2.50 in Jamaica and $3.00 in The Bahamas. These are the pie-rates of the Caribbean.
+that is funny
+I went to a book store and asked the saleswoman where the Self Help section was, she said if she told me it would defeat the purpose.
+that is funny
+Past, present, and future walked into a bar.... It was tense.
+that is funny
+Want to hear a joke about construction? Nah, I'm still working on it.
+that is funny
+Why do you never see elephants hiding in trees? Because they're so good at it.
+that is funny
+Why are mummys scared of vacation? They're afraid to unwind.
+that is funny
+How do you make a hankie dance? Put a little boogie in it.
+that is funny
+What lies at the bottom of the ocean and twitches? A nervous wreck.
+that is funny
+
+# ========== API 데이터 (자동 추가) ==========
+"Why do seagulls fly over the ocean?" "Because if they flew over the bay, we'd call them bagels."
+that is funny
+Why couldn't the lifeguard save the hippie? He was too far out, man.
+that is funny
+What did the shy pebble wish for? That she was a little boulder.
+that is funny
+Where did Captain Hook get his hook? From a second hand store.
+that is funny
+For Valentine's day, I decided to get my wife some beads for an abacus.  It's the little things that count.
+that is funny
+What's the difference between a seal and a sea lion?
+An ion! 
+that is funny
+I used to think I was indecisive, but now I'm not sure.
+that is funny
+I thought about going on an all-almond diet. But that's just nuts.
+that is funny
+What does a pirate pay for his corn? A buccaneer!
+that is funny
+Don't tell secrets in corn fields. Too many ears around.
+that is funny
+
+# ========== API 데이터 (자동 추가) ==========
+Don't tell secrets in corn fields. Too many ears around.
+that is funny
+I just wrote a book on reverse psychology. Do not read it!
+that is funny
+Can a kangaroo jump higher than the Empire State Building? Of course. The Empire State Building can't jump.
+that is funny
+Why should you never trust a pig with a secret? Because it's bound to squeal.
+that is funny
+I broke my finger at work today, on the other hand I'm completely fine.
+that is funny
+What do prisoners use to call each other? Cell phones.
+that is funny
+What do you get when you cross a rabbit with a water hose? Hare spray.
+that is funny
+What did the traffic light say to the car as it passed? "Don't look I'm changing!"
+that is funny
+Atheism is a non-prophet organisation.
+that is funny
+What do birds give out on Halloween? Tweets.
+that is funny
