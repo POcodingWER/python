@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>손글씨 데이터 수집 - Vision Transformer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 700px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .label-selector {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .label-selector h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .number-buttons {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        .number-btn {
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            border: 3px solid #e2e8f0;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .number-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .number-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .canvas-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        canvas {
+            border: 3px solid #667eea;
+            border-radius: 10px;
+            cursor: crosshair;
+            background: white;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            flex: 1;
+            padding: 15px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            min-width: 120px;
+        }
+
+        .btn-clear {
+            background: #ef4444;
+            color: white;
+        }
+
+        .btn-clear:hover {
+            background: #dc2626;
+            transform: translateY(-2px);
+        }
+
+        .btn-save {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-save:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+
+        .btn-download {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-download:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        .stats {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .stats h3 {
+            color: #92400e;
+            margin-bottom: 10px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .instructions {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .instructions h3 {
+            color: #1e40af;
+            margin-bottom: 10px;
+        }
+
+        .instructions ol {
+            margin-left: 20px;
+            color: #1e3a8a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📚 손글씨 데이터 수집</h1>
+        <p class="subtitle">AI 학습을 위한 손글씨 데이터를 만들어보세요!</p>
+
+        <div class="instructions">
+            <h3>📝 사용 방법:</h3>
+            <ol>
+                <li>아래에서 숫자를 선택하세요 (0-9)</li>
+                <li>캔버스에 선택한 숫자를 그리세요</li>
+                <li>"💾 저장" 버튼으로 데이터에 추가</li>
+                <li>각 숫자당 10-20개씩 그려주세요!</li>
+                <li>완료 후 "📥 전체 다운로드"로 파일 받기</li>
+            </ol>
+        </div>
+
+        <div class="label-selector">
+            <h3>🎯 어떤 숫자를 그릴까요?</h3>
+            <div class="number-buttons">
+                <button class="number-btn active" onclick="selectNumber(0)">0</button>
+                <button class="number-btn" onclick="selectNumber(1)">1</button>
+                <button class="number-btn" onclick="selectNumber(2)">2</button>
+                <button class="number-btn" onclick="selectNumber(3)">3</button>
+                <button class="number-btn" onclick="selectNumber(4)">4</button>
+                <button class="number-btn" onclick="selectNumber(5)">5</button>
+                <button class="number-btn" onclick="selectNumber(6)">6</button>
+                <button class="number-btn" onclick="selectNumber(7)">7</button>
+                <button class="number-btn" onclick="selectNumber(8)">8</button>
+                <button class="number-btn" onclick="selectNumber(9)">9</button>
+            </div>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="canvas" width="280" height="280"></canvas>
+        </div>
+
+        <div class="controls">
+            <button class="btn-clear" onclick="clearCanvas()">🗑️ 지우기</button>
+            <button class="btn-save" onclick="saveImage()">💾 저장</button>
+            <button class="btn-download" onclick="downloadAll()">📥 전체 다운로드</button>
+        </div>
+
+        <div class="stats">
+            <h3>📊 수집된 데이터:</h3>
+            <div class="stats-grid">
+                <div class="stat-item">0: <span id="count-0">0</span></div>
+                <div class="stat-item">1: <span id="count-1">0</span></div>
+                <div class="stat-item">2: <span id="count-2">0</span></div>
+                <div class="stat-item">3: <span id="count-3">0</span></div>
+                <div class="stat-item">4: <span id="count-4">0</span></div>
+                <div class="stat-item">5: <span id="count-5">0</span></div>
+                <div class="stat-item">6: <span id="count-6">0</span></div>
+                <div class="stat-item">7: <span id="count-7">0</span></div>
+                <div class="stat-item">8: <span id="count-8">0</span></div>
+                <div class="stat-item">9: <span id="count-9">0</span></div>
+            </div>
+            <p style="margin-top: 10px; color: #92400e;">
+                <strong>총 <span id="total-count">0</span>개</strong> 수집됨
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        let isDrawing = false;
+        let lastX = 0;
+        let lastY = 0;
+        let currentLabel = 0;
+        let dataset = [];
+        let counts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+        // 캔버스 초기화
+        ctx.fillStyle = 'white';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 20;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+
+        // 그리기 이벤트
+        canvas.addEventListener('mousedown', (e) => {
+            isDrawing = true;
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if (!isDrawing) return;
+
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.stroke();
+
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        });
+
+        canvas.addEventListener('mouseup', () => isDrawing = false);
+        canvas.addEventListener('mouseout', () => isDrawing = false);
+
+        // 터치 이벤트
+        canvas.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const rect = canvas.getBoundingClientRect();
+            isDrawing = true;
+            lastX = touch.clientX - rect.left;
+            lastY = touch.clientY - rect.top;
+        });
+
+        canvas.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            if (!isDrawing) return;
+
+            const touch = e.touches[0];
+            const rect = canvas.getBoundingClientRect();
+            const x = touch.clientX - rect.left;
+            const y = touch.clientY - rect.top;
+
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(x, y);
+            ctx.stroke();
+
+            [lastX, lastY] = [x, y];
+        });
+
+        canvas.addEventListener('touchend', () => isDrawing = false);
+
+        function selectNumber(num) {
+            currentLabel = num;
+
+            // 버튼 활성화 상태 업데이트
+            document.querySelectorAll('.number-btn').forEach((btn, idx) => {
+                if (idx === num) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        function clearCanvas() {
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function get28x28Data() {
+            const imageData = ctx.getImageData(0, 0, 280, 280);
+            const data = imageData.data;
+            const result = [];
+
+            for (let y = 0; y < 28; y++) {
+                const row = [];
+                for (let x = 0; x < 28; x++) {
+                    let sum = 0;
+                    let count = 0;
+
+                    for (let dy = 0; dy < 10; dy++) {
+                        for (let dx = 0; dx < 10; dx++) {
+                            const px = x * 10 + dx;
+                            const py = y * 10 + dy;
+                            const idx = (py * 280 + px) * 4;
+
+                            const brightness = data[idx];
+                            sum += brightness;
+                            count++;
+                        }
+                    }
+
+                    const avg = sum / count;
+                    row.push(avg < 128 ? 1 : 0);
+                }
+                result.push(row);
+            }
+
+            return result;
+        }
+
+        function saveImage() {
+            const data = get28x28Data();
+
+            dataset.push({
+                label: currentLabel,
+                data: data
+            });
+
+            counts[currentLabel]++;
+            updateStats();
+
+            clearCanvas();
+
+            alert(`✅ 숫자 ${currentLabel} 저장 완료!\n\n` +
+                `현재 ${currentLabel}: ${counts[currentLabel]}개\n` +
+                `총 ${dataset.length}개 수집됨`);
+        }
+
+        function updateStats() {
+            for (let i = 0; i < 10; i++) {
+                document.getElementById(`count-${i}`).textContent = counts[i];
+            }
+            document.getElementById('total-count').textContent = dataset.length;
+        }
+
+        function downloadAll() {
+            if (dataset.length === 0) {
+                alert('⚠️ 저장된 데이터가 없습니다!');
+                return;
+            }
+
+            let output = '# 손글씨 학습 데이터\n';
+            output += `# 총 ${dataset.length}개 샘플\n`;
+            output += '# 형식: label,28x28 픽셀 데이터\n\n';
+
+            for (let item of dataset) {
+                output += `${item.label},`;
+                const flatData = item.data.flat();
+                output += flatData.join(',');
+                output += '\n';
+            }
+
+            const blob = new Blob([output], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'handwritten_data.csv';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            alert(`✅ handwritten_data.csv 다운로드 완료!\n\n` +
+                `총 ${dataset.length}개 샘플이 저장되었습니다.\n\n` +
+                `이 파일로 AI 모델을 재학습시킬 수 있어요!`);
+        }
+    </script>
+</body>
+
+</html>

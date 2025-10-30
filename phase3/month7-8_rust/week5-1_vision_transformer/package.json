@@ -1,0 +1,27 @@
+{
+    "name": "vision-transformer",
+    "version": "1.0.0",
+    "description": "Vision Transformer (ViT) for MNIST-style digit classification",
+    "scripts": {
+        "help": "echo '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n👁️  Vision Transformer - 사용 가능한 명령어\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n📚 학습 & 실행:\n  npm run train       - 모델 학습 및 테스트 (릴리즈 모드)\n  npm run dev         - 개발 모드로 실행 (빠른 컴파일)\n  npm test            - 단위 테스트 실행\n\n🎨 데이터 수집:\n  npm run draw        - 숫자 그리기 도구 열기\n  npm run collect     - 손글씨 데이터 수집 도구 열기\n\n🔧 빌드 & 관리:\n  npm run build       - 릴리즈 빌드\n  npm run check       - 코드 검사 (컴파일 없이)\n  npm run clean       - 빌드 파일 삭제\n\n🚀 빠른 시작:\n  npm start           - 기존 데이터로 바로 학습\n  npm run all         - 데이터 수집 → 학습 → 테스트\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n'",
+        "start": "echo '\n⚡ 빠른 시작 (기존 데이터로 학습)...\n' && cargo run --release",
+        "train": "echo '\n🎓 Vision Transformer 학습 시작...\n' && cargo run --release",
+        "dev": "echo '\n🔧 개발 모드로 실행...\n' && cargo run",
+        "build": "echo '\n🔨 릴리즈 빌드 중...\n' && cargo build --release && echo '\n✅ 빌드 완료!\n'",
+        "clean": "echo '\n🗑️  빌드 파일 삭제 중...\n' && cargo clean && echo '\n✅ 완료!\n'",
+        "check": "echo '\n✅ 코드 검사 중...\n' && cargo check",
+        "test": "echo '\n🧪 테스트 실행 중...\n' && cargo test",
+        "draw": "echo '\n🎨 숫자 그리기 도구 열기...\n' && open draw.html",
+        "collect": "echo '\n📚 손글씨 데이터 수집 도구 열기...\n' && open collect_data.html",
+        "all": "echo '\n🚀 전체 워크플로우 시작...\n' && npm run collect && echo '\n💡 데이터를 수집한 후 다시 실행하세요: npm run train\n'"
+    },
+    "keywords": [
+        "rust",
+        "machine-learning",
+        "vision-transformer",
+        "mnist",
+        "candle"
+    ],
+    "author": "",
+    "license": "MIT"
+}

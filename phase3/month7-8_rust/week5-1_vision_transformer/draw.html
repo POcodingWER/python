@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 그리기 - Vision Transformer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .canvas-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        canvas {
+            border: 3px solid #667eea;
+            border-radius: 10px;
+            cursor: crosshair;
+            background: white;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            flex: 1;
+            padding: 15px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            min-width: 120px;
+        }
+
+        .btn-clear {
+            background: #ef4444;
+            color: white;
+        }
+
+        .btn-clear:hover {
+            background: #dc2626;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+        }
+
+        .btn-export {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-export:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-test {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-test:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .output {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+            border: 2px solid #e2e8f0;
+        }
+
+        .output pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .instructions {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .instructions h3 {
+            color: #92400e;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .instructions ol {
+            margin-left: 20px;
+            color: #78350f;
+        }
+
+        .instructions li {
+            margin: 5px 0;
+        }
+
+        .preview {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .preview h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        #previewCanvas {
+            border: 2px solid #e2e8f0;
+            border-radius: 5px;
+            image-rendering: pixelated;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>✍️ 숫자 그리기</h1>
+        <p class="subtitle">Vision Transformer로 분류할 숫자를 직접 그려보세요!</p>
+
+        <div class="instructions">
+            <h3>📝 사용 방법:</h3>
+            <ol>
+                <li>마우스로 숫자를 그리세요 (0-9)</li>
+                <li>"내보내기" 버튼을 눌러 test_image.txt 생성</li>
+                <li>파일을 저장하고 Rust 프로그램 실행!</li>
+            </ol>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="canvas" width="280" height="280"></canvas>
+        </div>
+
+        <div class="controls">
+            <button class="btn-clear" onclick="clearCanvas()">🗑️ 지우기</button>
+            <button class="btn-export" onclick="exportImage()">💾 내보내기</button>
+            <button class="btn-test" onclick="showPreview()">👁️ 미리보기</button>
+        </div>
+
+        <div class="preview" id="preview" style="display:none;">
+            <h3>28x28 변환 결과:</h3>
+            <canvas id="previewCanvas" width="280" height="280"></canvas>
+        </div>
+
+        <div class="output" id="output" style="display:none;">
+            <pre id="outputText"></pre>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const previewCanvas = document.getElementById('previewCanvas');
+        const previewCtx = previewCanvas.getContext('2d');
+
+        let isDrawing = false;
+        let lastX = 0;
+        let lastY = 0;
+
+        // 캔버스 초기화
+        ctx.fillStyle = 'white';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 20;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+
+        // 그리기 이벤트
+        canvas.addEventListener('mousedown', (e) => {
+            isDrawing = true;
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if (!isDrawing) return;
+
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.stroke();
+
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        });
+
+        canvas.addEventListener('mouseup', () => isDrawing = false);
+        canvas.addEventListener('mouseout', () => isDrawing = false);
+
+        // 터치 이벤트 (모바일)
+        canvas.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const rect = canvas.getBoundingClientRect();
+            isDrawing = true;
+            lastX = touch.clientX - rect.left;
+            lastY = touch.clientY - rect.top;
+        });
+
+        canvas.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            if (!isDrawing) return;
+
+            const touch = e.touches[0];
+            const rect = canvas.getBoundingClientRect();
+            const x = touch.clientX - rect.left;
+            const y = touch.clientY - rect.top;
+
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(x, y);
+            ctx.stroke();
+
+            [lastX, lastY] = [x, y];
+        });
+
+        canvas.addEventListener('touchend', () => isDrawing = false);
+
+        function clearCanvas() {
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            document.getElementById('output').style.display = 'none';
+            document.getElementById('preview').style.display = 'none';
+        }
+
+        function get28x28Data() {
+            // 280x280을 28x28로 다운샘플링
+            const imageData = ctx.getImageData(0, 0, 280, 280);
+            const data = imageData.data;
+            const result = [];
+
+            for (let y = 0; y < 28; y++) {
+                const row = [];
+                for (let x = 0; x < 28; x++) {
+                    // 10x10 블록의 평균 계산
+                    let sum = 0;
+                    let count = 0;
+
+                    for (let dy = 0; dy < 10; dy++) {
+                        for (let dx = 0; dx < 10; dx++) {
+                            const px = x * 10 + dx;
+                            const py = y * 10 + dy;
+                            const idx = (py * 280 + px) * 4;
+
+                            // RGB 평균 (흑백이므로 R만 사용)
+                            const brightness = data[idx];
+                            sum += brightness;
+                            count++;
+                        }
+                    }
+
+                    const avg = sum / count;
+                    // 검은색(그림)은 1, 흰색(배경)은 0
+                    row.push(avg < 128 ? 1 : 0);
+                }
+                result.push(row);
+            }
+
+            return result;
+        }
+
+        function showPreview() {
+            const data = get28x28Data();
+
+            // 28x28 미리보기
+            previewCtx.fillStyle = 'white';
+            previewCtx.fillRect(0, 0, 280, 280);
+
+            for (let y = 0; y < 28; y++) {
+                for (let x = 0; x < 28; x++) {
+                    if (data[y][x] === 1) {
+                        previewCtx.fillStyle = 'black';
+                        previewCtx.fillRect(x * 10, y * 10, 10, 10);
+                    }
+                }
+            }
+
+            document.getElementById('preview').style.display = 'block';
+        }
+
+        function exportImage() {
+            const data = get28x28Data();
+
+            // 텍스트 파일 형식으로 변환
+            let output = '# Vision Transformer 테스트 이미지 (28x28)\n';
+            output += '# 0 = 배경(흰색), 1 = 숫자(검은색)\n';
+            output += '# 직접 그린 숫자입니다!\n\n';
+
+            for (let row of data) {
+                output += row.join(' ') + '\n';
+            }
+
+            // 출력 표시
+            document.getElementById('outputText').textContent = output;
+            document.getElementById('output').style.display = 'block';
+
+            // 파일 다운로드
+            const blob = new Blob([output], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'test_image.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            alert('✅ test_image.txt 파일이 다운로드되었습니다!\n\n' +
+                '파일을 week5-1_vision_transformer/ 폴더에 넣고\n' +
+                'cargo run --release 를 실행하세요!');
+        }
+    </script>
+</body>
+
+</html>

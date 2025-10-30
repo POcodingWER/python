@@ -1,21 +1,22 @@
 # Month 7-8: Rust - 고성능 시스템 개발 ⚡
 
-> **완료일**: 2025-10-24  
-> **진행 상황**: Week 1-4 완료 ✅ (Month 7 완전 마스터!)  
+> **완료일**: 2025-10-30  
+> **진행 상황**: Week 1-5 완료 ✅ (Month 7 완전 마스터!)  
 > **성과**: Python 대비 **5,257배** 성능 향상 🚀  
-> **AI 모델**: CNN, RNN, LSTM, Transformer, Multi-Layer Transformer, Mini GPT, **진짜 GPT-2**, **채팅봇 API** 완전 구현 완료! 🎉
+> **AI 모델**: CNN, RNN, LSTM, Transformer, Multi-Layer Transformer, Mini GPT, **진짜 GPT-2**, **채팅봇 API**, **Vision Transformer (ViT)** 완전 구현 완료! 🎉
 
 ---
 
 ## 🎯 현재 상태
 
-| Week        | 내용           | 상태         | 성과                                                  |
-| ----------- | -------------- | ------------ | ----------------------------------------------------- |
-| **Week 1**  | Rust 기초      | ✅ 완료      | 소유권 시스템 이해                                    |
-| **Week 2**  | ZKML Rust 구현 | ✅ 완료      | 5,257배 빠름!                                         |
-| **Week 3**  | PyO3 바인딩    | ✅ 완료      | 배치 처리 3.2배                                       |
+| Week        | 내용           | 상태         | 성과                                                   |
+| ----------- | -------------- | ------------ | ------------------------------------------------------ |
+| **Week 1**  | Rust 기초      | ✅ 완료      | 소유권 시스템 이해                                     |
+| **Week 2**  | ZKML Rust 구현 | ✅ 완료      | 5,257배 빠름!                                          |
+| **Week 3**  | PyO3 바인딩    | ✅ 완료      | 배치 처리 3.2배                                        |
 | **Week 4**  | Candle AI      | ✅ 완료      | CNN/RNN/LSTM/Transformer/GPT-2/채팅봇 API 완전 마스터! |
-| **Month 8** | 고성능 ZK      | 📍 다음 목표 | halo2 심화                                            |
+| **Week 5**  | Vision AI      | ✅ 완료      | Vision Transformer (ViT) 구현 완료!                    |
+| **Month 8** | 고성능 ZK      | 📍 다음 목표 | halo2 심화                                             |
 
 ---
 
@@ -160,6 +161,7 @@ Python으로 프로토타입을 만들었다면, 이제 **프로덕션 수준의
   - [x] 90% 이상 정확도 달성! 🎉
 
 - [x] **Mini GPT (텍스트 생성)** 🤖
+
   - [x] Auto-regressive 텍스트 생성
   - [x] Temperature Sampling (창의성 조절)
   - [x] 특수 토큰 (<PAD>, <UNK>, <EOS>)
@@ -169,6 +171,7 @@ Python으로 프로토타입을 만들었다면, 이제 **프로덕션 수준의
   - [x] 셰익스피어 스타일 문장 생성 성공! 🎭
 
 - [x] **진짜 GPT-2 (Production-Ready)** 🚀
+
   - [x] Causal (Masked) Attention - 미래를 못 보는 진짜 GPT!
   - [x] Pre-Layer Normalization (GPT-2/GPT-3 스타일)
   - [x] GELU Activation (ReLU 대신)
@@ -189,6 +192,23 @@ Python으로 프로토타입을 만들었다면, 이제 **프로덕션 수준의
   - [x] 학습 히스토리 자동 저장
   - [x] 모델 가중치 저장/로드 (safetensors)
   - [x] 실시간 채팅 가능! 💬
+
+### Week 5: Vision AI 🖼️
+
+- [x] **Vision Transformer (ViT) 구현** ✅
+  - [x] Patch Embedding (이미지 → 패치 분할)
+  - [x] Position Embedding (위치 정보 추가)
+  - [x] Multi-Head Self-Attention (패치 간 관계 학습)
+  - [x] Transformer Encoder (6층 구조)
+  - [x] Classification Head (10개 숫자 분류)
+  - [x] 28x28 MNIST 스타일 이미지 인식
+  - [x] 합성 데이터 생성 (500개 샘플)
+  - [x] 손글씨 데이터 수집 시스템
+  - [x] 웹 기반 그리기 도구 (draw.html)
+  - [x] 데이터 수집 도구 (collect_data.html)
+  - [x] CSV 데이터 로딩 (handwritten_data.csv)
+  - [x] 모델 저장/로드 (vit_model.safetensors)
+  - [x] NPM 스크립트 자동화 (package.json)
 
 ---
 
