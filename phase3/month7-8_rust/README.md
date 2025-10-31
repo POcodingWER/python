@@ -1,9 +1,9 @@
 # Month 7-8: Rust - 고성능 시스템 개발 ⚡
 
-> **완료일**: 2025-10-30  
+> **완료일**: 2025-10-31  
 > **진행 상황**: Week 1-5 완료 ✅ (Month 7 완전 마스터!)  
 > **성과**: Python 대비 **5,257배** 성능 향상 🚀  
-> **AI 모델**: CNN, RNN, LSTM, Transformer, Multi-Layer Transformer, Mini GPT, **진짜 GPT-2**, **채팅봇 API**, **Vision Transformer (ViT)** 완전 구현 완료! 🎉
+> **AI 모델**: CNN, RNN, LSTM, Transformer, Multi-Layer Transformer, Mini GPT, **진짜 GPT-2**, **채팅봇 API**, **Vision Transformer (ViT)**, **Conditional GAN** 완전 구현 완료! 🎉
 
 ---
 
@@ -193,9 +193,10 @@ Python으로 프로토타입을 만들었다면, 이제 **프로덕션 수준의
   - [x] 모델 가중치 저장/로드 (safetensors)
   - [x] 실시간 채팅 가능! 💬
 
-### Week 5: Vision AI 🖼️
+### Week 5: Vision AI & Generative Models 🖼️🎨
 
 - [x] **Vision Transformer (ViT) 구현** ✅
+
   - [x] Patch Embedding (이미지 → 패치 분할)
   - [x] Position Embedding (위치 정보 추가)
   - [x] Multi-Head Self-Attention (패치 간 관계 학습)
@@ -209,6 +210,20 @@ Python으로 프로토타입을 만들었다면, 이제 **프로덕션 수준의
   - [x] CSV 데이터 로딩 (handwritten_data.csv)
   - [x] 모델 저장/로드 (vit_model.safetensors)
   - [x] NPM 스크립트 자동화 (package.json)
+
+- [x] **Conditional GAN (이미지 생성)** ✅
+  - [x] Generator (조건부 생성자)
+  - [x] Discriminator (조건부 판별자)
+  - [x] 적대적 학습 (Adversarial Training)
+  - [x] Label Smoothing (학습 안정화)
+  - [x] Training Ratio (G:D = 2:1)
+  - [x] Different Learning Rates (G=0.0002, D=0.00005)
+  - [x] Mode Collapse 해결
+  - [x] 조건부 생성 (원하는 숫자 지정)
+  - [x] 변수화된 설정 (한 줄만 수정!)
+  - [x] 이미지 저장 (PNG)
+  - [x] 터미널 시각화
+  - [x] 200 에포크 최적화
 
 ---
 
