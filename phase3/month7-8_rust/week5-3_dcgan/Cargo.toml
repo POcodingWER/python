@@ -1,0 +1,12 @@
+[package]
+name = "week5-3_dcgan"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+candle-core = "0.8.4"
+candle-nn = "0.8.4"
+rand = "0.8.5"
+image = "0.25"
+reqwest = { version = "0.11", features = ["blocking"] }
+flate2 = "1.0"
