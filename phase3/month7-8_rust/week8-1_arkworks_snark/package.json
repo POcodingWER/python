@@ -1,0 +1,26 @@
+{
+  "name": "arkworks-snark",
+  "version": "1.0.0",
+  "description": "arkworks로 배우는 Rust ZK 암호학",
+  "scripts": {
+    "help": "echo '\n🔐 arkworks SNARK 프로젝트\n\n사용 가능한 명령어:\n  npm start          - 타원곡선 데모 (기본)\n  npm run curves     - 타원곡선 연산 데모\n  npm run groth16    - Groth16 SNARK 데모\n  npm run build      - Release 빌드\n  npm run check      - 코드 검사\n  npm run clean      - 빌드 정리\n'",
+    "start": "echo '🔐 타원곡선 연산 데모 (BN254, BLS12-381)...\n' && cargo run --release",
+    "curves": "echo '🔐 타원곡선 연산 데모...\n' && cargo run --release",
+    "groth16": "echo '🔐 Groth16 SNARK 데모 (Setup → Prove → Verify)...\n' && cargo run --example groth16_demo --release",
+    "build": "echo '🔧 Release 빌드 중...\n' && cargo build --release --all-targets",
+    "check": "echo '🔍 코드 검사 중...\n' && cargo check --all-targets",
+    "test": "echo '🧪 테스트 실행 중...\n' && cargo test --release",
+    "clean": "echo '🧹 빌드 정리 중...\n' && cargo clean && echo '✅ 정리 완료!'"
+  },
+  "keywords": [
+    "arkworks",
+    "groth16",
+    "snark",
+    "zero-knowledge",
+    "cryptography",
+    "rust"
+  ],
+  "author": "",
+  "license": "MIT"
+}
+

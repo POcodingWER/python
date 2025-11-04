@@ -1,22 +1,24 @@
 # Month 7-8: Rust - 고성능 시스템 개발 ⚡
 
 > **완료일**: 2025-11-03  
-> **진행 상황**: Week 1-5 완료 ✅ (Month 7 완전 마스터!)  
+> **진행 상황**: Week 1-5 완료 ✅ (Month 7 완전 마스터!), Week 8-1 완료 ✅  
 > **성과**: Python 대비 **5,257배** 성능 향상 🚀  
-> **AI 모델**: CNN, RNN, LSTM, Transformer, Multi-Layer Transformer, Mini GPT, **진짜 GPT-2**, **채팅봇 API**, **Vision Transformer (ViT)**, **Conditional GAN**, **DCGAN (실제 MNIST)** 완전 구현 완료! 🎉
+> **AI 모델**: CNN, RNN, LSTM, Transformer, Multi-Layer Transformer, Mini GPT, **진짜 GPT-2**, **채팅봇 API**, **Vision Transformer (ViT)**, **Conditional GAN**, **DCGAN (실제 MNIST)** 완전 구현 완료! 🎉  
+> **ZK 시스템**: **arkworks + Groth16 SNARK** 완전 마스터! 🔐 (진짜 영지식 증명 구현!)
 
 ---
 
 ## 🎯 현재 상태
 
-| Week        | 내용           | 상태         | 성과                                                   |
-| ----------- | -------------- | ------------ | ------------------------------------------------------ |
-| **Week 1**  | Rust 기초      | ✅ 완료      | 소유권 시스템 이해                                     |
-| **Week 2**  | ZKML Rust 구현 | ✅ 완료      | 5,257배 빠름!                                          |
-| **Week 3**  | PyO3 바인딩    | ✅ 완료      | 배치 처리 3.2배                                        |
-| **Week 4**  | Candle AI      | ✅ 완료      | CNN/RNN/LSTM/Transformer/GPT-2/채팅봇 API 완전 마스터! |
-| **Week 5**  | Vision AI      | ✅ 완료      | Vision Transformer (ViT) 구현 완료!                    |
-| **Month 8** | 고성능 ZK      | 📍 다음 목표 | halo2 심화                                             |
+| Week         | 내용           | 상태      | 성과                                                   |
+| ------------ | -------------- | --------- | ------------------------------------------------------ |
+| **Week 1**   | Rust 기초      | ✅ 완료   | 소유권 시스템 이해                                     |
+| **Week 2**   | ZKML Rust 구현 | ✅ 완료   | 5,257배 빠름!                                          |
+| **Week 3**   | PyO3 바인딩    | ✅ 완료   | 배치 처리 3.2배                                        |
+| **Week 4**   | Candle AI      | ✅ 완료   | CNN/RNN/LSTM/Transformer/GPT-2/채팅봇 API 완전 마스터! |
+| **Week 5**   | Vision AI      | ✅ 완료   | Vision Transformer (ViT) 구현 완료!                    |
+| **Week 8-1** | arkworks SNARK | ✅ 완료   | Groth16 영지식 증명 시스템 완전 구현! (~2ms 검증)      |
+| **Month 8**  | 고성능 ZK      | 🔄 진행중 | Week 8-1 완료                                          |
 
 ---
 
@@ -244,65 +246,58 @@ Python으로 프로토타입을 만들었다면, 이제 **프로덕션 수준의
 
 ## ⚡ **Month 8: 고성능 ZK 구현**
 
-### Week 1: Rust ZK 라이브러리
+### Week 8-1: arkworks SNARK ✅
 
-- [ ] **halo2 라이브러리**
+**완료일**: 2025-11-03
 
-  - [ ] halo2 환경 설정
-  - [ ] Circuit trait 이해
-  - [ ] Chip & Region 패턴
-  - [ ] 제약조건 최적화
+- ✅ **타원곡선 암호학 기초**
 
-- [ ] **arkworks 생태계**
-  - [ ] arkworks-rs 설치
-  - [ ] 타원곡선 연산 라이브러리
-  - [ ] SNARK 프로토콜 구현
-  - [ ] 성능 비교 (vs Python py_ecc)
+  - ✅ BN254, BLS12-381 곡선 연산
+  - ✅ 필드 연산 (덧셈, 곱셈, 역원)
+  - ✅ 곡선 포인트 연산 (덧셈, 배가, 스칼라 곱)
+  - ✅ 성능 벤치마크 (BN254: 0.15 μs, BLS12-381: 0.09 μs)
 
-### Week 2: 고성능 ZK 회로
+- ✅ **Groth16 SNARK 전체 파이프라인**
 
-- [ ] **Phase 1 Python 코드 포팅**
+  - ✅ Setup → Prove → Verify 구현
+  - ✅ R1CS 회로 설계 (4종류)
+  - ✅ 비밀번호 해시 증명 (secret \* 7 + 13 = hash)
+  - ✅ 제곱 증명 (x² = y)
+  - ✅ 초고속 검증 (~2ms!)
 
-  - [ ] SNARKs Rust 구현
-  - [ ] STARKs Rust 구현
-  - [ ] Halo Rust 구현
-  - [ ] 성능 벤치마크 (10-100배 향상 목표)
+- ✅ **영지식 증명 시스템 구현**
+  - ✅ Witness (비공개) vs Public Input (공개) 분리
+  - ✅ 진짜 영지식 속성 구현
+  - ✅ 검증자는 비밀 값 모름!
 
-- [ ] **메모리 최적화**
-  - [ ] Zero-copy 패턴
-  - [ ] 스택 vs 힙 메모리 관리
-  - [ ] 병렬 증명 생성
-  - [ ] 배치 처리 최적화
+**성능 결과**:
 
-### Week 3: 프로덕션 ZK 시스템
+```
+비밀번호 해시 증명:
+• Setup:  6.95ms
+• Prove:  2.14ms
+• Verify: 2.62ms ⚡ (초고속!)
 
-- [ ] **웹 서버 구축**
+제곱 증명:
+• Setup:  5.33ms
+• Prove:  1.89ms
+• Verify: 2.58ms ⚡
+```
 
-  - [ ] Axum/Warp 웹 프레임워크
-  - [ ] REST API 설계
-  - [ ] WebAssembly 컴파일
-  - [ ] 프론트엔드 연동
+**핵심 성과**:
 
-- [ ] **분산 ZK 시스템**
-  - [ ] 멀티스레드 증명 생성
-  - [ ] Redis 캐싱 연동
-  - [ ] 로드 밸런싱
-  - [ ] 모니터링 시스템
+- 🔐 진짜 영지식 증명 구현 (비밀 값 완전 보호)
+- ⚡ 2.6ms 검증 속도 (초고속!)
+- 🎓 R1CS 회로 설계 마스터
+- 🦀 arkworks 생태계 완전 이해
 
-### Week 4: ZKML Rust 구현
+**프로젝트**: `week8-1_arkworks_snark/`
 
-- [ ] **Candle + ZK 통합**
-
-  - [ ] ML 추론 → ZK 증명 파이프라인
-  - [ ] 모델 변환 자동화
-  - [ ] 증명 시간 최적화
-  - [ ] 메모리 사용량 최소화
-
-- [ ] **성능 최적화**
-  - [ ] 프로파일링 도구 활용
-  - [ ] 병목 지점 분석
-  - [ ] SIMD 연산 활용
-  - [ ] GPU 가속 최적화
+```bash
+cd week8-1_arkworks_snark
+npm run groth16  # Groth16 SNARK 데모
+npm start        # 타원곡선 데모
+```
 
 ---
 
