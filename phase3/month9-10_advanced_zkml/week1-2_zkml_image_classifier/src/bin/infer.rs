@@ -1,7 +1,30 @@
 // 🔮 추론 테스트
 
-use zkml_classifier::{SimpleClassifier, prepare_mnist_data, visualize_image};
+use zkml_classifier::{SimpleClassifier, prepare_mnist_data};
 use rand::seq::SliceRandom;
+
+/// 간단한 이미지 시각화 (ASCII)
+fn visualize_image(image: &[f32]) {
+    for y in 0..28 {
+        for x in 0..28 {
+            let idx = y * 28 + x;
+            let pixel = image[idx];
+            let char = if pixel > 0.8 {
+                '█'
+            } else if pixel > 0.6 {
+                '▓'
+            } else if pixel > 0.4 {
+                '▒'
+            } else if pixel > 0.2 {
+                '░'
+            } else {
+                ' '
+            };
+            print!("{}", char);
+        }
+        println!();
+    }
+}
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("╔══════════════════════════════════════════════════════════════╗");

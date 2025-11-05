@@ -811,9 +811,9 @@ dependencies = [
 
 [[package]]
 name = "halo2curves"
-version = "0.4.0"
+version = "0.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6d0263c2933ee18bf416552719c5621f677f87acca8d50afe4ee74c81bb8ecca"
+checksum = "db81d01d0bbfec9f624d7590fc6929ee2537a64ec1e080d8f8c9e2d2da291405"
 dependencies = [
  "blake2b_simd",
  "ff",
@@ -826,6 +826,7 @@ dependencies = [
  "paste",
  "rand 0.8.5",
  "rand_core 0.6.4",
+ "rayon",
  "static_assertions",
  "subtle",
 ]

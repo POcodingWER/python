@@ -1,5 +1,44 @@
 {
-  "predicted_class": 5,
-  "image_hash": "175a537f2c848da1da3f873fbb4ca45bc7464238da2fe9f5aa196a9eebd2c1d4",
-  "timestamp": 1762244931
+  "predicted_class": 3,
+  "image_hash": "d9e9e248ab2a39b1c950a61d14bf00c6396a1d3c4b78f630ea8c3873296b85d7",
+  "timestamp": 1762310830,
+  "model_hash": "ffa2558c4155f40d81c9df330a672748b01a0bd616f046f613c2832a55618f20",
+  "range_proof": [
+    3
+  ],
+  "commitment": "e742df467c9b32aba8865bf64dc7f3a8b082df224ffbcda50db7462432ef864f",
+  "halo2_proof": [
+    149,
+    134,
+    244,
+    148,
+    28,
+    151,
+    7,
+    214,
+    3,
+    87,
+    23,
+    149,
+    157,
+    24,
+    246,
+    216,
+    212,
+    157,
+    64,
+    11,
+    21,
+    27,
+    121,
+    67,
+    170,
+    14,
+    195,
+    166,
+    104,
+    150,
+    255,
+    30
+  ]
 }

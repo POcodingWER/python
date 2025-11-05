@@ -6,7 +6,6 @@ pub mod zk;
 
 // Re-exports
 pub use ml::*;
-pub use zk::circuit::MLProof;
-pub use zk::prove::generate_proof;
+pub use zk::circuit::{MLInferenceCircuit, MLProof};
+pub use zk::prove::generate_proof_halo2;
 pub use zk::verify::verify_proof;
-

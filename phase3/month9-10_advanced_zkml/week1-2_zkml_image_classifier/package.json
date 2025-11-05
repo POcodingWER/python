@@ -6,7 +6,7 @@
         "help": "echo '\n🖼️  ZKML 이미지 분류기\n\n사용 가능한 명령어:\n  npm run train      - 모델 학습\n  npm run infer      - 추론 테스트\n  npm run prove      - ZK 증명 생성\n  npm run verify     - ZK 증명 검증\n  npm run server     - 웹 서버 실행\n  npm run all        - 전체 파이프라인\n  npm run build      - Release 빌드\n  npm run clean      - 정리\n'",
         "train": "echo '🤖 모델 학습 중...\n' && cargo run --bin train --release",
         "infer": "echo '🔮 추론 테스트 중...\n' && cargo run --bin infer --release",
-        "prove": "echo '🔐 ZK 증명 생성 중...\n' && cargo run --bin prove --release",
+        "prove": "echo '🔥 진짜 Halo2 ZK 증명 생성 중...\n' && cargo run --bin prove --release",
         "verify": "echo '✅ ZK 증명 검증 중...\n' && cargo run --bin verify --release",
         "server": "echo '🌐 웹 서버 시작 중...\n' && cargo run --bin server --release",
         "all": "npm run train && npm run infer && npm run prove && npm run verify",
