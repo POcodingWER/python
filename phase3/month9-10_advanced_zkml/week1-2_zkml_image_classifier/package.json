@@ -3,17 +3,21 @@
     "version": "1.0.0",
     "description": "ZKML 이미지 분류기 - Halo2 + Candle",
     "scripts": {
-        "help": "echo '\n🖼️  ZKML 이미지 분류기\n\n사용 가능한 명령어:\n  npm run train      - 모델 학습\n  npm run infer      - 추론 테스트\n  npm run prove      - ZK 증명 생성\n  npm run verify     - ZK 증명 검증\n  npm run server     - 웹 서버 실행\n  npm run all        - 전체 파이프라인\n  npm run build      - Release 빌드\n  npm run clean      - 정리\n'",
+        "help": "echo '\n🖼️  ZKML 이미지 분류기\n\n사용 가능한 명령어:\n  npm run train      - 모델 학습\n  npm run infer      - 추론 테스트\n  npm run prove      - ZK 증명 생성\n  npm run verify     - ZK 증명 검증\n  npm run server     - 백엔드 서버 실행 (port 8080)\n  npm run frontend   - 프론트엔드 실행 (port 3000)\n  npm run dev        - 백엔드 + 프론트엔드 동시 실행\n  npm run all        - 전체 파이프라인\n  npm run build      - Release 빌드\n  npm run clean      - 정리\n'",
         "train": "echo '🤖 모델 학습 중...\n' && cargo run --bin train --release",
         "infer": "echo '🔮 추론 테스트 중...\n' && cargo run --bin infer --release",
         "prove": "echo '🔥 진짜 Halo2 ZK 증명 생성 중...\n' && cargo run --bin prove --release",
         "verify": "echo '✅ ZK 증명 검증 중...\n' && cargo run --bin verify --release",
-        "server": "echo '🌐 웹 서버 시작 중...\n' && cargo run --bin server --release",
+        "server": "echo '🌐 백엔드 서버 시작 중... (http://localhost:8080)\n' && cargo run --bin server --release",
+        "frontend": "echo '🎨 프론트엔드 시작 중... (http://localhost:3000)\n' && cd frontend && npm start",
+        "dev": "echo '🚀 백엔드 + 프론트엔드 동시 실행 중...\n' && (cargo run --bin server --release & cd frontend && npm start)",
         "all": "npm run train && npm run infer && npm run prove && npm run verify",
         "build": "echo '🔧 Release 빌드 중...\n' && cargo build --release --all-targets",
+        "build:frontend": "echo '🎨 프론트엔드 빌드 중...\n' && cd frontend && npm run build",
+        "build:all": "npm run build && npm run build:frontend",
         "check": "echo '🔍 코드 검사 중...\n' && cargo check --all-targets",
         "test": "echo '🧪 테스트 실행 중...\n' && cargo test --release",
-        "clean": "echo '🧹 정리 중...\n' && cargo clean && rm -rf models/* proofs/* && echo '✅ 정리 완료!'"
+        "clean": "echo '🧹 정리 중...\n' && cargo clean && rm -rf models/* proofs/* frontend/build && echo '✅ 정리 완료!'"
     },
     "keywords": [
         "zkml",

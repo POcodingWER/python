@@ -84,7 +84,13 @@ week1-2_zkml_image_classifier/
 │       ├── infer.rs        # 추론 테스트
 │       ├── prove.rs        # 증명 생성 (Halo2)
 │       ├── verify.rs       # 증명 검증
-│       └── server.rs       # 웹 서버 (TODO)
+│       └── server.rs       # ✅ Actix-web REST API 서버
+├── frontend/               # ✅ React 프론트엔드
+│   ├── src/
+│   │   ├── App.tsx         # 메인 컴포넌트
+│   │   └── App.css         # 스타일
+│   ├── public/
+│   └── package.json
 ├── models/                 # 학습된 모델
 │   └── classifier.json     # 235,948개 가중치
 ├── proofs/                 # 생성된 증명
@@ -126,6 +132,22 @@ npm run prove
 npm run verify
 # → ✅ 검증 성공!
 ```
+
+### 5. ✨ 웹 인터페이스 실행 (NEW!)
+
+```bash
+# 백엔드 + 프론트엔드 동시 실행
+npm run dev
+
+# 또는 개별 실행
+npm run server      # 백엔드만 (http://localhost:8080)
+npm run frontend    # 프론트엔드만 (http://localhost:3000)
+```
+
+**브라우저에서 `http://localhost:3000` 열기**
+- ✏️ Canvas에 숫자 그리기
+- 🚀 실시간 AI 예측
+- 🔐 ZK 증명 생성 & 검증
 
 ---
 
@@ -283,10 +305,63 @@ npm run prove && npm run verify
 
 ---
 
+## ✨ 웹 인터페이스 (NEW!)
+
+### 🌐 REST API 서버 (Actix-web)
+
+**엔드포인트**:
+- `GET /` - Health check & API 문서
+- `GET /api/random` - 랜덤 MNIST 이미지
+- `POST /api/infer` - AI 추론 (image → prediction)
+- `POST /api/prove` - ZK 증명 생성
+- `POST /api/verify` - ZK 증명 검증
+
+**실행**:
+```bash
+npm run server
+# → http://localhost:8080
+```
+
+### 🎨 React 프론트엔드
+
+**기능**:
+- ✏️ **Canvas 그림판**: 마우스로 숫자 그리기 (부드러운 선)
+- 🎲 **랜덤 MNIST**: 실제 MNIST 데이터 로드
+- 🤖 **AI 추론**: 실시간 예측 + 신뢰도
+- 🔐 **ZK 증명**: Halo2 증명 생성 & 검증
+- ✨ **깔끔한 UI**: 그라디언트 디자인 + 애니메이션
+
+**실행**:
+```bash
+npm run frontend
+# → http://localhost:3000
+```
+
+**스크린샷**:
+```
+┌─────────────────────────────────────────┐
+│  🧠 ZKML 이미지 분류기                   │
+│  Zero-Knowledge Machine Learning        │
+├─────────────────────────────────────────┤
+│  ✏️ 숫자를 그려보세요                    │
+│  [     Canvas 280x280      ]            │
+│  [지우기] [랜덤 MNIST]                   │
+├─────────────────────────────────────────┤
+│  🤖 AI 추론        🔐 ZK 증명           │
+│  [예측하기]        [ZK 증명 생성]        │
+│                                         │
+│  예측: 3           ✅ 검증 성공!         │
+│  신뢰도: 95%       32 bytes Halo2 proof │
+└─────────────────────────────────────────┘
+```
+
+---
+
 ## 🚀 다음 단계
 
-- [ ] 웹 서버 구현 (Actix-web)
-- [ ] React 프론트엔드 (그림 그리기 + 실시간 분류)
+- [x] ✅ 웹 서버 구현 (Actix-web)
+- [x] ✅ React 프론트엔드 (그림 그리기 + 실시간 분류)
+- [ ] 배포 (Docker + Vercel)
 - [ ] 더 복잡한 모델 (CNN)
 - [ ] 실제 Halo2 Prover (KZG Commitment)
 
