@@ -1,0 +1,29 @@
+{
+    "name": "zkml_sentiment",
+    "version": "0.1.0",
+    "description": "ZKML Sentiment Analysis with Halo2",
+    "scripts": {
+        "train": "cargo run --bin train --release",
+        "infer": "cargo run --bin infer --release",
+        "prove": "cargo run --bin prove --release",
+        "verify": "cargo run --bin verify --release",
+        "server": "cargo run --bin server --release",
+        "frontend": "cd frontend && npm start",
+        "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+        "build": "cargo build --release",
+        "build:frontend": "cd frontend && npm run build",
+        "build:all": "npm run build && npm run build:frontend"
+    },
+    "keywords": [
+        "zkml",
+        "halo2",
+        "sentiment-analysis",
+        "zero-knowledge",
+        "rust"
+    ],
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "concurrently": "^8.0.0"
+    }
+}

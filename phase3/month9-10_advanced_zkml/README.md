@@ -45,34 +45,42 @@
 - ✅ 진짜 Halo2 ZK 증명 (08_HaloProof 방식)
 
 **성과**:
+
 - 🔥 학습 → 추론 → 증명 → 검증 전체 파이프라인 완성
 - 🔥 웹 인터페이스 완성 (백엔드 + 프론트엔드)
 - 🔥 포트폴리오급 완성도
 
 ---
 
-### 🏆 **프로젝트 2: ZKML 감성 분석** (Week 3-4)
+### 🏆 **프로젝트 2: ZKML 감성 분석** (Week 3-4) ✅ **기본 완성!**
 
 **기술 스택**:
 
-- Transformer 모델
-- Halo2 회로
-- REST API
-- 웹 인터페이스
+- ✅ Rust + Halo2 (ZK 증명) - 08_HaloProof 방식
+- ✅ Bag-of-Words + Dense Network (한국어 텍스트 분류)
+- ✅ Actix-web (REST API 서버)
+- ✅ React + TypeScript (웹 UI 기본 구조)
 
 **핵심 기능**:
 
-1. 텍스트 감성 분석 (긍정/부정)
-2. ZK 증명 (텍스트 비공개)
-3. API 엔드포인트
-4. 실시간 분석
+1. ✅ 한국어 감성 분석 (긍정/부정) - NSMC 데이터셋
+2. ✅ ZK 증명 (텍스트 내용 비공개)
+3. ✅ API 엔드포인트 (분석 + 증명)
+4. ✅ 추론 테스트 (~75% 실제 정확도)
 
 **차별화 포인트**:
 
-- ✅ Transformer + ZK 통합
-- ✅ 실용적인 응용
-- ✅ API 문서 완벽
-- ✅ 포트폴리오 핵심
+- ✅ 한국어 NLP + ZK 통합 (NSMC 150k 리뷰)
+- ✅ 실용적인 응용 (영화 리뷰 분석)
+- ✅ Gradient Clipping & Best Model Saving
+- ✅ 진짜 Halo2 ZK 증명 (08_HaloProof 방식)
+
+**성과**:
+
+- 📊 학습 정확도 73%, 테스트 정확도 63%
+- 🔐 텍스트 내용 완전히 숨기면서 감성만 증명
+- 🚀 학습 → 추론 → 증명 → 검증 파이프라인 완성
+- 🌐 REST API 서버 구현 완료
 
 ---
 
@@ -191,6 +199,7 @@ ethers = "2.0"
 ### ✅ **프로젝트 완성도**
 
 - [x] ✅ 프로젝트 1 완성 (ZKML 이미지 분류기)
+- [x] ✅ 프로젝트 2 기본 완성 (ZKML 감성 분석)
 - [x] ✅ 웹 인터페이스 완성 (React + Actix-web)
 - [ ] 테스트 커버리지 80%+
 - [x] ✅ 문서화 완벽 (README, 코드 주석)
@@ -231,23 +240,33 @@ ethers = "2.0"
 
 ## 🚀 시작 가이드
 
-### Week 1-2: ZKML 이미지 분류기
+### Week 1-2: ZKML 이미지 분류기 ✅
 
 ```bash
-cd month9-10_advanced_zkml
-mkdir week1-2_zkml_image_classifier
-cd week1-2_zkml_image_classifier
-cargo init
+cd month9-10_advanced_zkml/week1-2_zkml_image_classifier
+npm run dev  # 실행
 ```
 
-### 실행 순서
+### Week 3-4: ZKML 감성 분석 ✅
 
-1. ML 모델 구현 (Candle)
-2. ZK 회로 구현 (Halo2)
-3. API 서버 구현 (Actix-web)
-4. 웹 UI 구현 (React)
-5. 통합 & 테스트
-6. 문서화
+```bash
+cd month9-10_advanced_zkml/week3-4_zkml_sentiment
+npm run train   # 모델 학습 (35 epochs)
+npm run infer   # 추론 테스트
+npm run prove   # ZK 증명 생성
+npm run verify  # ZK 증명 검증
+npm run server  # REST API 서버 (8080)
+```
+
+### 완료된 작업
+
+1. ✅ NSMC 데이터셋 자동 다운로드 (150k 한국어 리뷰)
+2. ✅ 한국어 토크나이저 구현 (5000 vocab)
+3. ✅ BoW + Dense Network 구현
+4. ✅ 학습 파이프라인 (Gradient Clipping, Best Model Saving)
+5. ✅ ZK 회로 구현 (Halo2)
+6. ✅ API 서버 구현 (Actix-web)
+7. ✅ React 프론트엔드 기본 구조
 
 ---
 

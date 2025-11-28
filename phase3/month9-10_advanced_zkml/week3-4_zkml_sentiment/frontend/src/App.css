@@ -1,0 +1,325 @@
+.app {
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 900px;
+  width: 100%;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.main-content {
+  padding: 40px;
+}
+
+/* 입력 영역 */
+.input-section {
+  margin-bottom: 30px;
+}
+
+.input-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.text-input {
+  width: 100%;
+  padding: 15px;
+  font-size: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  resize: vertical;
+  font-family: inherit;
+  transition: border-color 0.3s;
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.sample-buttons {
+  margin: 15px 0;
+}
+
+.sample-buttons p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.sample-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 8px;
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s;
+  font-size: 0.95rem;
+}
+
+.sample-btn:hover {
+  background: #667eea;
+  color: white;
+  border-color: #667eea;
+}
+
+.analyze-btn {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.analyze-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.analyze-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 결과 영역 */
+.result-section {
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+
+.result-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.sentiment-result {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.sentiment-result.positive {
+  background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+.sentiment-result.negative {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.sentiment-icon {
+  font-size: 4rem;
+}
+
+.sentiment-label {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.probabilities {
+  margin-bottom: 20px;
+}
+
+.prob-bar {
+  display: grid;
+  grid-template-columns: 150px 1fr 80px;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.prob-bar span {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.bar {
+  height: 30px;
+  background: #e0e0e0;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+.bar-fill.negative {
+  background: linear-gradient(90deg, #fa709a 0%, #fee140 100%);
+}
+
+.bar-fill.positive {
+  background: linear-gradient(90deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+.prove-btn {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.prove-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.prove-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ZK 증명 영역 */
+.proof-section {
+  background: #2d3748;
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+
+.proof-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.proof-info {
+  background: #1a202c;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #4a5568;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row .label {
+  font-weight: bold;
+  color: #a0aec0;
+}
+
+.info-row .value {
+  color: #e2e8f0;
+}
+
+.info-row .value.hash {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+.verify-result {
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.verify-result.valid {
+  background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+  color: #1a202c;
+}
+
+.verify-result.invalid {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  color: #1a202c;
+}
+
+.verify-icon {
+  font-size: 2rem;
+}
+
+.verify-message {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Footer */
+.footer {
+  background: #f5f5f5;
+  padding: 20px;
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .prob-bar {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .sentiment-result {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
